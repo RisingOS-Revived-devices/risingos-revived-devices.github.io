@@ -856,5 +856,27 @@
         "recovery": "",
         "timestamp": 1742148078,
         "telegram": "https://t.me/PyrtlesPixels"
+    },
+    {
+        "status": "active",
+        "oem": "Google",
+        "device": "Pixel 7a",
+        "codename": "lynx",
+        "maintainer": "Pyrtle93",
+        "variant": "GAPPS",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/6.x/GAPPS/lynx/RisingOS_Revived-6.3-250317-0538-GAPPS-OFFICIAL-lynx-ota-signed.zip/download",
+        "paypal": "",
+        "device_avatar": "assets/img/devices/lynx.png",
+        "maintainer_avatar": "https://avatars.githubusercontent.com/u/5258054?v=4",
+        "filesize": 2652367718,
+        "md5": "44767973074a0eb5e44a277add9b7980",
+        "sha256": "1aa4ff441ec3ba5556fc92379a3d902a3ad0a41b8b509d823e0a9e71085333bc",
+        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/lynx.txt",
+        "version": "6.3-Celestia",
+        "buildtype": "STABLE",
+        "build": "userdebug",
+        "recovery": "",
+        "timestamp": 1742170107,
+        "telegram": "https://t.me/PyrtlesPixels"
     }
 ]
