@@ -446,5 +446,21 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/5258054?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/lynx.txt",
     "build": "user"
+  },
+  "toco": {
+    "status": "active",
+    "maintainer": "fwlhh",
+    "oem": "Xiaomi",
+    "device": "Mi Note 10 Lite",
+    "codename": "toco",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/toco.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/toco.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/toco.json"
+    ],
+    "device_avatar": "assets/img/devices/toco.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/182273315?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/toco.txt",
+    "build": "userdebug"
   }
 }
