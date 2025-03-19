@@ -462,5 +462,21 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/182273315?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/toco.txt",
     "build": "userdebug"
+  },
+   "pipa": {
+     "status": "active",
+     "maintainer": "Aryan",
+     "oem": "Xiaomi",
+     "device": "Xiaomi Pad 6",
+     "codename": "pipa",
+     "urls": [
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/pipa.json",
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/pipa.json",
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/pipa.json"
+     ],
+     "device_avatar": "assets/img/devices/pipa.png",
+     "maintainer_avatar": "https://avatars.githubusercontent.com/u/152459091?v=4",
+     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/pipa.txt",
+     "build": "user"
   }
 }
