@@ -494,5 +494,37 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/67692232?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/a71.txt",
     "build": "user"
+  },
+  "hotdog": {
+    "status": "active",
+    "maintainer": "answer35",
+    "oem": "OnePlus",
+    "device": "7T Pro",
+    "codename": "hotdog",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/hotdog.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/hotdog.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/hotdog.json"
+    ],
+    "device_avatar": "assets/img/devices/hotdog.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/26594746?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/hotdog.txt",
+    "build": "user"
+  },
+  "instantnoodlep": {
+    "status": "active",
+    "maintainer": "answer35",
+    "oem": "OnePlus",
+    "device": "8 Pro",
+    "codename": "instantnoodlep",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/instantnoodlep.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/instantnoodlep.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/instantnoodlep.json"
+    ],
+    "device_avatar": "assets/img/devices/instantnoodlep.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/26594746?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/instantnoodlep.txt",
+    "build": "user"
   }
 }
