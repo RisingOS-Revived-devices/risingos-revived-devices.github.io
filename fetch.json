@@ -494,5 +494,21 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/67692232?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/a71.txt",
     "build": "user"
+  },
+    "komodo": {
+    "status": "active",
+    "maintainer": "Slogar25",
+    "oem": "Google",
+    "device": "Pixel 9 Pro XL",
+    "codename": "komodo",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/komodo.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/komodo.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/komodo.json"
+    ],
+    "device_avatar": "assets/img/devices/komodo.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/4675147?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/komodo.txt",
+    "build": "user"
   }
 }
