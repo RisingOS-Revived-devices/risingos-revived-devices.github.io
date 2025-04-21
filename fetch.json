@@ -558,5 +558,21 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/26594746?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/instantnoodlep.txt",
     "build": "user"
+  },
+  "pstar": {
+     "status": "active",
+     "maintainer": "Gojo",
+     "oem": "Motorola",
+     "device": "Edge 20 Pro",
+     "codename": "pstar",
+     "urls": [
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/pstar.json",
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/pstar.json",
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/pstar.json"
+     ],
+     "device_avatar": "assets/img/devices/pstar.png",
+     "maintainer_avatar": "https://avatars.githubusercontent.com/u/67557993?v=4",
+     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/pstar.txt",
+     "build": "userdebug"
   }
 }
