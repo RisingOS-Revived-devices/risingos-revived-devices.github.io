@@ -574,5 +574,21 @@
      "maintainer_avatar": "https://avatars.githubusercontent.com/u/67557993?v=4",
      "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/pstar.txt",
      "build": "userdebug"
+     },
+   "stone": {
+     "status": "active",
+     "maintainer": "bittencourtjulival",
+     "oem": "Xiaomi",
+     "device": "POCO X5 5G/REDMI NOTE 12 5G",
+     "codename": "stone",
+     "urls": [
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/stone.json",
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/stone.json",
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/stone.json"
+     ],
+     "device_avatar": "assets/img/devices/stone.png",
+     "maintainer_avatar": "https://avatars.githubusercontent.com/u/53379692?v=4",
+     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/stone.txt",
+     "build": "userdebug"
   }
 }
