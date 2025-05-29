@@ -606,5 +606,37 @@
      "maintainer_avatar": "https://avatars.githubusercontent.com/u/154611145?v=4",
      "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/bluejay.txt",
      "build": "userdebug"
+  },
+   "gta4xl": {
+     "status": "active",
+     "maintainer": "objecting_",
+     "oem": "Samsung",
+     "device": "Galaxy Tab S6 Lite (LTE)",
+     "codename": "gta4xl",
+     "urls": [
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/gta4xl.json",
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/gta4xl.json",
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/gta4xl.json"
+     ],
+     "device_avatar": "assets/img/devices/gta4xl.png",
+     "maintainer_avatar": "https://avatars.githubusercontent.com/u/154611145?v=4",
+     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/gta4xl.txt",
+     "build": "userdebug"
+  },
+   "gta4xlwifi": {
+     "status": "active",
+     "maintainer": "objecting_",
+     "oem": "Samsung",
+     "device": "Galaxy Tab S6 Lite (WiFi)",
+     "codename": "gta4xl",
+     "urls": [
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/gta4xlwifi.json",
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/gta4xlwifi.json",
+       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/gta4xlwifi.json"
+     ],
+     "device_avatar": "assets/img/devices/gta4xl.png",
+     "maintainer_avatar": "https://avatars.githubusercontent.com/u/154611145?v=4",
+     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/gta4xl.txt",
+     "build": "userdebug"
   }
 }
