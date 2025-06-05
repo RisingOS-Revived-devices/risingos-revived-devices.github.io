@@ -607,7 +607,7 @@
      "device_avatar": "assets/img/devices/stone.png",
      "maintainer_avatar": "https://avatars.githubusercontent.com/u/53379692?v=4",
      "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/stone.txt",
-     "build": "userdebug"
+     "build": "user"
   },
    "bluejay": {
      "status": "active",
