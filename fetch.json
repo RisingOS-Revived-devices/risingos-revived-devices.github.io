@@ -24,7 +24,8 @@
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/sunny.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/sunny.json",
-      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/sunny.json"
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/sunny.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/sunny.json"
     ],
     "device_avatar": "assets/img/devices/xiaomi-redmi-note10-1.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/36838592?v=4",
