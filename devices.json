@@ -148,7 +148,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/sunny.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "user",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/7.x/MICROG/sunny/recovery_images/",
         "timestamp": 1749077361,
         "telegram": "https://t.me/dpenra"

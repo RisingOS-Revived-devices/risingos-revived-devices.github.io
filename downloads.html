@@ -1220,7 +1220,7 @@
                     document.getElementById('device-brand').textContent = device.oem;
                     document.getElementById('device-name').textContent = device.device;
                     document.getElementById('android-version').textContent = device.version;
-                    document.getElementById('build-type').textContent = "userdebug";
+                    document.getElementById('build-type').textContent = device.build;
                     document.getElementById('build-date').textContent = new Date(device.timestamp * 1000).toLocaleDateString("en-US", {
                         month: "short",
                         day: "numeric",
