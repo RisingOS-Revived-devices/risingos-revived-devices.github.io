@@ -16,7 +16,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/veux.txt",
         "version": "6.2.1-Boundless",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://t.me/veuxplayground/2950",
         "timestamp": 1739541170,
         "telegram": "https://t.me/amrito_kun"
@@ -38,7 +38,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/veux.txt",
         "version": "6.2.1-Boundless",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://t.me/veuxplayground/2950",
         "timestamp": 1739558899,
         "telegram": "https://t.me/amrito_kun"
@@ -60,7 +60,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/veux.txt",
         "version": "6.2.1-Boundless",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://t.me/veuxplayground/2950",
         "timestamp": 1739555928,
         "telegram": "https://t.me/amrito_kun"
@@ -82,7 +82,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/sunny.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/7.x/CORE/sunny/recovery_images/",
         "timestamp": 1749073216,
         "telegram": "https://t.me/dpenra"
@@ -104,7 +104,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/sunny.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/6.x/VANILLA/sunny/recovery_images/",
         "timestamp": 1742130337,
         "telegram": "https://t.me/dpenra"
@@ -126,7 +126,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/sunny.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/sunny/recovery_images/",
         "timestamp": 1749076478,
         "telegram": "https://t.me/dpenra"
@@ -148,7 +148,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/sunny.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "user",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/7.x/MICROG/sunny/recovery_images/",
         "timestamp": 1749077361,
         "telegram": "https://t.me/dpenra"
@@ -170,7 +170,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/cepheus.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/cepheus/files/recovery/OrangeFox-cepheus-A14RetrofitMetadata-28012024.zip/download",
         "timestamp": 1742222421,
         "telegram": "https://t.me/tribual"
@@ -192,7 +192,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/cepheus.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/cepheus/files/recovery/OrangeFox-cepheus-A14RetrofitMetadata-28012024.zip/download",
         "timestamp": 1742216253,
         "telegram": "https://t.me/tribual"
@@ -214,7 +214,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/Pong.txt",
         "version": "6.2.1-Boundless",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1739385315,
         "telegram": "https://t.me/samrth012"
@@ -236,7 +236,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/Pong.txt",
         "version": "6.2.1-Boundless",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1739370257,
         "telegram": "https://t.me/samrth012"
@@ -258,7 +258,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ginkgo.txt",
         "version": "6.2.1-Boundless",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1739321681,
         "telegram": ""
@@ -280,7 +280,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ginkgo.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1742743250,
         "telegram": "https://t.me/yeabsbin"
@@ -302,7 +302,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ginkgo.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1742748679,
         "telegram": "https://t.me/yeabsbin"
@@ -324,7 +324,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/mondrian.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://t.me/keoshlap",
         "timestamp": 1749022699,
         "telegram": "https://t.me/keoshlapgroup"
@@ -346,7 +346,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/mondrian.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://t.me/keoshlap",
         "timestamp": 1749021237,
         "telegram": "https://t.me/keoshlapgroup"
@@ -368,7 +368,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/surya.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1747296418,
         "telegram": "https://t.me/BrainCellSG"
@@ -390,7 +390,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/surya.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1747253235,
         "telegram": "https://t.me/BrainCellSG"
@@ -412,7 +412,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/surya.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1747244525,
         "telegram": "https://t.me/BrainCellSG"
@@ -434,7 +434,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/topaz.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1747421547,
         "telegram": "https://t.me/skwelbuilds"
@@ -456,7 +456,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/dubai.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/6.x/CORE/dubai/IMGs/",
         "timestamp": 1742300328,
         "telegram": "https://t.me/ararchive_shan_rakh_discussion"
@@ -478,7 +478,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/miami.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/6.x/CORE/miami/IMGs/",
         "timestamp": 1747561813,
         "telegram": "https://t.me/ararchive_shan_rakh_discussion"
@@ -500,7 +500,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/redwood.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/6.x/GAPPS/redwood/recoveryfiles/",
         "timestamp": 1742317152,
         "telegram": "https://t.me/thereachebuildchat"
@@ -522,7 +522,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/redwood.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/6.x/GAPPS/redwood/recoveryfiles/",
         "timestamp": 1742322489,
         "telegram": "https://t.me/thereachebuildchat"
@@ -544,7 +544,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/sky.txt",
         "version": "6.2.1-Boundless",
         "buildtype": "",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1739453955,
         "telegram": ""
@@ -566,7 +566,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/akita.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1742179564,
         "telegram": ""
@@ -578,19 +578,19 @@
         "codename": "akita",
         "maintainer": "EliteDarkKaiser",
         "variant": "GAPPS",
-        "download": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/akita/RisingOS_Revived-7.0-250530-1413-GAPPS-OFFICIAL-akita-ota.zip/download",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/akita/RisingOS_Revived-7.0-250605-1726-GAPPS-OFFICIAL-akita-ota.zip/download",
         "paypal": "",
         "device_avatar": "assets/img/devices/google-pixel-8a-1.png",
         "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
-        "filesize": 2673254469,
-        "md5": "271dab989131e7bfec426a87e3b09fcc",
-        "sha256": "4a71005c36480cf8358fbebac887a11f620b31eaa3eb8b178b02d61fcf936bc3",
+        "filesize": 2673257576,
+        "md5": "5ee2fa78038cd5b9e1f1f7ee50f68ee1",
+        "sha256": "744706175ce86b65cee5e66d10b727a90ed10bbb9728d172500017a5d45ced90",
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/akita.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
-        "timestamp": 1748628756,
+        "timestamp": 1749158699,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
     },
     {
@@ -610,7 +610,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/eqs.txt",
         "version": "6.2.1-Boundless",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1738937371,
         "telegram": "https://t.me/edge30ultraroms"
@@ -632,7 +632,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/munch.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/recovery-for-xiaomi-devices/files/munch/twrp-3.7.1_12-v9.0_A15-munch-skkk.img/download",
         "timestamp": 1742123031,
         "telegram": "https://t.me/rik_x290"
@@ -654,7 +654,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/munch.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/recovery-for-xiaomi-devices/files/munch/twrp-3.7.1_12-v9.0_A15-munch-skkk.img/download",
         "timestamp": 1742124141,
         "telegram": "https://t.me/rik_x290"
@@ -676,7 +676,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/oriole.txt",
         "version": "6.3-Celestia",
         "buildtype": "",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1742143149,
         "telegram": ""
@@ -698,7 +698,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/raven.txt",
         "version": "6.3-Celestia",
         "buildtype": "",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1742142120,
         "telegram": ""
@@ -720,7 +720,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/shiba.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1742180400,
         "telegram": ""
@@ -732,19 +732,19 @@
         "codename": "shiba",
         "maintainer": "EliteDarkKaiser",
         "variant": "GAPPS",
-        "download": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/shiba/RisingOS_Revived-7.0-250530-1358-GAPPS-OFFICIAL-shiba-ota.zip/download",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/shiba/RisingOS_Revived-7.0-250605-1339-GAPPS-OFFICIAL-shiba-ota.zip/download",
         "paypal": "",
         "device_avatar": "assets/img/devices/google-pixel-8-1.png",
         "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
-        "filesize": 2682152491,
-        "md5": "5a8013c399cc634b107c84d171bb8892",
-        "sha256": "6372da8a711559f19fca2c2f8fea2484bbd56a6940216e2a90687f87154f1585",
+        "filesize": 2682144159,
+        "md5": "03461da8256a33b9b2189f29b0c891ed",
+        "sha256": "e237c93e849fc5dc37702e3d35820b7ef2d8a91503bff501f87685d6cbb5c9eb",
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/shiba.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
-        "timestamp": 1748627832,
+        "timestamp": 1749145077,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
     },
     {
@@ -754,19 +754,19 @@
         "codename": "tangorpro",
         "maintainer": "EliteDarkKaiser",
         "variant": "GAPPS",
-        "download": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/tangorpro/RisingOS_Revived-7.0-250530-2211-GAPPS-OFFICIAL-tangorpro-ota.zip/download",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/tangorpro/RisingOS_Revived-7.0-250603-0726-GAPPS-OFFICIAL-tangorpro-ota.zip/download",
         "paypal": "",
         "device_avatar": "assets/img/devices/google-pixel-tablet-10.png",
         "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
-        "filesize": 2602161048,
-        "md5": "be549062446056f52ae281e029998fce",
-        "sha256": "b5e8716afe8ec07dd2750d0032e748d73c14b48da60475eb31dc8a5fcb596321",
+        "filesize": 2630305742,
+        "md5": "c39c87acfb0638e669a7af962bf38c4e",
+        "sha256": "c8af32e38def6e79b83bf3c5608cc2665dffc09dbfda315f82b369c11614939d",
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/tangorpro.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
-        "timestamp": 1748657432,
+        "timestamp": 1748949931,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
     },
     {
@@ -786,32 +786,10 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/wly.txt",
         "version": "6.2.1-Boundless",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1738845843,
         "telegram": "https://t.me/Machad3xROMS"
-    },
-    {
-        "status": "inactive",
-        "oem": "Samsung",
-        "device": "A73 5G",
-        "codename": "a73xq",
-        "maintainer": "alqix",
-        "variant": "VANILLA",
-        "download": "https://sourceforge.net/projects/risingos-revived/files/6.x/VANILLA/a73xq/RisingOS_Revived-6.2.1-25022118-VANILLA-OFFICIAL-a73xq-ota-signed.zip/download",
-        "paypal": "",
-        "device_avatar": "assets/img/devices/samsung-galaxy-a73-5g-1.png",
-        "maintainer_avatar": "https://avatars.githubusercontent.com/u/95102781?v=4",
-        "filesize": 1557955639,
-        "md5": "9c2819a62ca29b97fd05040f60f83568",
-        "sha256": "02a7b4904403a535d85785e94192fcc742c9e51e2c2c019d196cec2a02ebf973",
-        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/a73xq.txt",
-        "version": "6.2.1-Boundless",
-        "buildtype": "Stable",
-        "build": "userdebug",
-        "recovery": "https://sourceforge.net/projects/risingos-revived/files/6.x/VANILLA/a73xq/recovery/20250221-recovery.img",
-        "timestamp": 1740163143,
-        "telegram": "https://t.me/alqnisot"
     },
     {
         "status": "active",
@@ -830,7 +808,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/marble.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1742343774,
         "telegram": "https://t.me/marble_builds"
@@ -852,7 +830,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/husky.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1742181172,
         "telegram": ""
@@ -864,19 +842,19 @@
         "codename": "husky",
         "maintainer": "EliteDarkKaiser x Jrcable2",
         "variant": "GAPPS",
-        "download": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/husky/RisingOS_Revived-7.0-250530-1325-GAPPS-OFFICIAL-husky-ota.zip/download",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/husky/RisingOS_Revived-7.0-250605-1312-GAPPS-OFFICIAL-husky-ota.zip/download",
         "paypal": "",
         "device_avatar": "assets/img/devices/google-pixel-8-pro-1.png",
         "maintainer_avatar": "https://avatars.githubusercontent.com/u/87909274?v=4",
-        "filesize": 2698864664,
-        "md5": "f107940e15001eeb6c847ea3e7ccc3a5",
-        "sha256": "d30e37e8879efa3e69545745f2f17cd2d0d8d47ecdaeec4de388ae9b74dcf5c7",
+        "filesize": 2698853594,
+        "md5": "7463fd206a2d280f5ba68b207fe4edf3",
+        "sha256": "a2caa25f880d6049c32308044ddb18825cccc94cc1234086b39349b471376d11",
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/husky.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
-        "timestamp": 1748625855,
+        "timestamp": 1749143499,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
     },
     {
@@ -896,7 +874,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/vermeer.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/vermeer/IMGs/recovery.img/download",
         "timestamp": 1748877240,
         "telegram": "https://t.me/PocoF6ProSupport"
@@ -918,7 +896,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/cheeseburger.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://dl.twrp.me/cheeseburger_dumpling",
         "timestamp": 1742080436,
         "telegram": "https://t.me/theromfactory"
@@ -940,7 +918,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/dumpling.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://dl.twrp.me/cheeseburger_dumpling",
         "timestamp": 1742082764,
         "telegram": "https://t.me/theromfactory"
@@ -962,7 +940,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/cheetah.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1748639385,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
@@ -984,7 +962,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/panther.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1748644796,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
@@ -1006,7 +984,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/lynx.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1748655988,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
@@ -1028,7 +1006,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/toco.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/yucellmustafa-builds/files/toco/recovery/toco_twrp_3.7.1.img/download",
         "timestamp": 1742571122,
         "telegram": "https://t.me/xiaomiminote10lite"
@@ -1050,7 +1028,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/toco.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/yucellmustafa-builds/files/toco/recovery/toco_twrp_3.7.1.img/download",
         "timestamp": 1742558464,
         "telegram": "https://t.me/xiaomiminote10lite"
@@ -1072,7 +1050,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/pipa.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/6.x/CORE/pipa/Recovery%20Images/vendor_boot.img/download",
         "timestamp": 1742329083,
         "telegram": "https://t.me/CuriousNom"
@@ -1094,7 +1072,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/pipa.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1742329083,
         "telegram": "https://t.me/CuriousNom"
@@ -1116,7 +1094,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/stone.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/stone/IMGs/boot.img/download",
         "timestamp": 1748910927,
         "telegram": "https://t.me/bittencourtjulival_builds"
@@ -1138,7 +1116,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/stone.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/stone/IMGs/boot.img/download",
         "timestamp": 1748916398,
         "telegram": "https://t.me/bittencourtjulival_builds"
@@ -1160,7 +1138,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/stone.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/stone/IMGs/boot.img/download",
         "timestamp": 1748894017,
         "telegram": "https://t.me/bittencourtjulival_builds"
@@ -1182,7 +1160,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/stone.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/stone/IMGs/boot.img/download",
         "timestamp": 1748886733,
         "telegram": "https://t.me/bittencourtjulival_builds"
@@ -1204,7 +1182,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/bluejay.txt",
         "version": "7.0-Persis",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1747561813,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
@@ -1226,7 +1204,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/gta4xl.txt",
         "version": "7.0-Persis",
         "buildtype": "CORE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1748299017,
         "telegram": "t.me/gta4xlwifi"
@@ -1248,7 +1226,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/gta4xl.txt",
         "version": "7.0-Persis",
         "buildtype": "CORE",
-        "build": "userdebug",
+        "build": "",
         "recovery": "",
         "timestamp": 1748337804,
         "telegram": "t.me/gta4xlwifi"
