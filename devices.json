@@ -1428,5 +1428,27 @@
         "recovery": "",
         "timestamp": 1748337804,
         "telegram": "t.me/gta4xlwifi"
+    },
+    {
+        "status": "active",
+        "oem": "Xiaomi",
+        "device": "Mi 10T/Mi 10T pro",
+        "codename": "apollo",
+        "maintainer": "Murtaza Kolachi",
+        "variant": "GAPPS",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/apollo/RisingOS_Revived-7.0-250606-0227-GAPPS-OFFICIAL-apollo.zip/download",
+        "paypal": "https://ko-fi.com/murtazakolachi",
+        "device_avatar": "assets/img/devices/apollo.png",
+        "maintainer_avatar": "https://avatars.githubusercontent.com/u/160129300?s=400&u=117338d07e48ee1da1f6bfa4ac583b106ef25377&v=4",
+        "filesize": 3151969507,
+        "md5": "4b832764194c5ad44645b83ffe6d5d9e",
+        "sha256": "6ee0a679f03b410c7ca450e2431311e7d6c7d59ace94982e9bdccaf3486843fb",
+        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/apollo.txt",
+        "version": "7.0-Persis",
+        "buildtype": "STABLE",
+        "build": "userdebug",
+        "recovery": "https://sourceforge.net/projects/risingos-revived/files/7.x/GAPPS/apollo/IMGs/recovery.img/download",
+        "timestamp": 1749176688,
+        "telegram": "https://t.me/murtazasapollocommunity"
     }
 ]
