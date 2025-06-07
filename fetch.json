@@ -659,5 +659,22 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/154611145?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/gta4xl.txt",
     "build": "userdebug"
+ },
+  "apollo": {
+    "status": "active",
+    "maintainer": "Murtaza Kolachi",
+    "oem": "Xiaomi",
+    "device": "Mi 10T/Mi 10T pro",
+    "codename": "apollo",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/apollo.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/apollo.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/apollo.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/apollo.json"
+    ],
+    "device_avatar": "assets/img/devices/apollo.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/160129300?s=400&u=117338d07e48ee1da1f6bfa4ac583b106ef25377&v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/apollo.txt",
+    "build": "userdebug"
  }
 }
