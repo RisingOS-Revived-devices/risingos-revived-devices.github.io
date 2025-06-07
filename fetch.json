@@ -341,8 +341,8 @@
   "marble": {
     "status": "active",
     "maintainer": "SharmagRit",
-		"oem": "POCO",
-		"device": "POCO F5",
+    "oem": "POCO",
+    "device": "F5",
     "codename": "marble",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/marble.json",
