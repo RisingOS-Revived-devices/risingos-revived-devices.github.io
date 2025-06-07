@@ -816,7 +816,7 @@
     {
         "status": "active",
         "oem": "POCO",
-        "device": "POCO F5",
+        "device": "F5",
         "codename": "marble",
         "maintainer": "SharmagRit",
         "variant": "GAPPS",
