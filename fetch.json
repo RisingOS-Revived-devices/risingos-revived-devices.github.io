@@ -676,5 +676,90 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/160129300?s=400&u=117338d07e48ee1da1f6bfa4ac583b106ef25377&v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/apollo.txt",
     "build": "userdebug"
+ },
+  "cupid": {
+    "status": "active",
+    "maintainer": "KernelPanix",
+    "oem": "Xiaomi",
+    "device": "Xiaomi 12",
+    "codename": "cupid",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/cupid.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/cupid.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/cupid.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/cupid.json"
+    ],
+    "device_avatar": "assets/img/devices/cupid.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/cupid.txt",
+    "build": "userdebug"
+ },
+  "mayfly": {
+    "status": "active",
+    "maintainer": "KernelPanix",
+    "oem": "Xiaomi",
+    "device": "Xiaomi Mi 12S",
+    "codename": "mayfly",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/mayfly.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/mayfly.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/mayfly.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/mayfly.json"
+    ],
+    "device_avatar": "assets/img/devices/mayfly.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/mayfly.txt",
+    "build": "userdebug"
+ },
+  "zeus": {
+    "status": "active",
+    "maintainer": "KernelPanix",
+    "oem": "Xiaomi",
+    "device": "Xiaomi 12 Pro",
+    "codename": "zeus",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/zeus.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/zeus.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/zeus.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/zeus.json"
+    ],
+    "device_avatar": "assets/img/devices/zeus.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/zeus.txt",
+    "build": "userdebug"
+ },
+  "unicorn": {
+    "status": "active",
+    "maintainer": "KernelPanix",
+    "oem": "Xiaomi",
+    "device": "Xiaomi 12S Pro",
+    "codename": "unicorn",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/unicorn.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/unicorn.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/unicorn.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/unicorn.json"
+    ],
+    "device_avatar": "assets/img/devices/unicorn.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/unicorn.txt",
+    "build": "userdebug"
+ },
+  "diting": {
+    "status": "active",
+    "maintainer": "KernelPanix",
+    "oem": "Xiaomi",
+    "device": "Xiaomi 12T Pro / Redmi K50 Ultra",
+    "codename": "diting",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/diting.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/diting.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/diting.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/diting.json"
+    ],
+    "device_avatar": "assets/img/devices/diting.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/diting.txt",
+    "build": "userdebug"
  }
 }
