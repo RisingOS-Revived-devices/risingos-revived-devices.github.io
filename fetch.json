@@ -1,7 +1,7 @@
 {
   "veux": {
     "status": "active",
-    "maintainer": "アムリタ",
+    "maintainer": "tranQuila",
     "device": "Redmi Note 11E Pro/Redmi Note 11 Pro 5G/POCO X4 Pro 5G",
     "codename": "veux",
     "oem": "Xiaomi",
@@ -12,7 +12,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/veux.json"
     ],
     "device_avatar": "assets/img/devices/xiaomi-poco-x4-pro-1.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/93442834?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/150321338?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/veux.txt",
     "build": "userdebug"
   },
