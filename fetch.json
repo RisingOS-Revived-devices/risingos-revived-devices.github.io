@@ -208,7 +208,7 @@
     "oem": "Google",
     "device": "Pixel 8a",
     "codename": "akita",
-    "maintainer": "EliteDarkKaiser",
+    "maintainer": "Jrcable2",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/akita.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/akita.json",
@@ -293,7 +293,7 @@
     "oem": "Google",
     "device": "Pixel 8",
     "codename": "shiba",
-    "maintainer": "EliteDarkKaiser",
+    "maintainer": "Jrcable2",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/shiba.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/shiba.json",
@@ -357,7 +357,7 @@
   },
   "husky": {
     "status": "active",
-    "maintainer": "EliteDarkKaiser x Jrcable2",
+    "maintainer": "Jrcable2",
     "oem": "Google",
     "device": "Pixel 8 Pro",
     "codename": "husky",
