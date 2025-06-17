@@ -258,7 +258,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ginkgo.txt",
         "version": "6.2.1-Boundless",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "user",
         "recovery": "",
         "timestamp": 1739321681,
         "telegram": ""
@@ -280,7 +280,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ginkgo.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "user",
         "recovery": "",
         "timestamp": 1742743250,
         "telegram": "https://t.me/yeabsbin"
@@ -302,7 +302,7 @@
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ginkgo.txt",
         "version": "6.3-Celestia",
         "buildtype": "STABLE",
-        "build": "userdebug",
+        "build": "user",
         "recovery": "",
         "timestamp": 1742748679,
         "telegram": "https://t.me/yeabsbin"
