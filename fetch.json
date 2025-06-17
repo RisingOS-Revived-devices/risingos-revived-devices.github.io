@@ -82,7 +82,7 @@
     "device_avatar": "assets/img/devices/xiaomi-redmi-note-8-1.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/93014559?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ginkgo.txt",
-    "build": "userdebug"
+    "build": "user"
   },
   "mondrian": {
     "status": "active",
