@@ -761,5 +761,22 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/diting.txt",
     "build": "userdebug"
+ },
+  "sweet": {
+    "status": "active",
+    "maintainer": "Musafir02",
+    "oem": "Xiaomi",
+    "device": "Redmi Note 10 Pro",
+    "codename": "sweet",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/sweet.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/sweet.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/sweet.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/sweet.json"
+    ],
+    "device_avatar": "assets/img/devices/sweet.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/183203526?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/sweet.txt",
+    "build": "userdebug"
  }
 }
