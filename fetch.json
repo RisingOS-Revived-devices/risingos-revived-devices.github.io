@@ -323,7 +323,7 @@
     "build": "userdebug"
   },
   "wly": {
-    "status": "inactive",
+    "status": "active",
     "oem": "OnePlus",
     "device": "10 Pro",
     "codename": "wly",
