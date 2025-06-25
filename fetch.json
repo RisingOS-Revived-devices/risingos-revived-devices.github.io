@@ -63,7 +63,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/Pong.json"
     ],
     "device_avatar": "assets/img/devices/nothing-phone2-1_.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/63335952?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/Pong.txt",
     "build": "userdebug"
   },
