@@ -778,5 +778,22 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/183203526?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/sweet.txt",
     "build": "userdebug"
+ },
+ "salaa": {
+    "status": "active",
+    "maintainer": "EvilAnsh",
+    "oem": "Realme",
+    "device": "Realme 7/Narzo 20 Pro/Narzo 30 4G",
+    "codename": "salaa",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/salaa.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/salaa.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/salaa.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/salaa.json"
+    ],
+    "device_avatar": "assets/img/devices/salaa.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/89060758?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/salaa.txt",
+    "build": "userdebug"
  }
 }
