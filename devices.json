@@ -1,6 +1,31 @@
 [
     {
         "status": "active",
+        "codename": "veux",
+        "variant": "CORE",
+        "device_avatar": "assets/img/devices/xiaomi-poco-x4-pro-1.png",
+        "maintainer_avatar": "https://avatars.githubusercontent.com/u/150321338?v=4",
+        "filesize": 1948754621,
+        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/veux.txt",
+        "build": "user",
+        "maintainer": "tranQuila",
+		"oem": "Xiaomi",
+		"device": "Redmi Note 11E Pro/Redmi Note 11 Pro 5G/POCO X4 Pro 5G",
+		"filename": "RisingOS_Revived-8.0-250719-1331-CORE-OFFICIAL-veux-ota.zip",
+		"download": "https://sourceforge.net/projects/risingos-revived/files/8.x/CORE/veux/RisingOS_Revived-8.0-250719-1331-CORE-OFFICIAL-veux-ota.zip/download",
+		"timestamp": 1752931896,
+		"md5": "761213f6a4dc0730dbcd10fdc8336129",
+		"sha256": "ca6c100af91e4fb85309d8a9e20c05196fb3a74443724de56c6512e6203538bc",
+		"version": "8.0-Zorya",
+		"buildtype": "STABLE",
+		"recovery": "https://github.com/MrTopia/device_xiaomi_veux/releases/tag/Rising-120625",
+		"paypal": "https://telegra.ph/MrTopiAs-Donation-Info-12-29",
+		"telegram": "https://t.me/mrtopia"
+        
+    },
+
+    {
+        "status": "active",
         "oem": "Xiaomi",
         "device": "Redmi Note 11E Pro/Redmi Note 11 Pro 5G/POCO X4 Pro 5G",
         "codename": "veux",
