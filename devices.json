@@ -1736,5 +1736,71 @@
         "recovery": "https://t.me/FilesArchieve/262",
         "timestamp": 1753612833,
         "telegram": "https://t.me/EvilAnsh"
+    },
+    {
+        "status": "active",
+        "oem": "Xiaomi",
+        "device": "Redmi Note 13 Pro 5G/Poco X6 5G",
+        "codename": "garnet",
+        "maintainer": "mysellysenpai",
+        "variant": "VANILLA",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/8.x/VANILLA/garnet/RisingOS_Revived-8.0-250807-0505-VANILLA-OFFICIAL-garnet-ota.zip/download"
+        "paypal": "",
+        "device_avatar": "assets/img/devices/garnet.png",
+        "maintainer_avatar": "https://avatars.githubusercontent.com/u/116599295?v=4"
+        "filesize": 1940466856,
+        "md5": "d7e55c20b1a7cff4b52af202aeb3aa25",
+        "sha256": "a074e65b04410937f81baa5846cc22316c906663c16b81295f1cc02e9bec3091"
+        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/garnet.txt",
+        "version": "8.0-Zorya",
+        "buildtype": "STABLE",
+        "build": "userdebug",
+        "recovery": "",
+        "timestamp": 1754543026,
+        "telegram": "https://t.me/mysellysenpai"
+    },
+    {
+        "status": "active",
+        "oem": "Xiaomi",
+        "device": "Redmi Note 13 Pro 5G/Poco X6 5G",
+        "codename": "garnet",
+        "maintainer": "mysellysenpai",
+        "variant": "MICROG",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/8.x/MICROG/garnet/RisingOS_Revived-8.0-250807-0440-MICROG-OFFICIAL-garnet-ota.zip/download"
+        "paypal": "",
+        "device_avatar": "assets/img/devices/garnet.png",
+        "maintainer_avatar": "https://avatars.githubusercontent.com/u/116599295?v=4"
+        "filesize": 2036464648,
+        "md5": "0a35bdf11bdc442a63b65f9648b521c5",
+        "sha256": "43c4e40259795cef5bffd23884ab42c33e4781607b9e1477764ee980f2e84158"
+        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/garnet.txt",
+        "version": "8.0-Zorya",
+        "buildtype": "STABLE",
+        "build": "userdebug",
+        "recovery": "",
+        "timestamp": 1754541525,
+        "telegram": "https://t.me/mysellysenpai"
+    },
+    {
+        "status": "active",
+        "oem": "Xiaomi",
+        "device": "Redmi Note 13 Pro 5G/Poco X6 5G",
+        "codename": "garnet",
+        "maintainer": "mysellysenpai",
+        "variant": "GAPPS",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/8.x/GAPPS/garnet/RisingOS_Revived-8.0-250807-0522-GAPPS-OFFICIAL-garnet-ota.zip/download"
+        "paypal": "",
+        "device_avatar": "assets/img/devices/garnet.png",
+        "maintainer_avatar": "https://avatars.githubusercontent.com/u/116599295?v=4"
+        "filesize": 2899591936,
+        "md5": "5f0bec701067f77b321249d3c1afbcd8",
+        "sha256": "f68ba9f447b57f0eef318a6fe9e70880de4219bf33a1018f2fa9506904696cbf"
+        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/garnet.txt",
+        "version": "8.0-Zorya",
+        "buildtype": "STABLE",
+        "build": "userdebug",
+        "recovery": "",
+        "timestamp": 1754544023,
+        "telegram": "https://t.me/mysellysenpai"
     }
 ]
