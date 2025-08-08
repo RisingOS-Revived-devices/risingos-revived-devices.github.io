@@ -795,5 +795,21 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/89060758?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/salaa.txt",
     "build": "userdebug"
- }
+ },
+ "garnet": {
+    "status": "active",
+    "oem": "Xiaomi",
+    "device": "Redmi Note 13 Pro 5G/Poco X6 5G",
+    "codename": "garnet",
+    "maintainer": "mysellysenpai",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/garnet.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/garnet.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/garnet.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/garnet.json"
+    ],
+    "device_avatar": "assets/img/devices/garnet.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/116599295?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/garnet.txt",
+    "build": "userdebug"
 }
