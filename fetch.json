@@ -812,4 +812,22 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/116599295?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/garnet.txt",
     "build": "userdebug"
+ },
+ "felix": {
+    "status": "active",
+    "oem": "Xiaomi",
+    "device": "Google Pixel Fold",
+    "codename": "felix",
+    "maintainer": "EliteDarkKaiser",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/felix.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/felix.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/felix.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/felix.json"
+    ],
+    "device_avatar": "assets/img/devices/felix.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/3998633?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/felix.txt",
+    "build": "userdebug",
+ },
 }
