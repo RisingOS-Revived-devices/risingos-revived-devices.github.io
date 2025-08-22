@@ -815,7 +815,7 @@
  },
  "felix": {
     "status": "active",
-    "oem": "Xiaomi",
+    "oem": "Google",
     "device": "Google Pixel Fold",
     "codename": "felix",
     "maintainer": "EliteDarkKaiser",
@@ -828,6 +828,23 @@
     "device_avatar": "assets/img/devices/felix.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/3998633?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/felix.txt",
+    "build": "userdebug",
+ },
+ "peridot": {
+    "status": "active",
+    "oem": "Xiaomi",
+    "device": "Poco F6/Redmi Turbo 3",
+    "codename": "peridot",
+    "maintainer": "Farrukh2002xAtharvaSwamy",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/peridot.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/peridot.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/peridot.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/peridot.json"
+    ],
+    "device_avatar": "assets/img/devices/peridot.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/59789349?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/peridot.txt",
     "build": "userdebug",
  },
 }
