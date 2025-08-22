@@ -1805,7 +1805,7 @@
     },
     {
         "status": "active",
-        "oem": "Xiaomi",
+        "oem": "Google",
         "device": "Google Pixel Fold",
         "codename": "felix",
         "maintainer": "EliteDarkKaiser",
@@ -1824,5 +1824,27 @@
         "recovery": "",
         "timestamp": 1755814029,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
+    },
+    {
+        "status": "active",
+        "oem": "Xiaomi",
+        "device": "Poco F6/Redmi Turbo 3",
+        "codename": "peridot",
+        "maintainer": "Farrukh2002xAtharvaSwamy",
+        "variant": "GAPPS",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/8.x/GAPPS/peridot/RisingOS_Revived-8.1-GAPPS-OFFICIAL-peridot-ota.zip/download",
+        "paypal": "https://www.paypal.me/prakharluv",
+        "device_avatar": "assets/img/devices/peridot.png",
+        "maintainer_avatar": "https://avatars.githubusercontent.com/u/59789349?v=4",
+        "filesize": 3474459360,
+        "md5": "c40bc8ad89f2dba34cd4a2f40e297ba9",
+        "sha256": "13fa34147c4c27bd53679d815de866ca12b74c689c8eb9b133f28f552c399695",
+        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/peridot.txt",
+        "version": "8.1-Arete",
+        "buildtype": "STABLE",
+        "build": "userdebug",
+        "recovery": "",
+        "timestamp": 1755816942,
+        "telegram": "https://t.me/peridotxkernel/15833"
     }
 ]
