@@ -425,7 +425,7 @@
   },
   "cheetah": {
     "status": "active",
-    "maintainer": "Pyrtle93",
+    "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 7 Pro",
     "codename": "cheetah",
@@ -436,13 +436,13 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/cheetah.json"
     ],
     "device_avatar": "assets/img/devices/cheetah.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/5258054?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/3998633?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/cheetah.txt",
     "build": "user"
   },
   "panther": {
     "status": "active",
-    "maintainer": "Pyrtle93",
+    "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 7",
     "codename": "panther",
@@ -453,13 +453,13 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/panther.json"
     ],
     "device_avatar": "assets/img/devices/panther.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/5258054?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/3998633?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/panther.txt",
     "build": "user"
   },
   "lynx": {
     "status": "active",
-    "maintainer": "Pyrtle93",
+    "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 7a",
     "codename": "lynx",
@@ -470,7 +470,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/lynx.json"
     ],
     "device_avatar": "assets/img/devices/lynx.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/5258054?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/3998633?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/lynx.txt",
     "build": "user"
   },
