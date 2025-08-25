@@ -847,4 +847,21 @@
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/peridot.txt",
     "build": "userdebug",
  },
+ "waffle": {
+    "status": "active",
+    "oem": "OnePlus",
+    "device": "OnePlus 12",
+    "codename": "waffle",
+    "maintainer": "RedLintu16",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/waffle.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/waffle.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/waffle.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/waffle.json"
+    ],
+    "device_avatar": "assets/img/devices/waffle.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/174895671?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/waffle.txt",
+    "build": "userdebug",
+ },
 }
