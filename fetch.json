@@ -850,7 +850,7 @@
  "waffle": {
     "status": "active",
     "oem": "OnePlus",
-    "device": "OnePlus 12",
+    "device": "12",
     "codename": "waffle",
     "maintainer": "RedLintu16",
     "urls": [
@@ -862,6 +862,40 @@
     "device_avatar": "assets/img/devices/waffle.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/174895671?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/waffle.txt",
+    "build": "userdebug",
+ },
+ "komodo": {
+    "status": "active",
+    "oem": "Google",
+    "device": "Google Pixel 9 Pro XL",
+    "codename": "komodo",
+    "maintainer": "Slogar25xOscarM",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/komodo.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/komodo.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/komodo.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/komodo.json"
+    ],
+    "device_avatar": "assets/img/devices/komodo.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/4675147?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/komodo.txt",
+    "build": "userdebug",
+ },
+ "caiman": {
+    "status": "active",
+    "oem": "Google",
+    "device": "Google Pixel 9 Pro",
+    "codename": "caiman",
+    "maintainer": "Slogar25xOscarM",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/caiman.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/caiman.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/caiman.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/caiman.json"
+    ],
+    "device_avatar": "assets/img/devices/caiman.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/4675147?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/caiman.txt",
     "build": "userdebug",
  },
 }
