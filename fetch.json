@@ -336,7 +336,7 @@
     "device_avatar": "assets/img/devices/oneplus-10-pro-1.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/wly.txt",
-    "build": "userdebug"
+    "build": "user"
   },
   "marble": {
     "status": "active",
@@ -914,5 +914,21 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/78911851?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/taoyao.txt",
     "build": "userdebug"
- }
+ },
+  "ferrari": {
+    "status": "active",
+    "oem": "Realme",
+    "device": "GT2 Pro",
+    "codename": "ferrari",
+    "maintainer": "Arman-ATI",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/ferrari.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/ferrari.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/ferrari.json"
+    ],
+    "device_avatar": "assets/img/devices/ferrari.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ferrari.txt",
+    "build": "user"
+  },
 }
