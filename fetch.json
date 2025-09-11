@@ -334,7 +334,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/wly.json"
     ],
     "device_avatar": "assets/img/devices/oneplus-10-pro-1.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/84268732?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/wly.txt",
     "build": "user"
   },
@@ -927,7 +927,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/ferrari.json"
     ],
     "device_avatar": "assets/img/devices/ferrari.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/84268732?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ferrari.txt",
     "build": "user"
   },
