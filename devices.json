@@ -821,7 +821,7 @@
         "maintainer": "Arman-ATI",
         "variant": "GAPPS",
         "download": "https://sourceforge.net/projects/risingos-revived/files/8.x/GAPPS/wly/RisingOS_Revived-8.1-250910-1529-GAPPS-OFFICIAL-wly-ota.zip/download",
-        "paypal": "https://telegra.ph/Builds-Support-05-01",
+        "paypal": "https://github.com/sponsors/RisingOS-Revived",
         "device_avatar": "assets/img/devices/oneplus-10-pro-1.png",
         "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
         "filesize": 3186363937,
@@ -1986,8 +1986,8 @@
         "codename": "ferrari",
         "maintainer": "Arman-ATI",
         "variant": "GAPPS",
-        "download": "",
-        "paypal": "",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/8.x/GAPPS/ferrari/RisingOS_Revived-8.1-250910-1732-GAPPS-OFFICIAL-ferrari-ota.zip/download",
+        "paypal": "https://github.com/sponsors/RisingOS-Revived",
         "device_avatar": "assets/img/devices/ferrari.png",
         "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
         "filesize": 3478955169,
@@ -1995,10 +1995,10 @@
         "sha256": "8335221e38af090508aaa401fa3c86a2a31fb3e07ca55280aec2250b390eb82b",
         "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ferrari.txt",
         "version": "8.1-Arete",
-        "buildtype": "",
+        "buildtype": "STABLE",
         "build": "user",
         "recovery": "",
         "timestamp": 1757525422,
-        "telegram": ""
+        "telegram": "https://t.me/Machad3xROMS"
     }
 ]
