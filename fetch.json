@@ -242,7 +242,7 @@
     "oem": "Xiaomi",
     "device": "POCO F4",
     "codename": "munch",
-    "maintainer": "Rik",
+    "maintainer": "SenX",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/munch.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/munch.json",
