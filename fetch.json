@@ -240,19 +240,18 @@
   "munch": {
     "status": "active",
     "oem": "Xiaomi",
-    "device": "POCO F4",
+    "device": "POCO F4/Redmi K40s",
     "codename": "munch",
-    "maintainer": "Rik",
+    "maintainer": "SenX|センクス",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/munch.json",
-      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/munch.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/munch.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/munch.json"
     ],
     "device_avatar": "assets/img/devices/xiaomi-poco-f4-5g-1.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/181661765?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/196262485?s=400&u=c963915ed33eff2c68fadea14344eea215d9e886&v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/munch.txt",
-    "build": "userdebug"
+    "build": "user"
   },
   "oriole": {
     "status": "active",
