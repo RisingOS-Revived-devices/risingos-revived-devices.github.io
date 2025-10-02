@@ -901,7 +901,7 @@
  "taoyao": {
     "status": "active",
     "oem": "Xiaomi",
-    "device": "Xiaomi 12 Lite",
+    "device": "12 Lite",
     "codename": "taoyao",
     "maintainer": "ammarbahtiarasli",
     "urls": [
@@ -913,7 +913,7 @@
     "device_avatar": "assets/img/devices/taoyao.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/78911851?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/taoyao.txt",
-    "build": "userdebug"
+    "build": "user"
  },
   "ferrari": {
     "status": "active",
