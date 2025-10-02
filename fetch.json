@@ -931,4 +931,21 @@
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ferrari.txt",
     "build": "user"
   },
+   "alioth": {
+    "status": "active",
+    "oem": "Xiaomi",
+    "device": "POCO F3 | REDMI K40 | MI 11X",
+    "codename": "alioth",
+    "maintainer": "zenzer0s",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/alioth.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/alioth.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/alioth.json"
+    ],
+    "device_avatar": "assets/img/devices/alioth.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/151006009?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/alioth.txt",
+    "build": "user"
+  },
 }
+
