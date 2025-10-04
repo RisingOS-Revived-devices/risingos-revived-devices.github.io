@@ -340,7 +340,7 @@
   },
   "marble": {
     "status": "active",
-    "maintainer": "SharmagRit",
+    "maintainer": "Dhanush",
     "oem": "POCO",
     "device": "F5",
     "codename": "marble",
@@ -353,7 +353,7 @@
     "device_avatar": "assets/img/devices/xiaomi-poco-f5-2.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/87909274?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/marble.txt",
-    "build": "userdebug"
+    "build": "user"
   },
   "husky": {
     "status": "active",
@@ -948,4 +948,3 @@
     "build": "user"
   },
 }
-
