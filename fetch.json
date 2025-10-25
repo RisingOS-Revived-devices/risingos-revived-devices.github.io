@@ -351,7 +351,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/marble.json"
     ],
     "device_avatar": "assets/img/devices/xiaomi-poco-f5-2.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/87909274?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/106550362?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/marble.txt",
     "build": "user"
   },
