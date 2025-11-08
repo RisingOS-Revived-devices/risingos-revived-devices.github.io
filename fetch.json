@@ -947,4 +947,21 @@
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/alioth.txt",
     "build": "user"
   },
+    "dodge": {
+    "status": "active",
+    "oem": "OnePlus",
+    "device": "13",
+    "codename": "dodge",
+    "maintainer": "OscarM1019",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/dodge.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/dodge.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/dodge.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/dodge.json"
+    ],
+    "device_avatar": "assets/img/devices/dodge.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/60859796?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/dodge.txt",
+    "build": "userdebug",
+ },
 }
