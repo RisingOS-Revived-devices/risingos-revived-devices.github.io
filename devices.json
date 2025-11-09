@@ -2132,5 +2132,27 @@
         "recovery": "https://orangefox.download/device/alioth",
         "timestamp": 1759377916,
         "telegram": "https://t.me/zenzer0s"
+    },
+    {
+        "status": "active",
+        "oem": "OnePlus",
+        "device": "13",
+        "codename": "dodge",
+        "maintainer": "OscarM1019",
+        "variant": "GAPPS",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/8.x/GAPPS/dodge/RisingOS_Revived-8.1.1-251108-1337-GAPPS-OFFICIAL-dodge-ota-signed.zip/download",
+        "paypal": "https://paypal.me/osmjr1019",
+        "device_avatar": "assets/img/devices/dodge.png",
+        "maintainer_avatar": "https://avatars.githubusercontent.com/u/60859796?v=4",
+        "filesize": 4426510746,
+        "md5": "f5daa11357c8d04599f1f5b53d0f7060",
+        "sha256": "0b25a0ca05d68a0ecb76c25f2ce2a6a775c8418b52439cabda329792fd4f45cc",
+        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/dodge.txt",
+        "version": "8.1.1-Arete",
+        "buildtype": "STABLE",
+        "build": "userdebug",
+        "recovery": "",
+        "timestamp": 1762637887,
+        "telegram": "https://t.me/OP13CustomRoms"
     }
 ]
