@@ -963,5 +963,22 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/60859796?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/dodge.txt",
     "build": "userdebug",
- },
+  },
+  "onyx": {
+    "status": "active",
+    "maintainer": "K4LCHAKRA x ROMGHARTI",
+    "device": "POCO F7",
+    "codename": "onyx",
+    "oem": "Xiaomi",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/onyx.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/onyx.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/onyx.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/onyx.json"
+    ],
+    "device_avatar": "assets/img/devices/xiaomi-poco-f7-1.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/181311166?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/onyx.txt",
+    "build": "user"
+  },
 }
