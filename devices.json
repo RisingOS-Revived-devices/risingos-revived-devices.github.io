@@ -1119,7 +1119,7 @@
         "build": "user",
         "recovery": "https://sourceforge.net/projects/risingos-revived/files/6.x/CORE/pipa/Recovery%20Images/vendor_boot.img/download",
         "timestamp": 1742329083,
-        "telegram": "https://t.me/CuriousNom"
+        "telegram": ""
     },
     {
         "status": "active",
@@ -1141,7 +1141,7 @@
         "build": "user",
         "recovery": "",
         "timestamp": 1742329083,
-        "telegram": "https://t.me/CuriousNom"
+        "telegram": ""
     },
     {
         "status": "active",
