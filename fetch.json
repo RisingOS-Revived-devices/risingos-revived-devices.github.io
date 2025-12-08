@@ -981,4 +981,20 @@
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/onyx.txt",
     "build": "user"
   },
+  "toco": {
+    "status": "active",
+    "maintainer": "𝒾𝓉𝓏パルサYC",
+    "oem": "Xiaomi",
+    "device": "POCO F4 GT/Redmi K50 Gaming",
+    "codename": "ingres",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/ingres.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/ingres.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/ingres.json"
+    ],
+    "device_avatar": "assets/img/devices/ingres.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/115403383?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ingres.txt",
+    "build": "userdebug"
+  },
 }
