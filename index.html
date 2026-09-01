@@ -40,141 +40,10 @@
         font-family: 'Poppins', sans-serif;
         margin: 0;
     }
-    .screenshot-header, .downloads-value {
+    .section-title,
+    .screenshot-header {
         font-weight: 700;
     }
-    .screenshot-grid {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      padding: 5px;
-      gap: 25px;
-    }
-    .screenshot-grid img {
-      flex: 0 0 auto;
-      width: 200px;
-      height: auto;
-      border-radius: 10px;
-      margin-right: 25px;
-      margin-top: 40px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .screenshot-grid img:last-child {
-      margin-right: 0;
-    }
-    .screenshot-header {
-        text-align: center;
-        margin: 20px 0;
-        font-size: 2em;
-        color: #f8f9fa;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease;
-    }
-
-    .accordion {
-      background-color: black;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .accordion-item {
-      background-color: black;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .accordion-button {
-      background-color: black;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    #faqAccordion {
-      background-color: black;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .slider {
-        position: relative;
-        max-width: 600px;
-        margin: auto;
-        overflow: hidden;
-        border-radius: 10px;
-    }
-    .slides {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
-    .slide {
-        min-width: 100%;
-        transition: opacity 1s ease;
-    }
-    .indicator-container {
-        text-align: center;
-        margin-top: 10px;
-    }
-    .indicator {
-        display: inline-block;
-        width: 5px;
-        height: 5px;
-        margin: 0 5px;
-        border-radius: 50%;
-        background-color: #bbb;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .indicator.active {
-        background-color: green;
-    }
-    .downloads-container {
-        width: 90%;  /* Make it smaller */
-        max-width: 400px;  /* Set a maximum width */
-        margin: 20px auto;  /* Center it */
-        padding: 1.5rem;  /* Add padding */
-        border-radius: 30px;  /* Increased rounded corners */
-        background-color: rgba(255, 255, 255, 0);  /* Transparent background */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Soft shadow */
-        transition: transform 0.3s ease-in-out;  /* Smooth hover effect */
-        animation: glow 1.5s infinite alternate;  /* Glowing effect */
-    }
-
-    @keyframes glow {
-        0% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); }
-        100% { box-shadow: 0 0 30px rgba(0, 255, 0, 1); }
-    }
-
-    .downloads-container:hover {
-        transform: scale(1.05);  /* Slightly enlarge on hover */
-    }
-    .downloads-value {
-        font-size: 2.5em;
-        font-weight: bold;
-        color: #f8f9fa;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-        transition: transform 0.3s ease;
-    }
-    .downloads-value:hover {
-        transform: scale(1.1);
-    }
-    .highlight {
-        color: green;
-        font-weight: bold;
-    }
-
-    /* Screenshot image styles */
-    .slide img {
-        width: 60%; /* Adjusted for mobile view to be 10% smaller */
-        height: auto;
-    }
-
-    @media (min-width: 768px) {
-        .slide img {
-            width: 65%; /* Adjusted size for web view */
-        }
-    }
-
-    .badge-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -220,20 +89,6 @@
         overflow: hidden;
         transition: height 0.3s ease;
     }
-    .chart-container {
-        position: relative;
-        height: 300px;
-        width: 100%;
-    }
-    #graphCollapse {
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
-    #graphCollapse.show {
-        display: block;
-        opacity: 1;
-    }
 
     .header-divider {
         height: 7px; /* Height of the divider */
@@ -253,65 +108,6 @@
         }
     }
   </style>
-
-
-<style>
-.slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-}
-.slide {
-    min-width: 100%;
-}
-</style>
-
-
-<style>
-#graphCollapse.show .row {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.chart-container {
-    width: 100%;
-    max-width: 400px; /* Adjust the max width for better alignment */
-}
-</style>
-
-
-<style>
-#graphCollapse {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-#graphCollapse.show {
-    display: flex;
-    opacity: 1;
-}
-.chart-container {
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-}
-</style>
-
-
-<style>
-.chart-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 500px; /* Ensures it doesn't overflow */
-    margin: 0 auto; /* Centers it */
-}
-</style>
 
 </head>
 
@@ -376,68 +172,119 @@
     </section><!-- /Hero Section -->
 
     <!-- Screenshot Grid Section -->
-   <section id="screenshot-grid" class="screenshot-grid section">
-     <div class="container text-center">
-       <h1 class="screenshot-header"><strong>Screenshots</strong></h1>
-       <div class="header-divider"></div>
-       <p><strong>Explore the stunning visuals of <span class="" style="color:#8f8" >RisingOS Revived</span> in action, showcasing its features and user interface.</strong></p>
-       <div class="slider">
-        <div class="slides">
-            <div class="slide"><img src="assets/img/screenshots/ss-1-7-portrait.png" alt="Screenshot 1"></div>
-            <div class="slide"><img src="assets/img/screenshots/ss-2-7-portrait.png" alt="Screenshot 2"></div>
-            <div class="slide"><img src="assets/img/screenshots/ss-3-7-portrait.png" alt="Screenshot 3"></div>
-            <div class="slide"><img src="assets/img/screenshots/ss-4-7-portrait.png" alt="Screenshot 4"></div>
-            <div class="slide"><img src="assets/img/screenshots/ss-5-7-portrait.png" alt="Screenshot 5"></div>
-            <div class="slide"><img src="assets/img/screenshots/ss-6-7-portrait.png" alt="Screenshot 6"></div>
-            <div class="slide"><img src="assets/img/screenshots/ss-7-7-portrait.png" alt="Screenshot 7"></div>
-        </div>
-        <div class="indicator-container">
-            <span class="indicator active" onclick="currentSlide(0)"></span>
-            <span class="indicator" onclick="currentSlide(1)"></span>
-            <span class="indicator" onclick="currentSlide(2)"></span>
-            <span class="indicator" onclick="currentSlide(3)"></span>
-            <span class="indicator" onclick="currentSlide(4)"></span>
-            <span class="indicator" onclick="currentSlide(5)"></span>
-            <span class="indicator" onclick="currentSlide(6)"></span>
-            <span class="indicator" onclick="currentSlide(7)"></span>
-        </div>
-    </div>
+   <section id="screenshot-grid" class="screenshots section">
+     <div class="container section-layout">
+       <div class="section-intro text-center">
+         <h1 class="section-title"><strong>Screenshots</strong></h1>
+         <div class="header-divider"></div>
+         <p class="section-lead"><strong>Explore the visuals of <span class="text-accent">RisingOS Revived</span> in action.</strong></p>
+       </div>
+
+       <div class="screenshots-panel">
+         <div class="screenshots-carousel">
+           <button type="button" class="screenshots-nav screenshots-nav-prev" id="screenshotPrev" aria-label="Previous screenshot">
+             <i class="bi bi-chevron-left"></i>
+           </button>
+
+           <div class="screenshots-viewport">
+             <div class="slides">
+               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-1-7-portrait.png" alt="RisingOS Revived screenshot 1"></div></div>
+               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-2-7-portrait.png" alt="RisingOS Revived screenshot 2"></div></div>
+               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-3-7-portrait.png" alt="RisingOS Revived screenshot 3"></div></div>
+               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-4-7-portrait.png" alt="RisingOS Revived screenshot 4"></div></div>
+               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-5-7-portrait.png" alt="RisingOS Revived screenshot 5"></div></div>
+               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-6-7-portrait.png" alt="RisingOS Revived screenshot 6"></div></div>
+               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-7-7-portrait.png" alt="RisingOS Revived screenshot 7"></div></div>
+             </div>
+           </div>
+
+           <button type="button" class="screenshots-nav screenshots-nav-next" id="screenshotNext" aria-label="Next screenshot">
+             <i class="bi bi-chevron-right"></i>
+           </button>
+         </div>
+
+         <div class="screenshots-controls">
+           <div class="indicator-container" id="screenshotIndicators"></div>
+           <p class="screenshots-counter"><span id="screenshotCurrent">1</span> / <span id="screenshotTotal">7</span></p>
+         </div>
+       </div>
      </div>
-   </section><br>
+   </section>
 
    <!-- Statistics Section -->
-   <section id="statistics" class="statistics section text-center">
-     <div class="container">
-      <h1 class="screenshot-header"><strong>Statistics</strong></h1>
-       <div class="header-divider"></div>
-       <p><strong>Track the downloads per day, per operating system, and by country.</strong></p><br>
-       <button class="btn btn-success" type="button" id="toggleGraphs">
-         <i class="bi bi-chevron-down"></i> <strong><span>Show Graphs</span></strong>
-       </button>
-       <div id="graphCollapse">
-         <div class="row mt-4">
-           <div class="col-md-4">
-             <div class="chart-container">
-               <canvas id="lineChart"></canvas>
-             </div>
-           </div>
-           <div class="col-md-4">
-             <div class="chart-container">
-               <canvas id="pieChart"></canvas>
-             </div>
-           </div>
-           <div class="col-md-4">
-             <div class="chart-container">
-               <canvas id="barChart"></canvas>
-             </div>
+   <section id="statistics" class="statistics section">
+     <div class="container section-layout">
+      <div class="section-intro text-center">
+        <h1 class="section-title"><strong>Statistics</strong></h1>
+        <div class="header-divider"></div>
+        <p class="section-lead"><strong>Live SourceForge download totals and 9.x analytics.</strong></p>
+      </div>
+
+       <div class="download-stats-panel">
+         <div class="download-stats-header">
+           <h3 class="download-stats-title">Download Stats</h3>
+           <p class="download-stats-subtitle">SourceForge totals since February 2025</p>
+         </div>
+         <div id="downloadStatsContent" class="download-stats-content">
+           <div class="download-stats-loading">
+             <div class="download-stats-spinner" aria-hidden="true"></div>
+             <span>Loading download statistics…</span>
            </div>
          </div>
-       </div><br><br>
-       <div class="downloads-container">
-         <h3 style="color: #f8f9fa; margin-bottom: 10px; font-size: 1.2em;">Total Downloads</h3>
-         <p id="totalDownloads" class="downloads-value">Loading...</p>
-       </div><br>
-       <div class="badge-container" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 20px;">
+       </div>
+
+       <div class="charts-section">
+         <button class="charts-toggle-btn" type="button" id="toggleGraphs" aria-expanded="false" aria-controls="graphCollapse">
+           <i class="bi bi-graph-up-arrow"></i>
+           <span>Show 9.x Analytics</span>
+           <i class="bi bi-chevron-down charts-toggle-chevron"></i>
+         </button>
+
+         <div id="graphCollapse" class="charts-panel" aria-hidden="true">
+           <div class="charts-grid">
+             <article class="chart-card chart-card-wide">
+               <header class="chart-card-header">
+                 <div>
+                   <p class="chart-card-eyebrow">9.x Trend</p>
+                   <h4 class="chart-card-title">Monthly Downloads</h4>
+                 </div>
+                 <i class="bi bi-graph-up chart-card-icon" aria-hidden="true"></i>
+               </header>
+               <div class="chart-canvas-wrap chart-canvas-wrap-tall">
+                 <canvas id="lineChart"></canvas>
+               </div>
+             </article>
+
+             <article class="chart-card">
+               <header class="chart-card-header">
+                 <div>
+                   <p class="chart-card-eyebrow">9.x Audience</p>
+                   <h4 class="chart-card-title">Operating System</h4>
+                 </div>
+                 <i class="bi bi-pie-chart chart-card-icon" aria-hidden="true"></i>
+               </header>
+               <div class="chart-canvas-wrap">
+                 <canvas id="pieChart"></canvas>
+               </div>
+             </article>
+
+             <article class="chart-card">
+               <header class="chart-card-header">
+                 <div>
+                   <p class="chart-card-eyebrow">9.x Reach</p>
+                   <h4 class="chart-card-title">Top Countries</h4>
+                 </div>
+                 <i class="bi bi-globe2 chart-card-icon" aria-hidden="true"></i>
+               </header>
+               <div class="chart-canvas-wrap chart-canvas-wrap-tall">
+                 <canvas id="barChart"></canvas>
+               </div>
+             </article>
+           </div>
+         </div>
+       </div>
+
+       <div class="badge-container">
         <!-- Begin SF Tag -->
         <div class="sf-root" data-id="3846893" data-badge="oss-users-love-us-black" style="width:125px; margin: 0 10px;">
             <a href="https://sourceforge.net/projects/risingos-revived/" target="_blank">RisingOS-Revived</a>
@@ -497,41 +344,93 @@
             })();
         </script>
         <!-- End SF Tag -->
+         <!-- Begin  Tag -->
+      <div class="sf-root" data-id="3846893" data-badge="oss-community-leader-black" data-metadata="achievement=oss-community-leader" style="width:125px">
+        <a href="https://sourceforge.net/projects/risingos-revived/" target="_blank">RisingOS-Revived</a>
+      </div>
+      <script>(function () {var sc=document.createElement('script');sc.async=true;sc.src='https://b.sf-syn.com/badge_js?sf_id=3846893';var p=document.getElementsByTagName('script')[0];p.parentNode.insertBefore(sc, p);})();
+      </script>
+      <!-- End  Tag -->
+       <!-- Begin  Tag -->
+      <div class="sf-root" data-id="3846893" data-badge="oss-open-source-excellence-black" data-metadata="achievement=oss-open-source-excellence" style="width:125px">
+        <a href="https://sourceforge.net/projects/risingos-revived/" target="_blank">RisingOS-Revived</a>
+      </div>
+      <script>(function () {var sc=document.createElement('script');sc.async=true;sc.src='https://b.sf-syn.com/badge_js?sf_id=3846893';var p=document.getElementsByTagName('script')[0];p.parentNode.insertBefore(sc, p);})();
+      </script>
+      <!-- End  Tag -->
     </div>
   </section>
 
-  <section id="faq" class="faq section" style="background-color: #000; color: #0f0; padding: 80px 0;">
-    <div class="container" data-aos="fade-up" style="max-width: 900px; margin: auto; text-align: center;">
-      <h1 class="screenshot-header"><strong>Frequently Asked Questions</strong></h1>
-      <div class="header-divider"></div>
-      <div class="faq-container" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-        
-        <div class="faq-item" data-aos="flip-left" style="background-color: #111; padding: 25px; border-radius: 15px; width: 100%; max-width: 350px; border: 1px solid #0f0; text-align: center; box-shadow: 0 4px 10px rgba(0, 255, 0, 0.3);">
-          <h3 style="color: #8f8; font-size: 1.2rem;">What is RisingOS Revived?</h3>
-          <p style="color: #fff; font-size: 1rem;">RisingOS Revived is a custom ROM that offers a powerful, customizable, and refined Android experience.</p>
+  <section id="faq" class="faq section">
+    <div class="container section-layout faq-layout">
+      <div class="section-intro text-center" data-aos="fade-up">
+        <h1 class="section-title"><strong>Frequently Asked Questions</strong></h1>
+        <div class="header-divider"></div>
+        <p class="section-lead"><strong>Quick answers about RisingOS Revived.</strong></p>
+      </div>
+
+      <div class="faq-panel" data-aos="fade-up" data-aos-delay="100">
+        <div class="accordion faq-accordion" id="faqAccordion">
+          <div class="accordion-item faq-accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button faq-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                <i class="bi bi-phone"></i>
+                What is RisingOS Revived?
+              </button>
+            </h3>
+            <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                RisingOS Revived is a custom ROM that offers a powerful, customizable, and refined Android experience built for enthusiasts who want more control over their device.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item faq-accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                <i class="bi bi-download"></i>
+                How can I install RisingOS Revived?
+              </button>
+            </h3>
+            <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                Download the ROM for your device from our website, then follow the official installation guide for your specific model and recovery environment.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item faq-accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                <i class="bi bi-shield-check"></i>
+                Is RisingOS Revived safe to use?
+              </button>
+            </h3>
+            <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                Yes. RisingOS Revived is developed with stability and security in mind, delivering a smooth daily-driver experience while staying actively maintained.
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div class="faq-item" data-aos="flip-right" style="background-color: #111; padding: 25px; border-radius: 15px; width: 100%; max-width: 350px; border: 1px solid #0f0; text-align: center; box-shadow: 0 4px 10px rgba(0, 255, 0, 0.3);">
-          <h3 style="color: #8f8; font-size: 1.2rem;">How can I install RisingOS Revived?</h3>
-          <p style="color: #fff; font-size: 1rem;">You can install RisingOS by downloading the ROM from our website and following the official installation guide.</p>
-        </div>
-        
-        <div class="faq-item" data-aos="flip-up" style="background-color: #111; padding: 25px; border-radius: 15px; width: 100%; max-width: 350px; border: 1px solid #0f0; text-align: center; box-shadow: 0 4px 10px rgba(0, 255, 0, 0.3);">
-          <h3 style="color: #8f8; font-size: 1.2rem;">Is RisingOS Revived safe to use?</h3>
-          <p style="color: #fff; font-size: 1rem;">Yes, RisingOS Revived is built with security and stability in mind, ensuring a smooth experience for users.</p>
-        </div>
-        
       </div>
     </div>
   </section>
-  
+
 
   <section id="team" class="team section">
-    <div class="container my-5">
-      <h1 class="screenshot-header"><strong>Core Members</strong></h1>
-      <div class="header-divider"></div>
-      <p class="text-center mb-4"><strong>Meet the dedicated individuals behind our project, working tirelessly to bring you the best experience possible.</strong></p>
-      <div class="row row-cols-1 row-cols-md-5 justify-content-center gap-3" id="team-container"></div>
+    <div class="container section-layout">
+      <div class="section-intro text-center">
+        <h1 class="section-title"><strong>Core Members</strong></h1>
+        <div class="header-divider"></div>
+        <p class="section-lead"><strong>Meet the people building and maintaining RisingOS Revived.</strong></p>
+      </div>
+      <div class="team-grid" id="team-container">
+        <div class="team-loading">
+          <div class="download-stats-spinner" aria-hidden="true"></div>
+          <span>Loading core team…</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -585,71 +484,6 @@
   <script src="assets/js/rising.js"></script>
 
   <script>
-    // Ensure the fetchData function is called when the DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        fetchData();
-    });
-
-    let currentIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-    const indicators = document.querySelectorAll('.indicator');
-
-    // Store chart instances
-    let charts = {
-        line: null,
-        pie: null,
-        bar: null
-    };
-
-    function resetCanvas(canvasId) {
-        const canvas = document.getElementById(canvasId);
-        const parent = canvas.parentElement;
-        const newCanvas = document.createElement('canvas');
-        newCanvas.id = canvasId;
-        parent.removeChild(canvas);
-        parent.appendChild(newCanvas);
-        return newCanvas;
-    }
-
-    // Manual toggle functionality
-    const graphCollapse = document.getElementById('graphCollapse');
-    const toggleButton = document.getElementById('toggleGraphs');
-    const toggleIcon = toggleButton.querySelector('i');
-    const toggleText = toggleButton.querySelector('span');
-
-    function showGraphs() {
-        graphCollapse.classList.add('show');
-        toggleIcon.classList.remove('bi-chevron-down');
-        toggleIcon.classList.add('bi-chevron-up');
-        toggleText.textContent = 'Hide Graphs';
-    }
-
-    function hideGraphs() {
-        graphCollapse.classList.remove('show');
-        toggleIcon.classList.remove('bi-chevron-up');
-        toggleIcon.classList.add('bi-chevron-down');
-        toggleText.textContent = 'Show Graphs';
-        // Destroy charts when hiding
-        Object.values(charts).forEach(chart => {
-            if (chart) {
-                chart.destroy();
-            }
-        });
-        charts = {
-            line: null,
-            pie: null,
-            bar: null
-        };
-    }
-
-    toggleButton.addEventListener('click', function() {
-        if (graphCollapse.classList.contains('show')) {
-            hideGraphs();
-        } else {
-            showGraphs();
-        }
-    });
-
     function cleanChangelogContent(data) {
         // Remove unnecessary strings and format text
         let cleanedData = data.replace(/##/g, '')
@@ -679,237 +513,6 @@
             document.getElementById('whats-new-modal').style.display = 'none';
         }
     };
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    let currentIndex = 0;
-    const slides = document.querySelectorAll(".slide");
-    const indicators = document.querySelectorAll(".indicator");
-    const totalSlides = slides.length;
-    const slideContainer = document.querySelector(".slides");
-
-    function updateSlidePosition() {
-        slideContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-        indicators.forEach((ind, i) => {
-            ind.classList.toggle("active", i === currentIndex);
-        });
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlidePosition();
-    }
-
-    function setSlide(index) {
-        currentIndex = index;
-        updateSlidePosition();
-    }
-
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => setSlide(index));
-    });
-
-    // Auto slide every 3 seconds
-    setInterval(nextSlide, 3000);
-
-    // Initial slide position
-    updateSlidePosition();
-});
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    let currentIndex = 0;
-    const slides = document.querySelectorAll(".slide");
-    const indicators = document.querySelectorAll(".indicator");
-    const totalSlides = slides.length;
-    const slideContainer = document.querySelector(".slides");
-
-    function updateSlidePosition() {
-        slideContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-        indicators.forEach((ind, i) => {
-            ind.classList.toggle("active", i === currentIndex);
-        });
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlidePosition();
-    }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateSlidePosition();
-    }
-
-    function setSlide(index) {
-        currentIndex = index;
-        updateSlidePosition();
-    }
-
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => setSlide(index));
-    });
-
-    // Auto slide every 3 seconds
-    let autoSlide = setInterval(nextSlide, 3000);
-
-    // Touch swipe handling
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    slideContainer.addEventListener("touchstart", function (e) {
-        touchStartX = e.touches[0].clientX;
-    });
-
-    slideContainer.addEventListener("touchend", function (e) {
-        touchEndX = e.changedTouches[0].clientX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        if (touchStartX - touchEndX > 50) {
-            nextSlide(); // Swipe left
-        } else if (touchEndX - touchStartX > 50) {
-            prevSlide(); // Swipe right
-        }
-    }
-
-    // Initial slide position
-    updateSlidePosition();
-});
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    let currentIndex = 0;
-    const slides = document.querySelectorAll(".slide");
-    const indicators = document.querySelectorAll(".indicator");
-    const totalSlides = slides.length;
-    const slideContainer = document.querySelector(".slides");
-
-    function updateSlidePosition() {
-        slideContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-        indicators.forEach((ind, i) => {
-            ind.classList.toggle("active", i === currentIndex);
-        });
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlidePosition();
-    }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateSlidePosition();
-    }
-
-    function setSlide(index) {
-        currentIndex = index;
-        updateSlidePosition();
-    }
-
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => setSlide(index));
-    });
-
-    // Auto slide every 3 seconds
-    setInterval(nextSlide, 3000);
-
-    // Swipe functionality
-    let startX = 0;
-    slideContainer.addEventListener("touchstart", function (e) {
-        startX = e.touches[0].clientX;
-    });
-
-    slideContainer.addEventListener("touchend", function (e) {
-        let endX = e.changedTouches[0].clientX;
-        if (startX - endX > 50) {
-            nextSlide(); // Swipe left
-        } else if (endX - startX > 50) {
-            prevSlide(); // Swipe right
-        }
-    });
-
-    // Initial slide position
-    updateSlidePosition();
-});
-
-// Fix alignment of graphs when toggled
-document.getElementById('toggleGraphs').addEventListener('click', function() {
-    const graphCollapse = document.getElementById('graphCollapse');
-    setTimeout(() => {
-        graphCollapse.style.display = graphCollapse.classList.contains('show') ? 'flex' : 'none';
-    }, 300); 
-});
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const charts = document.querySelectorAll("canvas");
-
-    charts.forEach(chart => {
-        chart.style.opacity = "0";
-        chart.style.transform = "scale(0.8)";
-        chart.style.transition = "opacity 1s ease-out, transform 1s ease-out";
-        
-        setTimeout(() => {
-            chart.style.opacity = "1";
-            chart.style.transform = "scale(1)";
-        }, 300);
-    });
-});
-</script>
-
-<script>
-function fetchData() {
-    const startDate = '2025-02-01';
-    // Get current date in YYYY-MM-DD format
-    const today = new Date();
-    const endDate = today.toISOString().split('T')[0];
-    
-    const sixXUrl = `https://sourceforge.net/projects/risingos-revived/files/6.x/stats/json?start_date=${startDate}&end_date=${endDate}`;
-    const sevenXUrl = `https://sourceforge.net/projects/risingos-revived/files/7.x/stats/json?start_date=${startDate}&end_date=${endDate}`;
-
-    Promise.all([
-        fetch(sixXUrl).then(response => response.json()),
-        fetch(sevenXUrl).then(response => response.json())
-    ])
-    .then(([sixXData, sevenXData]) => {
-        let total = 0;
-        
-        // Parse and sum up downloads from 6.x
-        if (sixXData && typeof sixXData === 'object') {
-            const sixXTotal = Object.values(sixXData).reduce((sum, value) => {
-                return sum + (typeof value === 'number' ? value : 0);
-            }, 0);
-            total += sixXTotal;
-            console.log('6.x downloads:', sixXTotal); // Debug log
-        }
-        
-        // Parse and sum up downloads from 7.x
-        if (sevenXData && typeof sevenXData === 'object') {
-            const sevenXTotal = Object.values(sevenXData).reduce((sum, value) => {
-                return sum + (typeof value === 'number' ? value : 0);
-            }, 0);
-            total += sevenXTotal;
-            console.log('7.x downloads:', sevenXTotal); // Debug log
-        }
-        
-        console.log('Total downloads:', total); // Debug log
-        document.getElementById('totalDownloads').textContent = total.toLocaleString();
-    })
-    .catch(error => {
-        console.error('Error fetching download stats:', error);
-        document.getElementById('totalDownloads').textContent = 'N/A';
-    });
-}
 </script>
 
 </body>
