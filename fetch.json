@@ -997,4 +997,52 @@
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ingres.txt",
     "build": "userdebug"
   },
+  "mustang": {
+    "status": "active",
+    "maintainer": "EliteDarkKaiser",
+    "oem": "Google",
+    "device": "Pixel 10 Pro XL",
+    "codename": "mustang",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/mustang.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/mustang.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/mustang.json"
+    ],
+    "device_avatar": "assets/img/devices/mustang.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/115403383?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/mustang.txt",
+    "build": "userdebug"
+  },
+  "blazer": {
+    "status": "active",
+    "maintainer": "EliteDarkKaiser",
+    "oem": "Google",
+    "device": "Pixel 10 Pro",
+    "codename": "blazer",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/blazer.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/blazer.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/blazer.json"
+    ],
+    "device_avatar": "assets/img/devices/blazer.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/115403383?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/blazer.txt",
+    "build": "userdebug"
+  },
+  "frankel": {
+    "status": "active",
+    "maintainer": "EliteDarkKaiser",
+    "oem": "Google",
+    "device": "Pixel 10",
+    "codename": "frankel",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/frankel.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/frankel.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/frankel.json"
+    ],
+    "device_avatar": "assets/img/devices/frankel.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/115403383?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/frankel.txt",
+    "build": "userdebug"
+  }
 }
