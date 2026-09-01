@@ -59,89 +59,109 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 });
 
-function initScreenshotSlider() {
-  const slideContainer = document.querySelector(".slides");
-  const slides = document.querySelectorAll(".slide");
-  const indicatorContainer = document.getElementById("screenshotIndicators");
-  const currentLabel = document.getElementById("screenshotCurrent");
-  const totalLabel = document.getElementById("screenshotTotal");
-  const prevButton = document.getElementById("screenshotPrev");
-  const nextButton = document.getElementById("screenshotNext");
+function initScreenshotShowcase() {
+  const showcase = document.getElementById("screenshotShowcase");
+  const heroImage = document.getElementById("screenshotHeroImage");
+  const heroLabel = document.getElementById("screenshotHeroLabel");
+  const heroZoom = document.getElementById("screenshotHeroZoom");
+  const heroFrame = showcase?.querySelector(".screenshot-hero-frame");
+  const stage = showcase?.querySelector(".screenshot-stage");
+  const tiles = showcase ? showcase.querySelectorAll(".screenshot-tile") : [];
 
-  if (!slideContainer || slides.length === 0 || !indicatorContainer) return;
+  if (!showcase || !heroImage || tiles.length === 0) return;
 
-  let currentIndex = 0;
-  let autoSlideTimer = null;
+  let activeIndex = 0;
+  let isAnimating = false;
 
-  if (totalLabel) totalLabel.textContent = String(slides.length);
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          showcase.classList.add("is-visible");
+          revealObserver.disconnect();
+        }
+      });
+    },
+    { threshold: 0.18 }
+  );
+  revealObserver.observe(showcase);
 
-  indicatorContainer.innerHTML = Array.from(slides, (_, index) =>
-    `<button type="button" class="indicator${index === 0 ? " active" : ""}" aria-label="Go to screenshot ${index + 1}" data-index="${index}"></button>`
-  ).join("");
+  function selectScreenshot(index) {
+    if (isAnimating || index === activeIndex) return;
 
-  const indicators = indicatorContainer.querySelectorAll(".indicator");
+    const tile = tiles[index];
+    if (!tile) return;
 
-  function updateSlidePosition() {
-    slideContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-    indicators.forEach((indicator, index) => {
-      indicator.classList.toggle("active", index === currentIndex);
+    isAnimating = true;
+    heroImage.classList.remove("is-visible");
+
+    window.setTimeout(() => {
+      const src = tile.dataset.src;
+      const label =
+        tile.dataset.label ||
+        tile.querySelector(".screenshot-tile-label")?.textContent ||
+        "Screenshot";
+
+      heroImage.src = src;
+      heroImage.alt = `RisingOS Revived – ${label}`;
+
+      if (heroLabel) heroLabel.textContent = label;
+      if (heroZoom) {
+        heroZoom.href = src;
+        heroZoom.setAttribute("aria-label", `View ${label} full size`);
+      }
+
+      tiles.forEach((item, itemIndex) => {
+        item.classList.toggle("is-active", itemIndex === index);
+      });
+
+      activeIndex = index;
+      heroImage.classList.add("is-visible");
+      isAnimating = false;
+    }, 220);
+  }
+
+  tiles.forEach((tile, index) => {
+    tile.addEventListener("click", () => selectScreenshot(index));
+  });
+
+  if (heroFrame && stage && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    stage.addEventListener("mousemove", (event) => {
+      const rect = heroFrame.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      heroFrame.style.transform = `perspective(900px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
     });
-    if (currentLabel) currentLabel.textContent = String(currentIndex + 1);
-  }
 
-  function setSlide(index) {
-    currentIndex = (index + slides.length) % slides.length;
-    updateSlidePosition();
-  }
-
-  function nextSlide() {
-    setSlide(currentIndex + 1);
-  }
-
-  function prevSlide() {
-    setSlide(currentIndex - 1);
-  }
-
-  function restartAutoSlide() {
-    if (autoSlideTimer) clearInterval(autoSlideTimer);
-    autoSlideTimer = setInterval(nextSlide, 5000);
-  }
-
-  prevButton?.addEventListener("click", () => {
-    prevSlide();
-    restartAutoSlide();
-  });
-
-  nextButton?.addEventListener("click", () => {
-    nextSlide();
-    restartAutoSlide();
-  });
-
-  indicators.forEach((indicator) => {
-    indicator.addEventListener("click", () => {
-      setSlide(Number(indicator.dataset.index));
-      restartAutoSlide();
+    stage.addEventListener("mouseleave", () => {
+      heroFrame.style.transform = "";
     });
+  }
+}
+
+function initLatestBanner() {
+  const showcase = document.querySelector(".latest-banner-showcase");
+  const image = showcase?.querySelector(".latest-banner-image");
+
+  if (!showcase || !image || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    return;
+  }
+
+  showcase.addEventListener("mouseenter", () => {
+    image.style.animationPlayState = "paused";
   });
 
-  let touchStartX = 0;
-  slideContainer.addEventListener("touchstart", (event) => {
-    touchStartX = event.touches[0].clientX;
-  }, { passive: true });
+  showcase.addEventListener("mousemove", (event) => {
+    const rect = showcase.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    image.style.transform = `scale(1.04) translate(${x * -12}px, ${y * -8}px)`;
+  });
 
-  slideContainer.addEventListener("touchend", (event) => {
-    const touchEndX = event.changedTouches[0].clientX;
-    if (touchStartX - touchEndX > 50) {
-      nextSlide();
-      restartAutoSlide();
-    } else if (touchEndX - touchStartX > 50) {
-      prevSlide();
-      restartAutoSlide();
-    }
-  }, { passive: true });
-
-  updateSlidePosition();
-  restartAutoSlide();
+  showcase.addEventListener("mouseleave", () => {
+    image.style.transform = "";
+    image.style.animationPlayState = "";
+  });
 }
 
 function chartTheme() {
@@ -442,7 +462,8 @@ async function fetchData() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  initScreenshotSlider();
+  initScreenshotShowcase();
+  initLatestBanner();
   initGraphToggle();
   fetchData();
   AOS.init();

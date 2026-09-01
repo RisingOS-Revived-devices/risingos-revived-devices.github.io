@@ -1,120 +1,212 @@
 /**
-* Project: RisingOS Revived Official Website
-* Updated: 28-Feb-2025
-* Author: @skwel24
-*/
-  function formatFileSize(bytes) {
-    if (bytes >= 1e9) return (bytes / 1e9).toFixed(1) + " GB";
-    if (bytes >= 1e6) return (bytes / 1e6).toFixed(1) + " MB";
-    if (bytes >= 1e3) return (bytes / 1e3).toFixed(1) + " KB";
-    return bytes + " B";
-  }
+ * Project: RisingOS Revived Official Website
+ * Devices page
+ */
 
-  async function fetchAllDevices() {
-    const devicesContainer = document.getElementById('device-list');
-    const searchQuery = document.getElementById('search-input').value.toLowerCase();
-    devicesContainer.innerHTML = '';
+const DEVICES_JSON_URL =
+  "https://raw.githubusercontent.com/RisingOS-Revived-devices/RisingOS_Web/refs/heads/main/devices.json";
 
-    try {
-      const response = await fetch("https://raw.githubusercontent.com/RisingOS-Revived-devices/RisingOS_Web/refs/heads/main/devices.json");
-      if (!response.ok) throw new Error("Failed to fetch data");
+let groupedDevicesCache = [];
+let selectedBrand = "";
 
-      const deviceData = await response.json();
-      const groupedDevices = {};
+function versionPrefixFrom(version) {
+  const match = String(version || "").match(/^(\d+)/);
+  return match ? `${match[1]}.x` : null;
+}
 
-      deviceData.forEach(device => {
-        if (!groupedDevices[device.codename]) {
-          groupedDevices[device.codename] = { ...device, variants: [], paypal: device.paypal };
-        }
-        groupedDevices[device.codename].variants.push({
-          variant: device.variant,
-          download: device.download,
-          filesize: device.filesize
-        });
-      });
+function groupDevices(deviceData) {
+  const groupedDevices = {};
 
-      const filteredDevices = Object.values(groupedDevices).filter(device =>
-        (device.device.toLowerCase().includes(searchQuery) ||
-        device.oem.toLowerCase().includes(searchQuery) ||
-        device.maintainer.toLowerCase().includes(searchQuery) ||
-        device.codename.toLowerCase().includes(searchQuery))
-      );
-
-      for (const device of filteredDevices) {
-        const card = document.createElement('div');
-        card.className = 'col-lg-4 col-md-6';
-
-        let variantButtons = '';
-        if (device.variants.length > 1) {
-          variantButtons = `
-            <div class="dropdown">
-              <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-download"></i>
-              </button>
-              <ul class="dropdown-menu">
-                ${device.variants.map(v => `
-                  <li><a class="dropdown-item" href="${v.download}" target="_blank">
-                    ${v.variant} (${formatFileSize(v.filesize)})
-                  </a></li>
-                `).join('')}
-              </ul>
-            </div>`;
-        } else {
-          const singleVariant = device.variants[0];
-          variantButtons = `<a href="${singleVariant.download}" class="btn btn-success btn-sm" target="_blank">
-            <i class="bi bi-download"></i>(${formatFileSize(singleVariant.filesize)})
-          </a>`;
-        }
-
-        let donationButton = device.paypal ? `
-            <a href="${device.paypal}" target="_blank" class="donation-btn">
-              Donate<i class="bi bi-heart-fill"></i>
-            </a>` : '';
-
-        let recoveryButton = device.recovery ? `
-            <a href="${device.recovery}" target="_blank" class="btn btn-danger">
-              <i class="bi bi-tools"></i>
-            </a>` : '';
-
-        let downloadButton = device.device_changelog ? `
-            <a href="downloads.html?codename=${device.codename}" class="btn btn-success">
-              Get Builds</i>
-            </a>` : '';
-
-        let statusText = device.status.toUpperCase();
-        let statusIcon = device.status === "active"
-          ? `<i class="bi bi-check-circle-fill text-success"></i>`
-          : `<i class="bi bi-x-circle-fill text-danger"></i>`;
-
-  card.innerHTML = `
-    <div class="device-card text-center">
-      <span class="status">${statusIcon} ${statusText}</span>
-      <span class="codename">${device.codename}</span>
-      <img src="${device.device_avatar}" alt="${device.device}" class="device-avatar">
-      <h3>${device.oem} ${device.device}</h3>
-      <p><strong>Maintainer:</strong> ${device.maintainer}</p>
-      <div class="btn-container">
-        ${downloadButton}
-      </div>
-    </div>`;
-
-
-
-        devicesContainer.appendChild(card);
-      }
-    } catch (error) {
-      console.error("Error fetching devices:", error);
+  deviceData.forEach((device) => {
+    if (!groupedDevices[device.codename]) {
+      groupedDevices[device.codename] = {
+        ...device,
+        variants: [],
+      };
     }
-  }
 
-  window.onload = fetchAllDevices;
-
-  // Header blur on scroll
-  window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+    groupedDevices[device.codename].variants.push({
+      variant: device.variant,
+      download: device.download,
+      filesize: device.filesize,
+      version: device.version,
+      versionPrefix: versionPrefixFrom(device.version),
+    });
   });
+
+  return Object.values(groupedDevices);
+}
+
+function getActiveFilters() {
+  return {
+    search: (document.getElementById("search-input")?.value || "").toLowerCase().trim(),
+    oem: selectedBrand,
+  };
+}
+
+function matchesFilters(device, filters) {
+  const matchesSearch =
+    !filters.search ||
+    device.device.toLowerCase().includes(filters.search) ||
+    device.oem.toLowerCase().includes(filters.search) ||
+    device.maintainer.toLowerCase().includes(filters.search) ||
+    device.codename.toLowerCase().includes(filters.search);
+
+  const matchesOem = !filters.oem || device.oem === filters.oem;
+
+  return matchesSearch && matchesOem;
+}
+
+function updateBrandTileStates() {
+  document.querySelectorAll(".brand-tile").forEach((tile) => {
+    const brand = tile.dataset.brand || "";
+    const isActive = selectedBrand === brand;
+    tile.classList.toggle("is-active", isActive);
+    tile.setAttribute("aria-pressed", isActive ? "true" : "false");
+  });
+}
+
+function renderBrandTiles(devices) {
+  const tilesContainer = document.getElementById("brand-tiles");
+  if (!tilesContainer) return;
+
+  const brandCounts = devices.reduce((counts, device) => {
+    counts[device.oem] = (counts[device.oem] || 0) + 1;
+    return counts;
+  }, {});
+
+  const brands = Object.keys(brandCounts).sort();
+  const tiles = [
+    { name: "", label: "All Brands", count: devices.length },
+    ...brands.map((brand) => ({ name: brand, label: brand, count: brandCounts[brand] })),
+  ];
+
+  tilesContainer.innerHTML = tiles
+    .map(
+      (tile) => `
+        <button
+          type="button"
+          class="brand-tile${selectedBrand === tile.name ? " is-active" : ""}"
+          data-brand="${tile.name}"
+          aria-pressed="${selectedBrand === tile.name ? "true" : "false"}"
+        >
+          <span class="brand-tile-name">${tile.label}</span>
+          <span class="brand-tile-count">${tile.count} device${tile.count === 1 ? "" : "s"}</span>
+        </button>
+      `
+    )
+    .join("");
+
+  tilesContainer.querySelectorAll(".brand-tile").forEach((tile) => {
+    tile.addEventListener("click", () => {
+      const brand = tile.dataset.brand || "";
+      selectedBrand = selectedBrand === brand && brand !== "" ? "" : brand;
+      updateBrandTileStates();
+      renderDevicesList();
+    });
+  });
+}
+
+function renderDeviceCard(device) {
+  const isActive = device.status === "active";
+  const variantPills = device.variants
+    .map(
+      (variant) =>
+        `<span class="device-variant-pill">${variant.variant}${variant.version ? ` · ${variant.version.split("-")[0]}` : ""}</span>`
+    )
+    .join("");
+
+  const card = document.createElement("article");
+  card.className = "device-card";
+  card.innerHTML = `
+    <div class="device-card-top">
+      <span class="device-status ${isActive ? "is-active" : "is-inactive"}">
+        <i class="bi ${isActive ? "bi-check-circle-fill" : "bi-x-circle-fill"}"></i>
+        ${device.status}
+      </span>
+      <span class="device-codename-badge">${device.codename}</span>
+    </div>
+    <div class="device-avatar-wrap">
+      <img src="${device.device_avatar}" alt="${device.device}" class="device-avatar" loading="lazy">
+    </div>
+    <h2 class="device-title">${device.oem} ${device.device}</h2>
+    <p class="device-meta-line"><strong>Maintainer:</strong> ${device.maintainer}</p>
+    <div class="device-variant-list">${variantPills}</div>
+    <div class="device-card-actions">
+      ${
+        device.device_changelog
+          ? `<a href="downloads.html?codename=${encodeURIComponent(device.codename)}" class="device-build-btn">
+              <i class="bi bi-download"></i>
+              Get Builds
+            </a>`
+          : `<span class="device-meta-line">No builds listed</span>`
+      }
+    </div>
+  `;
+  return card;
+}
+
+function renderDevicesList() {
+  const devicesContainer = document.getElementById("device-list");
+  const resultCount = document.getElementById("device-result-count");
+  if (!devicesContainer) return;
+
+  const filters = getActiveFilters();
+  const filteredDevices = groupedDevicesCache.filter((device) => matchesFilters(device, filters));
+
+  devicesContainer.innerHTML = "";
+
+  if (filteredDevices.length === 0) {
+    devicesContainer.innerHTML =
+      `<div class="devices-empty">No devices matched your search or filters.</div>`;
+  } else {
+    filteredDevices.forEach((device) => {
+      devicesContainer.appendChild(renderDeviceCard(device));
+    });
+  }
+
+  if (resultCount) {
+    resultCount.textContent = `${filteredDevices.length} of ${groupedDevicesCache.length} device${groupedDevicesCache.length === 1 ? "" : "s"} shown`;
+  }
+}
+
+function renderDevices() {
+  renderBrandTiles(groupedDevicesCache);
+  renderDevicesList();
+}
+
+async function loadDevices() {
+  const devicesContainer = document.getElementById("device-list");
+  const resultCount = document.getElementById("device-result-count");
+  if (!devicesContainer) return;
+
+  try {
+    const response = await fetch(DEVICES_JSON_URL);
+    if (!response.ok) throw new Error("Failed to fetch data");
+
+    const deviceData = await response.json();
+    groupedDevicesCache = groupDevices(deviceData);
+    selectedBrand = "";
+    renderDevices();
+  } catch (error) {
+    console.error("Error fetching devices:", error);
+    devicesContainer.innerHTML =
+      `<div class="devices-error">Unable to load devices right now. Please try again later.</div>`;
+    if (resultCount) resultCount.textContent = "Failed to load devices";
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("search-input")?.addEventListener("input", renderDevicesList);
+  loadDevices();
+
+  if (typeof AOS !== "undefined") {
+    AOS.init();
+  }
+});
+
+window.addEventListener("scroll", () => {
+  const header = document.getElementById("header");
+  if (!header) return;
+  header.classList.toggle("scrolled", window.scrollY > 50);
+});

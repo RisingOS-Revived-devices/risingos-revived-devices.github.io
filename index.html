@@ -171,6 +171,48 @@
 
     </section><!-- /Hero Section -->
 
+    <!-- Latest Release Banner -->
+    <section id="latest-release" class="latest-banner section">
+      <div class="container section-layout">
+        <div class="section-intro text-center" data-aos="fade-up">
+          <p class="latest-banner-eyebrow">Now Available</p>
+          <h2 class="section-title"><strong>Latest Release</strong></h2>
+          <div class="header-divider"></div>
+          <p class="section-lead">Experience <span class="text-accent">RisingOS v9</span> — freedom redefined for your device.</p>
+        </div>
+
+        <a
+          href="devices.html"
+          class="latest-banner-showcase"
+          data-aos="zoom-in-up"
+          data-aos-delay="120"
+          aria-label="Download RisingOS v9 builds"
+        >
+          <div class="latest-banner-ambient" aria-hidden="true"></div>
+          <div class="latest-banner-frame">
+            <img
+              src="banner-9.0.png"
+              alt="RisingOS v9 - ἐλευθερία — Make Your Device Unique"
+              class="latest-banner-image"
+              loading="eager"
+            >
+            <div class="latest-banner-shine" aria-hidden="true"></div>
+            <div class="latest-banner-vignette" aria-hidden="true"></div>
+          </div>
+
+          <span class="latest-banner-chip">
+            <span class="latest-banner-chip-dot" aria-hidden="true"></span>
+            New Build · v9.0
+          </span>
+
+          <span class="latest-banner-cta">
+            Explore Builds
+            <i class="bi bi-arrow-right"></i>
+          </span>
+        </a>
+      </div>
+    </section>
+
     <!-- Screenshot Grid Section -->
    <section id="screenshot-grid" class="screenshots section">
      <div class="container section-layout">
@@ -180,32 +222,76 @@
          <p class="section-lead"><strong>Explore the visuals of <span class="text-accent">RisingOS Revived</span> in action.</strong></p>
        </div>
 
-       <div class="screenshots-panel">
-         <div class="screenshots-carousel">
-           <button type="button" class="screenshots-nav screenshots-nav-prev" id="screenshotPrev" aria-label="Previous screenshot">
-             <i class="bi bi-chevron-left"></i>
-           </button>
+       <div class="screenshot-showcase" id="screenshotShowcase">
+         <div class="screenshot-stage">
+           <div class="screenshot-stage-glow" aria-hidden="true"></div>
+           <div class="screenshot-stage-ring screenshot-stage-ring-one" aria-hidden="true"></div>
+           <div class="screenshot-stage-ring screenshot-stage-ring-two" aria-hidden="true"></div>
 
-           <div class="screenshots-viewport">
-             <div class="slides">
-               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-1-7-portrait.png" alt="RisingOS Revived screenshot 1"></div></div>
-               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-2-7-portrait.png" alt="RisingOS Revived screenshot 2"></div></div>
-               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-3-7-portrait.png" alt="RisingOS Revived screenshot 3"></div></div>
-               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-4-7-portrait.png" alt="RisingOS Revived screenshot 4"></div></div>
-               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-5-7-portrait.png" alt="RisingOS Revived screenshot 5"></div></div>
-               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-6-7-portrait.png" alt="RisingOS Revived screenshot 6"></div></div>
-               <div class="slide"><div class="screenshot-frame"><img src="assets/img/screenshots/ss-7-7-portrait.png" alt="RisingOS Revived screenshot 7"></div></div>
+           <figure class="screenshot-hero">
+             <div class="screenshot-hero-frame">
+               <img
+                 id="screenshotHeroImage"
+                 src="assets/img/screenshots/ss-1-7-portrait.png"
+                 alt="RisingOS Revived screenshot preview"
+                 class="screenshot-hero-image is-visible"
+               >
              </div>
-           </div>
+             <figcaption class="screenshot-hero-caption">
+               <span class="screenshot-hero-label" id="screenshotHeroLabel">Home Experience</span>
+               <a
+                 id="screenshotHeroZoom"
+                 class="screenshot-hero-zoom glightbox"
+                 href="assets/img/screenshots/ss-1-7-portrait.png"
+                 data-gallery="rising-screenshots"
+                 aria-label="View screenshot full size"
+               >
+                 <i class="bi bi-arrows-fullscreen"></i>
+                 View Full Size
+               </a>
+             </figcaption>
+           </figure>
+         </div>
 
-           <button type="button" class="screenshots-nav screenshots-nav-next" id="screenshotNext" aria-label="Next screenshot">
-             <i class="bi bi-chevron-right"></i>
+         <div class="screenshot-bento" id="screenshotBento">
+           <button type="button" class="screenshot-tile is-active" data-index="0" data-src="assets/img/screenshots/ss-1-7-portrait.png" data-label="Home Experience" style="--tile-delay: 0ms">
+             <img src="assets/img/screenshots/ss-1-7-portrait.png" alt="Home Experience" loading="lazy">
+             <span class="screenshot-tile-label">Home</span>
+           </button>
+           <button type="button" class="screenshot-tile" data-index="1" data-src="assets/img/screenshots/ss-2-7-portrait.png" data-label="Quick Settings" style="--tile-delay: 80ms">
+             <img src="assets/img/screenshots/ss-2-7-portrait.png" alt="Quick Settings" loading="lazy">
+             <span class="screenshot-tile-label">Quick Settings</span>
+           </button>
+           <button type="button" class="screenshot-tile screenshot-tile-wide" data-index="2" data-src="assets/img/screenshots/ss-3-7-portrait.png" data-label="Customization" style="--tile-delay: 160ms">
+             <img src="assets/img/screenshots/ss-3-7-portrait.png" alt="Customization" loading="lazy">
+             <span class="screenshot-tile-label">Customization</span>
+           </button>
+           <button type="button" class="screenshot-tile" data-index="3" data-src="assets/img/screenshots/ss-4-7-portrait.png" data-label="App Drawer" style="--tile-delay: 240ms">
+             <img src="assets/img/screenshots/ss-4-7-portrait.png" alt="App Drawer" loading="lazy">
+             <span class="screenshot-tile-label">App Drawer</span>
+           </button>
+           <button type="button" class="screenshot-tile" data-index="4" data-src="assets/img/screenshots/ss-5-7-portrait.png" data-label="Themes" style="--tile-delay: 320ms">
+             <img src="assets/img/screenshots/ss-5-7-portrait.png" alt="Themes" loading="lazy">
+             <span class="screenshot-tile-label">Themes</span>
+           </button>
+           <button type="button" class="screenshot-tile screenshot-tile-wide" data-index="5" data-src="assets/img/screenshots/ss-6-7-portrait.png" data-label="Features" style="--tile-delay: 400ms">
+             <img src="assets/img/screenshots/ss-6-7-portrait.png" alt="Features" loading="lazy">
+             <span class="screenshot-tile-label">Features</span>
+           </button>
+           <button type="button" class="screenshot-tile" data-index="6" data-src="assets/img/screenshots/ss-7-7-portrait.png" data-label="Settings" style="--tile-delay: 480ms">
+             <img src="assets/img/screenshots/ss-7-7-portrait.png" alt="Settings" loading="lazy">
+             <span class="screenshot-tile-label">Settings</span>
            </button>
          </div>
 
-         <div class="screenshots-controls">
-           <div class="indicator-container" id="screenshotIndicators"></div>
-           <p class="screenshots-counter"><span id="screenshotCurrent">1</span> / <span id="screenshotTotal">7</span></p>
+         <div class="visually-hidden" aria-hidden="true">
+           <a href="assets/img/screenshots/ss-1-7-portrait.png" class="glightbox" data-gallery="rising-screenshots" data-title="Home Experience"></a>
+           <a href="assets/img/screenshots/ss-2-7-portrait.png" class="glightbox" data-gallery="rising-screenshots" data-title="Quick Settings"></a>
+           <a href="assets/img/screenshots/ss-3-7-portrait.png" class="glightbox" data-gallery="rising-screenshots" data-title="Customization"></a>
+           <a href="assets/img/screenshots/ss-4-7-portrait.png" class="glightbox" data-gallery="rising-screenshots" data-title="App Drawer"></a>
+           <a href="assets/img/screenshots/ss-5-7-portrait.png" class="glightbox" data-gallery="rising-screenshots" data-title="Themes"></a>
+           <a href="assets/img/screenshots/ss-6-7-portrait.png" class="glightbox" data-gallery="rising-screenshots" data-title="Features"></a>
+           <a href="assets/img/screenshots/ss-7-7-portrait.png" class="glightbox" data-gallery="rising-screenshots" data-title="Settings"></a>
          </div>
        </div>
      </div>

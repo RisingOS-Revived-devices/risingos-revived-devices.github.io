@@ -1,1367 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3689535741466991"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RisingOS Downloads</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-     <!-- Favicons -->
-    <link href="assets/img/tab-logo.png" rel="icon">
-    <link href="assets/img/tab-logo.png" rel="apple-touch-icon">
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-    <!-- Main CSS File -->
-    <link href="assets/css/main.css" rel="stylesheet">
-    <!-- Rising CSS File -->
-    <link href="assets/css/rising.css" rel="stylesheet">
-    <style>
-        /* Base Styles */
-        body {
-            background: #000;
-            color: white;
-            font-family: system-ui, -apple-system, sans-serif;
-            padding-top: 64px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .main-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 1.5rem;
-            flex: 1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        /* Error Message Styles */
-        .error-message {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            color: #ff4444;
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        /* Device Selection Styles */
-        .device-select {
-            margin: 2rem 0;
-            padding: 1rem;
-            background: rgba(0, 255, 0, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 255, 0, 0.1);
-        }
-
-        .device-select select {
-            width: 100%;
-            padding: 0.75rem;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(0, 255, 0, 0.2);
-            border-radius: 10px;
-            color: white;
-            font-size: 1.1rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .device-select select:hover, .device-select select:focus {
-            border-color: rgba(0, 255, 0, 0.4);
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
-        }
-
-        .device-select option {
-            background: #111;
-            color: white;
-        }
-
-        /* Card Styles */
-        .card {
-            background: #111;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 255, 0, 0.1);
-            border: 1px solid rgba(0, 255, 0, 0.1);
-            margin: 0 auto;
-            max-width: 100%;
-        }
-
-        /* Device Info Styles */
-        .device-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .device-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: rgba(0, 255, 0, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 255, 0, 0.1);
-        }
-
-        .device-title {
-            flex: 1;
-            text-align: left;
-        }
-
-        .device-title h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, #fff, #00ff00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .device-meta {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.1rem;
-        }
-
-        /* Info Grid Styles */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-            background: rgba(0, 255, 0, 0.05);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 255, 0, 0.1);
-        }
-
-        .info-item {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .info-item:hover {
-            transform: translateY(-2px);
-            background: rgba(0, 255, 0, 0.1);
-        }
-
-        .info-label {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 0.5rem;
-        }
-
-        .info-value {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        /* Download Button Styles */
-        .download-button-container {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .download-button {
-            background: linear-gradient(45deg, #00ff00, #00cc00);
-            color: #000;
-            font-size: 1.2rem;
-            font-weight: 600;
-            padding: 1rem 3rem;
-            border-radius: 12px;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 255, 0, 0.25);
-        }
-
-        .download-button::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
-
-        /* Action Buttons Styles */
-        .action-buttons {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .action-button {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 1rem;
-            border-radius: 10px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .action-button:hover {
-            background: rgba(0, 255, 0, 0.15);
-            transform: translateY(-2px);
-            border-color: rgba(0, 255, 0, 0.3);
-        }
-
-        .action-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-
-        .action-button:hover::before {
-            transform: translateX(100%);
-        }
-
-        .action-button svg {
-            width: 1.2rem;
-            height: 1.2rem;
-        }
-
-        /* Maintainer Section Styles */
-        .maintainer-section {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 1.5rem;
-            padding: 1rem;
-            background: rgba(0, 255, 0, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 255, 0, 0.1);
-        }
-
-        .maintainer-content {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .maintainer-info {
-            text-align: right;
-        }
-
-        .maintainer-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 3px solid rgba(0, 255, 0, 0.3);
-            transition: transform 0.3s ease;
-            overflow: hidden;
-        }
-
-        .maintainer-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .maintainer-avatar:hover {
-            transform: scale(1.1);
-        }
-
-        .maintainer-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .maintainer-label {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-            justify-content: flex-end;
-            margin-top: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .maintainer-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 1.5rem;
-            }
-
-            .maintainer-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .maintainer-info {
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .maintainer-avatar {
-                width: 100px;
-                height: 100px;
-            }
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .info-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .action-buttons {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main-container {
-                padding: 1rem;
-                margin: 1rem auto;
-            }
-
-            .device-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .device-title {
-                text-align: center;
-            }
-
-            .info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .action-buttons {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .maintainer-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .maintainer-info {
-                text-align: center;
-            }
-
-            .download-button {
-                padding: 0.8rem 2rem;
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .action-buttons {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Variant Selector Styles */
-        .variant-selector {
-            text-align: center;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: rgba(0, 255, 0, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 255, 0, 0.1);
-        }
-
-        .variant-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .variant-button {
-            padding: 0.8rem 1.5rem;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .variant-button:hover,
-        .variant-button.active {
-            background: rgba(0, 255, 0, 0.2);
-            border-color: rgba(0, 255, 0, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* Navigation Styles */
-        .nav-container {
-            background: #000;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1.25rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-            text-decoration: none;
-            color: white;
-        }
-
-        .sitename {
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            margin: 0;
-        }
-
-        .nav-brand img {
-            height: 1.5rem;
-            width: auto;
-            margin-top: 3px;
-            margin-left: -2px;
-        }
-
-        .nav-brand-text {
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-brand-icon {
-            font-size: 1rem;
-            opacity: 0.7;
-            margin-top: 1px;
-            margin-left: -0.25rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-            margin-left: auto;
-        }
-
-        .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 400;
-            padding: 0.5rem 0;
-            position: relative;
-            letter-spacing: 0.3px;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #00ff00;
-            transform: scaleX(0);
-            transition: transform 0.2s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            transform: scaleX(1);
-        }
-
-        .nav-link.active {
-            color: #00ff00;
-        }
-
-        .mobile-menu-button {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .nav-content {
-                padding: 0 1rem;
-            }
-
-            .mobile-menu-button {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #000;
-                padding: 1rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-link::after {
-                display: none;
-            }
-        }
-
-        /* Footer Styles */
-        footer {
-            margin-top: auto;
-            background: #111;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-link {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: #00ff00;
-        }
-
-        .social-icon {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-            transition: transform 0.3s ease;
-        }
-
-        .social-link:hover .social-icon {
-            transform: translateY(-3px);
-        }
-
-        .footer-heading {
-            color: #00ff00;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-divider {
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Device Info Styles */
-        .device-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .codename-display {
-            position: relative;
-            padding: 1.5rem;
-            background: #141414;
-            border-radius: 8px;
-            text-align: left;
-            overflow: hidden;
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            animation: slideIn 0.8s ease-out;
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            box-shadow: 0 8px 32px rgba(0, 255, 0, 0.1);
-        }
-
-        .codename-display h1, .codename-display span {
-            background: linear-gradient(45deg, #00ffcc, #00ff00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-        }
-
-        .device-info-left {
-            flex: 1;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .device-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .device-brand {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .device-name {
-            font-size: 1rem;
-            color: #fff;
-            font-weight: 400;
-        }
-
-        .codename-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 0.25rem;
-        }
-
-        .codename-text {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #fff;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1;
-        }
-
-        .maintainer-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .maintainer-content {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .maintainer-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.25rem;
-        }
-
-        .maintainer-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            border: 3px solid rgba(0, 255, 0, 0.3);
-        }
-
-        .maintainer-avatar img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .maintainer-label {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .maintainer-name {
-            font-size: 1rem;
-            color: #fff;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 0.5rem;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeInUp 0.6s ease forwards;
-            animation-delay: 0.8s;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-link::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #00ff00, #00cc00);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 255, 0, 0.2);
-        }
-
-        .social-link:hover::before {
-            opacity: 0.15;
-        }
-
-        .social-icon {
-            width: 20px;
-            height: 20px;
-            position: relative;
-            z-index: 1;
-            color: #fff;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover .social-icon {
-            color: #00ff00;
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        /* Enable smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Ensure overflow properties are optimized */
-        body {
-            overflow-x: hidden;  /* Prevent horizontal scrollbar */
-        }
-
-        /* Mobile Optimization Styles */
-        @media (max-width: 768px) {
-            .card {
-                padding: 1rem; /* Reduce padding for mobile */
-                box-shadow: none; /* Remove shadow for better performance */
-            }
-            .device-info-container {
-                flex-direction: column; /* Stack items vertically */
-            }
-            .nav-links {
-                flex-direction: column; /* Stack navigation links */
-            }
-            .download-button {
-                font-size: 0.9rem; /* Adjust button size for mobile */
-            }
-        }
-
-        /* Social Links Styles */
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 1rem 0;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link i {
-            font-size: 1.5rem !important;
-            color: #00ff00 !important; /* Force initial color */
-            transition: all 0.3s ease; /* Add transition for color change */
-        }
-
-        .social-link:hover {
-            background: rgba(0, 255, 0, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .social-link:hover i {
-            color: #fff !important; /* Force hover color */
-        }
-
-        /* Footer Styles */
-        .footer {
-            background: #111;
-            padding: 2rem 0;
-            margin-top: auto;
-        }
-
-        .footer .sitename {
-            color: #fff;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer p {
-            color: #fff;
-            margin-bottom: 1rem;
-        }
-
-        .footer .copyright {
-            color: #fff;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-        }
-
-        .footer .credits {
-            color: #fff;
-            font-size: 0.9rem;
-        }
-
-        .footer .credits a {
-            color: #00ff00;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer .credits a:hover {
-            color: #00cc00;
-        }
-    </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3689535741466991" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RisingOS Downloads</title>
+  <meta name="description" content="Download RisingOS Revived builds, verify checksums, and access guides for your device.">
+
+  <link href="assets/img/tab-logo.png" rel="icon">
+  <link href="assets/img/tab-logo.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/rising.css" rel="stylesheet">
+  <link href="assets/css/rising-downloads.css" rel="stylesheet">
 </head>
-<body>
-    <!-- Navigation Bar -->
-    <header id="header" class="header d-flex align-items-center fixed-top">
-        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
-                <h4 class="sitename">RisingOS Revived</h4>
-                <img src="assets/img/risingOS_logo.png" alt="">
+<body class="downloads-page index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h4 class="sitename">RisingOS Revived</h4>
+        <img src="assets/img/risingOS_logo.png" alt="">
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="devices.html">Devices</a></li>
+          <li><a id="whats-new" href="#">What's New?</a></li>
+          <li><a href="https://github.com/RisingOS-Revived/official_devices/issues/new?template=form.md">Maintainership</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <div id="disclaimerModal" class="downloads-modal">
+    <div class="downloads-modal-card">
+      <h2 class="downloads-modal-title">Disclaimer</h2>
+      <p class="downloads-modal-text">
+        By downloading and installing RisingOS, you acknowledge the risks involved in modifying your device's software.
+        We are not responsible for any damage to your device or loss of data. Please back up your data before proceeding.
+      </p>
+      <button type="button" class="downloads-modal-btn">I Understand</button>
+    </div>
+  </div>
+
+  <div id="whats-new-modal" class="downloads-modal">
+    <div class="downloads-modal-card">
+      <button type="button" id="close-modal" class="downloads-modal-close" aria-label="Close">&times;</button>
+      <h2 class="downloads-modal-title">Source Changelogs</h2>
+      <div id="changelog-content" class="downloads-modal-text" style="white-space: pre-wrap;"></div>
+    </div>
+  </div>
+
+  <main class="downloads-main">
+    <div id="error-container"></div>
+
+    <div id="variant-selector" class="downloads-variant-panel is-hidden">
+      <p class="downloads-variant-title">Select Build Variant</p>
+      <div id="variant-buttons" class="downloads-variant-buttons"></div>
+    </div>
+
+    <section id="card" class="downloads-panel is-hidden">
+      <div class="downloads-hero">
+        <div class="downloads-hero-main">
+          <p class="downloads-eyebrow">Official Build</p>
+          <div class="downloads-device-line">
+            <span id="device-brand">-</span>
+            <span>·</span>
+            <span id="device-name">-</span>
+          </div>
+          <p class="downloads-eyebrow">Device Codename</p>
+          <h1 class="downloads-codename" id="device-codename">Loading...</h1>
+        </div>
+
+        <div class="downloads-maintainer">
+          <img id="maintainer-image" class="downloads-maintainer-avatar" alt="Maintainer">
+          <div class="downloads-maintainer-meta">
+            <p class="downloads-maintainer-label">Maintained by</p>
+            <p class="downloads-maintainer-name" id="maintainer">-</p>
+            <a href="#" id="telegram-link" class="downloads-social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+              <i class="bi bi-telegram"></i>
             </a>
-
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a id="whats-new" href="#">What's New?</a></li>
-                    <li><a href="https://github.com/RisingOS-Revived/official_devices/issues/new?template=form.md">Maintainership</a></li>
-                    <li><a href="index.html#statistics">Statistics</a></li>
-                    <li><a href="index.html#screenshot-grid">Screenshots</a></li>
-                    <li><a href="index.html#faq">FAQs</a></li>
-                </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-            </nav>
+          </div>
         </div>
-    </header>
+      </div>
 
-    <!-- Disclaimer Modal -->
-    <div id="disclaimerModal" class="modal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 1000;">
-        <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.8); margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 600px; text-align: center;">
-            <h2 style="color: white; margin-bottom: 20px;">Disclaimer</h2>
-            <p style="color: white; margin-bottom: 20px; line-height: 1.6;">
-                By downloading and installing RisingOS, you acknowledge that you understand the risks involved in modifying your device's software. 
-                We are not responsible for any damage to your device or loss of data. Please make sure to backup your data before proceeding.
-            </p>
-            <button class="understand-button" style="background: linear-gradient(45deg, #00ff00, #00cc00); color: #000; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-                I Understand
-            </button>
+      <div class="downloads-info-grid">
+        <div class="downloads-info-item">
+          <div class="downloads-info-label">RisingOS Version</div>
+          <div class="downloads-info-value" id="android-version">-</div>
         </div>
+        <div class="downloads-info-item">
+          <div class="downloads-info-label">Build Type</div>
+          <div class="downloads-info-value" id="build-type">-</div>
+        </div>
+        <div class="downloads-info-item">
+          <div class="downloads-info-label">Build Date</div>
+          <div class="downloads-info-value" id="build-date">-</div>
+        </div>
+        <div class="downloads-info-item">
+          <div class="downloads-info-label">File Size</div>
+          <div class="downloads-info-value" id="file-size">-</div>
+        </div>
+        <div class="downloads-info-item">
+          <div class="downloads-info-label">Downloads</div>
+          <div class="downloads-info-value" id="download-count">-</div>
+        </div>
+      </div>
+
+      <div class="downloads-actions-primary">
+        <a id="download-link" class="downloads-download-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-download"></i>
+          Download Build
+        </a>
+      </div>
+
+      <div class="downloads-hash-panel">
+        <h2 class="downloads-hash-title">Verify Checksums</h2>
+        <div class="downloads-hash-row">
+          <span class="downloads-hash-label">MD5</span>
+          <code class="downloads-hash-value" id="md5-hash">-</code>
+          <button type="button" class="downloads-copy-btn" data-copy-target="md5-hash">Copy</button>
+        </div>
+        <div class="downloads-hash-row">
+          <span class="downloads-hash-label">SHA256</span>
+          <code class="downloads-hash-value" id="sha256-hash">-</code>
+          <button type="button" class="downloads-copy-btn" data-copy-target="sha256-hash">Copy</button>
+        </div>
+      </div>
+
+      <div class="downloads-action-grid">
+        <a id="guide-link" class="downloads-action-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-github"></i> Guide
+        </a>
+        <a id="previous-builds" class="downloads-action-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-clock-history"></i> Previous Builds
+        </a>
+        <a id="recovery-link" class="downloads-action-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-tools"></i> Recovery
+        </a>
+        <a id="paypal-link" class="downloads-action-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-heart"></i> Support
+        </a>
+        <a id="device-changelog" class="downloads-action-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-file-text"></i> Changelog
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <h3 class="sitename">RisingOS Revived</h3>
+      <p>Download official builds and verify checksums before flashing.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://t.me/RisingOSRevived"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/RisingOS-Revived"><i class="bi bi-github"></i></a>
+      </div>
+      <div class="copyright">
+        <span>Copyright</span> <strong class="px-1 sitename">RisingOS Revived</strong> <span>All Rights Reserved</span>
+      </div>
+      <div class="credits">
+        Developed by <a href="https://t.me/skwel24">@skwel24</a> and Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
     </div>
+  </footer>
 
-    <!-- What's New Modal -->
-    <div id="whats-new-modal" class="modal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 1000;">
-        <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.8); margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-height: 80%; overflow-y: auto; text-align: left;">
-            <span id="close-modal" style="color: green; position: absolute; top: 10px; right: 20px; font-size: 36px; font-weight: bold; cursor: pointer;">
-                &times;
-            </span>
-            <h2 style="color: white; margin-bottom: 20px;">Source Changelogs</h2>
-            <div id="changelog-content" style="color: white; line-height: 1.6; margin-top: 10px; white-space: pre-wrap;">
-                <!-- Changelog content will be dynamically inserted here -->
-            </div>
-        </div>
-    </div>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
 
-    <div class="main-container">
-        <div id="error-container"></div>
-        <div id="variant-selector" class="variant-selector hidden">
-            <div class="variant-title">Select Build Variant</div>
-            <div id="variant-buttons" class="variant-buttons"></div>
-        </div>
-        <div id="card" class="card hidden">
-            <div class="device-info">
-                <div class="codename-display">
-                    <div class="device-info-left">
-                        <div class="device-meta">
-                            <div class="device-brand">
-                                <span id="device-brand">-</span>
-                                <span id="device-name">-</span>
-                            </div>
-                        </div>
-                        <div class="codename-label">Device Codename</div>
-                        <h1 class="codename-text" id="device-codename">Loading...</h1>
-                    </div>
-                    <div class="maintainer-section">
-                        <div class="maintainer-content">
-                            <div class="maintainer-avatar">
-                                <img id="maintainer-image" alt="Maintainer">
-                            </div>
-                            <div class="maintainer-info">
-                                <div class="maintainer-label">Maintained by</div>
-                                <div class="maintainer-name" id="maintainer">Loading...</div>
-                                <div class="social-links">
-                                    <a href="#" id="telegram-link" class="social-link" target="_blank">
-                                        <i class="fab fa-telegram"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="device-info-container">
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <div class="info-label">RisingOS Version</div>
-                            <div class="info-value" id="android-version">-</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Build Type</div>
-                            <div class="info-value" id="build-type">-</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Build Date</div>
-                            <div class="info-value" id="build-date">-</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">File Size</div>
-                            <div class="info-value" id="file-size">-</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Downloads</div>
-                            <div class="info-value" id="download-count">-</div>
-                        </div>
-                    </div>
-                    <div class="download-button-container" style="width: 100%; display: flex; justify-content: center; margin-top: 20px;">
-                        <a id="download-link" class="action-button download-button" target="_blank" style="padding: 1rem 5rem; font-size: 1.2rem;">Download</a>
-                    </div>
-                </div>
-                
-
-                <div class="action-buttons">
-                    
-                    <a id="guide-link" class="action-button" target="_blank">
-                        <i class="fab fa-github"></i>
-                        Guide
-                    </a>
-                    <a id="previous-builds" class="action-button" target="_blank">
-                        <i class="fas fa-arrow-left"></i>
-                        Previous Builds
-                    </a>
-                    <a id="recovery-link" class="action-button" target="_blank">
-                        <i class="fas fa-recycle"></i>
-                        Recovery
-                    </a>
-                    <a id="paypal-link" class="action-button" target="_blank">
-                        <i class="fas fa-heart"></i>
-                        Support
-                    </a>
-                    <a id="device-changelog" class="action-button" target="_blank">
-                        <i class="fas fa-file-alt"></i>
-                        Changelog
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                <p>&copy; 2025 RisingOS-Revived. All rights reserved.</p>
-                <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="footer-link">Privacy Policy</a>
-                    <span class="text-green-500">•</span>
-                    <a href="#" class="footer-link">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-    <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
-
-    <script>
-        async function loadDeviceData() {
-            try {
-                document.getElementById('card').classList.add('loading');
-                const urlParams = new URLSearchParams(window.location.search);
-                const codename = urlParams.get('codename');
-
-                if (!codename) {
-                    showError('No device codename provided. Please use ?codename=devicename in the URL.');
-                    return;
-                }
-
-                const response = await fetch('https://raw.githubusercontent.com/RisingOS-Revived-devices/portal/refs/heads/main/devices.json');
-                const devices = await response.json();
-                
-                const deviceVariants = devices.filter(d => d.codename.toLowerCase() === codename.toLowerCase());
-                
-                if (deviceVariants.length > 0) {
-                    if (deviceVariants.length > 1) {
-                        showVariantSelector(deviceVariants);
-                    } else {
-                        updateDeviceInfo(deviceVariants[0]);
-                        document.getElementById('card').classList.remove('hidden');
-                    }
-                } else {
-                    showError(`Device "${codename}" not found or no download available.`);
-                }
-            } catch (error) {
-                console.error('Error loading device data:', error);
-                showError('Failed to load device data. Please try again later.');
-            } finally {
-                document.getElementById('card').classList.remove('loading');
-            }
-        }
-
-        function showVariantSelector(variants) {
-            const variantSelector = document.getElementById('variant-selector');
-            const variantButtons = document.getElementById('variant-buttons');
-            variantButtons.innerHTML = '';
-
-            variants.forEach((device, index) => {
-                const button = document.createElement('button');
-                button.className = 'variant-button' + (index === 0 ? ' active' : '');
-                button.textContent = device.variant.toUpperCase();
-                button.addEventListener('click', () => {
-                    // Update active state
-                    document.querySelectorAll('.variant-button').forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    
-                    // Update device info
-                    updateDeviceInfo(device);
-                    document.getElementById('card').classList.remove('hidden');
-                });
-                variantButtons.appendChild(button);
-            });
-
-            // Show variant selector and update info for first variant
-            variantSelector.classList.remove('hidden');
-            updateDeviceInfo(variants[0]);
-            document.getElementById('card').classList.remove('hidden');
-        }
-
-        function showError(message) {
-            const errorContainer = document.getElementById('error-container');
-            errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
-        }
-
-        async function fetchDeviceDownloads(codename, variant, version) {
-            const startDate = '2025-02-01';
-            const today = new Date();
-            const endDate = today.toISOString().split('T')[0];
-            
-            // Only fetch 7.x if the version starts with 7
-            const versionPrefix = version.startsWith('7') ? '7.x' : '6.x';
-            const url = `https://sourceforge.net/projects/risingos-revived/files/${versionPrefix}/${variant.toUpperCase()}/${codename}/stats/json?start_date=${startDate}&end_date=${endDate}`;
-            
-            try {
-                const response = await fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json'
-                    },
-                    mode: 'cors'
-                });
-
-                if (!response.ok) {
-                    console.log(`No stats available for ${codename} (${versionPrefix})`);
-                    return 0;
-                }
-                
-                const data = await response.json();
-                let total = 0;
-                
-                if (data && typeof data === 'object') {
-                    // Sum up all download counts
-                    total = Object.values(data).reduce((sum, value) => {
-                        const count = Number(value);
-                        return sum + (isNaN(count) ? 0 : count);
-                    }, 0);
-                }
-                
-                // Debug logging
-                console.log(`URL for ${codename} (${versionPrefix}):`, url);
-                console.log(`Raw response for ${codename} (${versionPrefix}):`, data);
-                console.log(`Total downloads for ${codename} (${versionPrefix}):`, total);
-                
-                return total;
-            } catch (error) {
-                console.error(`Error fetching downloads for ${codename} (${versionPrefix}):`, error);
-                return 0;
-            }
-        }
-
-        async function updateDeviceInfo(device) {
-            const elements = document.querySelectorAll('.info-value, .codename-text, .device-brand');
-            elements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(10px)';
-            });
-
-            try {
-                // Fetch download count with device version
-                const downloadCount = await fetchDeviceDownloads(device.codename, device.variant, device.version);
-                
-                setTimeout(() => {
-                    document.getElementById('device-codename').textContent = device.codename;
-                    document.getElementById('device-brand').textContent = device.oem;
-                    document.getElementById('device-name').textContent = device.device;
-                    document.getElementById('android-version').textContent = device.version;
-                    document.getElementById('build-type').textContent = device.build;
-                    document.getElementById('build-date').textContent = new Date(device.timestamp * 1000).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric"
-                    });
-                    document.getElementById('file-size').textContent = (device.filesize >= 1073741824 ? (device.filesize / (1024 * 1024 * 1024)).toFixed(2) + ' GB' : (device.filesize / (1024 * 1024)).toFixed(2) + ' MB');
-                    document.getElementById('download-count').textContent = downloadCount.toLocaleString();
-                    document.getElementById('download-link').href = device.download;
-                    document.getElementById('guide-link').href = `https://github.com/RisingOS-Revived/official_devices/tree/fifteen/OTA/guide/${device.codename}.md`;
-                    document.getElementById('device-changelog').href = `https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/${device.codename}.txt`;
-                    document.getElementById('previous-builds').href = `https://sourceforge.net/projects/risingos-revived/files/6.x/${device.variant.toUpperCase()}/${device.codename}`;
-                    document.getElementById('recovery-link').href = device.recovery;
-                    document.getElementById('paypal-link').href = device.paypal;
-                    document.getElementById('maintainer').textContent = device.maintainer;
-                    document.getElementById('maintainer-image').src = device.maintainer_avatar;
-
-                    // Update Telegram link
-                    const telegramLink = document.getElementById('telegram-link');
-                    if (telegramLink) {
-                        telegramLink.href = device.telegram;
-                    }
-
-                    // Animate elements back in
-                    elements.forEach((el, index) => {
-                        setTimeout(() => {
-                            el.style.transition = 'all 0.3s ease';
-                            el.style.opacity = '1';
-                            el.style.transform = 'translateY(0)';
-                        }, index * 100);
-                    });
-                }, 300);
-            } catch (error) {
-                console.error('Error updating device info:', error);
-            }
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', loadDeviceData);
-
-        // Navigation toggle for mobile
-        const mobileMenuButton = document.querySelector('.mobile-nav-toggle');
-        const mobileMenu = document.querySelector('.nav-links');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-
-        // Add smooth navigation transitions
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.body.style.opacity = '0';
-                setTimeout(() => {
-                    window.location = link.href;
-                }, 300);
-            });
-        });
-
-        // Intersection Observer for smooth scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.card, .device-info-container, .action-buttons').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Show disclaimer modal on every page load
-        window.onload = function() {
-            document.getElementById('disclaimerModal').style.display = 'block';
-        };
-
-        // Close modal when clicking the understand button
-        if(document.querySelector('.understand-button')) {
-          document.querySelector('.understand-button').onclick = function() {
-              document.getElementById('disclaimerModal').style.display = 'none';
-          }
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('disclaimerModal')) {
-                document.getElementById('disclaimerModal').style.display = 'none';
-            }
-        }
-
-        // Mobile Navigation Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-            const navmenu = document.querySelector('#navmenu ul');
-
-            if (mobileNavToggle && navmenu) {
-                mobileNavToggle.addEventListener('click', function() {
-                    navmenu.classList.toggle('show');
-                });
-
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (navmenu && !navmenu.contains(event.target) && !mobileNavToggle.contains(event.target)) {
-                        navmenu.classList.remove('show');
-                    }
-                });
-            }
-
-            // What's New Modal
-            const whatsNewLink = document.getElementById('whats-new');
-            const whatsNewModal = document.getElementById('whats-new-modal');
-            const closeModal = document.getElementById('close-modal');
-
-            if (whatsNewLink && whatsNewModal && closeModal) {
-                whatsNewLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    whatsNewModal.style.display = 'block';
-                });
-
-                closeModal.addEventListener('click', function() {
-                    whatsNewModal.style.display = 'none';
-                });
-
-                window.addEventListener('click', function(event) {
-                    if (event.target === whatsNewModal) {
-                        whatsNewModal.style.display = 'none';
-                    }
-                });
-            }
-        });
-    </script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/rising-downloads.js"></script>
 </body>
 </html>
