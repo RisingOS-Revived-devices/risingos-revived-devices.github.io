@@ -164,6 +164,307 @@ function initLatestBanner() {
   });
 }
 
+function initHeroInteractiveBackground() {
+  const hero = document.getElementById("hero");
+  const canvas = document.getElementById("heroInteractiveCanvas");
+
+  if (!hero || !canvas) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reducedMotion) return;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  const logo = new Image();
+  logo.src = "assets/img/risingOS_logo.png";
+
+  let width = 0;
+  let height = 0;
+  let scrollProgress = 0;
+  let time = 0;
+  let isVisible = true;
+  let animationId = null;
+
+  const mouse = { x: 0.5, y: 0.5, active: false };
+  const logoParticles = [];
+  const networkNodes = [];
+
+  const LOGO_COUNT = 12;
+  const NODE_COUNT = 26;
+  const CONNECTION_DISTANCE = 120;
+
+  function initParticles() {
+    logoParticles.length = 0;
+    networkNodes.length = 0;
+
+    for (let i = 0; i < LOGO_COUNT; i += 1) {
+      logoParticles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: 16 + Math.random() * 26,
+        speed: 0.12 + Math.random() * 0.22,
+        drift: Math.random() * Math.PI * 2,
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 0.01,
+        opacity: 0.05 + Math.random() * 0.1,
+        depth: 0.35 + Math.random() * 0.65,
+      });
+    }
+
+    for (let i = 0; i < NODE_COUNT; i += 1) {
+      networkNodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: 1.5 + Math.random() * 2.5,
+        vx: (Math.random() - 0.5) * 0.28,
+        vy: (Math.random() - 0.5) * 0.28,
+        depth: 0.25 + Math.random() * 0.75,
+        isAndroid: Math.random() > 0.78,
+      });
+    }
+  }
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = hero.clientWidth;
+    height = hero.clientHeight;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    initParticles();
+  }
+
+  function updateScrollProgress() {
+    const rect = hero.getBoundingClientRect();
+    scrollProgress = Math.min(1, Math.max(0, -rect.top / Math.max(rect.height * 0.9, 1)));
+    hero.style.setProperty("--hero-scroll", scrollProgress.toFixed(3));
+  }
+
+  function drawBackground() {
+    const gradient = ctx.createRadialGradient(
+      width * 0.5,
+      height * (0.42 - scrollProgress * 0.12),
+      0,
+      width * 0.5,
+      height * 0.55,
+      Math.max(width, height) * 0.8
+    );
+    gradient.addColorStop(0, `rgba(61, 220, 132, ${0.1 - scrollProgress * 0.05})`);
+    gradient.addColorStop(0.35, `rgba(40, 167, 69, ${0.08 - scrollProgress * 0.03})`);
+    gradient.addColorStop(1, "#020202");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+  }
+
+  function drawGrid() {
+    const spacing = 52;
+    const offsetX = scrollProgress * 48 + Math.sin(time * 0.35) * 6;
+    const offsetY = scrollProgress * 90 + time * 10;
+
+    ctx.strokeStyle = `rgba(61, 220, 132, ${0.055 - scrollProgress * 0.02})`;
+    ctx.lineWidth = 1;
+
+    for (let x = -spacing; x < width + spacing; x += spacing) {
+      ctx.beginPath();
+      ctx.moveTo(x + offsetX, 0);
+      ctx.lineTo(x + offsetX, height);
+      ctx.stroke();
+    }
+
+    for (let y = -spacing; y < height + spacing; y += spacing) {
+      ctx.beginPath();
+      ctx.moveTo(0, y + offsetY);
+      ctx.lineTo(width, y + offsetY);
+      ctx.stroke();
+    }
+  }
+
+  function drawAndroidMark(x, y, size, alpha) {
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = "#3DDC84";
+
+    ctx.beginPath();
+    ctx.arc(x, y - size * 0.15, size * 0.52, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.roundRect(x - size * 0.62, y + size * 0.18, size * 1.24, size * 0.92, size * 0.22);
+    ctx.fill();
+
+    ctx.fillStyle = "#042812";
+    ctx.beginPath();
+    ctx.arc(x - size * 0.18, y - size * 0.18, size * 0.07, 0, Math.PI * 2);
+    ctx.arc(x + size * 0.18, y - size * 0.18, size * 0.07, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.strokeStyle = "#3DDC84";
+    ctx.lineWidth = size * 0.11;
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(x - size * 0.22, y - size * 0.52);
+    ctx.lineTo(x - size * 0.36, y - size * 0.82);
+    ctx.moveTo(x + size * 0.22, y - size * 0.52);
+    ctx.lineTo(x + size * 0.36, y - size * 0.82);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawCentralLogoWatermark() {
+    if (!logo.complete) return;
+
+    const scale = 1 - scrollProgress * 0.35;
+    const size = Math.min(width, height) * 0.4 * scale;
+    const centerX = width * 0.5 + (mouse.active ? (mouse.x - 0.5) * 20 : 0);
+    const centerY = height * 0.46 + scrollProgress * 36 + (mouse.active ? (mouse.y - 0.5) * 14 : 0);
+
+    ctx.save();
+    ctx.globalAlpha = 0.035 + (1 - scrollProgress) * 0.05;
+    ctx.translate(centerX, centerY);
+    ctx.rotate(scrollProgress * 0.12 + Math.sin(time * 0.25) * 0.02);
+    ctx.drawImage(logo, -size / 2, -size / 2, size, size);
+    ctx.restore();
+  }
+
+  function updateNetworkNodes() {
+    networkNodes.forEach((node) => {
+      node.x += node.vx * node.depth;
+      node.y += node.vy * node.depth - scrollProgress * 0.9 * node.depth;
+
+      if (mouse.active) {
+        const dx = node.x - mouse.x * width;
+        const dy = node.y - mouse.y * height;
+        const distance = Math.hypot(dx, dy);
+        if (distance > 0 && distance < 130) {
+          const force = (130 - distance) / 130;
+          node.x += (dx / distance) * force * 1.4;
+          node.y += (dy / distance) * force * 1.4;
+        }
+      }
+
+      if (node.x < -24) node.x = width + 24;
+      if (node.x > width + 24) node.x = -24;
+      if (node.y < -24) node.y = height + 24;
+      if (node.y > height + 24) node.y = -24;
+    });
+  }
+
+  function drawNetwork() {
+    for (let i = 0; i < networkNodes.length; i += 1) {
+      for (let j = i + 1; j < networkNodes.length; j += 1) {
+        const dx = networkNodes[i].x - networkNodes[j].x;
+        const dy = networkNodes[i].y - networkNodes[j].y;
+        const distance = Math.hypot(dx, dy);
+        if (distance < CONNECTION_DISTANCE) {
+          ctx.strokeStyle = `rgba(61, 220, 132, ${(1 - distance / CONNECTION_DISTANCE) * 0.16})`;
+          ctx.beginPath();
+          ctx.moveTo(networkNodes[i].x, networkNodes[i].y);
+          ctx.lineTo(networkNodes[j].x, networkNodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    networkNodes.forEach((node) => {
+      if (node.isAndroid) {
+        drawAndroidMark(node.x, node.y, 7 + node.depth * 5, 0.18 + node.depth * 0.22);
+        return;
+      }
+
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(125, 255, 125, ${0.18 + node.depth * 0.28})`;
+      ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function drawLogoParticles() {
+    if (!logo.complete) return;
+
+    logoParticles.forEach((particle) => {
+      particle.drift += 0.0035 * particle.depth;
+      particle.x += Math.cos(particle.drift) * particle.speed * particle.depth;
+      particle.y += Math.sin(particle.drift) * particle.speed * particle.depth - scrollProgress * 1.1 * particle.depth;
+      particle.rotation += particle.rotSpeed;
+
+      if (particle.x < -40) particle.x = width + 40;
+      if (particle.x > width + 40) particle.x = -40;
+      if (particle.y < -40) particle.y = height + 40;
+      if (particle.y > height + 40) particle.y = -40;
+
+      ctx.save();
+      ctx.translate(particle.x, particle.y);
+      ctx.rotate(particle.rotation + scrollProgress * 0.45);
+      ctx.globalAlpha = particle.opacity * (1 - scrollProgress * 0.55);
+      ctx.drawImage(logo, -particle.size / 2, -particle.size / 2, particle.size, particle.size);
+      ctx.restore();
+    });
+  }
+
+  function drawVignette() {
+    const vignette = ctx.createRadialGradient(
+      width / 2,
+      height / 2,
+      height * 0.18,
+      width / 2,
+      height / 2,
+      height * 0.88
+    );
+    vignette.addColorStop(0, "transparent");
+    vignette.addColorStop(1, `rgba(0, 0, 0, ${0.42 + scrollProgress * 0.28})`);
+    ctx.fillStyle = vignette;
+    ctx.fillRect(0, 0, width, height);
+  }
+
+  function render() {
+    drawBackground();
+    drawGrid();
+    drawCentralLogoWatermark();
+    updateNetworkNodes();
+    drawNetwork();
+    drawLogoParticles();
+    drawVignette();
+  }
+
+  function loop() {
+    if (isVisible) {
+      time += 0.016;
+      updateScrollProgress();
+      render();
+    }
+    animationId = requestAnimationFrame(loop);
+  }
+
+  window.addEventListener("resize", resize);
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+
+  hero.addEventListener("mousemove", (event) => {
+    const rect = hero.getBoundingClientRect();
+    mouse.x = (event.clientX - rect.left) / rect.width;
+    mouse.y = (event.clientY - rect.top) / rect.height;
+    mouse.active = true;
+  });
+
+  hero.addEventListener("mouseleave", () => {
+    mouse.active = false;
+  });
+
+  const visibilityObserver = new IntersectionObserver(
+    (entries) => {
+      isVisible = entries[0]?.isIntersecting ?? true;
+    },
+    { threshold: 0.05 }
+  );
+  visibilityObserver.observe(hero);
+
+  resize();
+  updateScrollProgress();
+  loop();
+}
+
 function chartTheme() {
   return {
     font: { family: "'Poppins', sans-serif", size: 11 },
@@ -462,6 +763,7 @@ async function fetchData() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  initHeroInteractiveBackground();
   initScreenshotShowcase();
   initLatestBanner();
   initGraphToggle();

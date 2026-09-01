@@ -44,6 +44,7 @@
     .screenshot-header {
         font-weight: 700;
     }
+    .badge-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -154,17 +155,16 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <!-- Video Background -->
-     <video autoplay loop muted playsinline class="video-background">
-       <source src="assets/img/bgtest.webm" type="video/webm">
-       Your browser does not support the video tag.
-     </video>
+      <div class="hero-interactive-bg" aria-hidden="true">
+        <canvas id="heroInteractiveCanvas"></canvas>
+        <div class="hero-interactive-overlay"></div>
+      </div>
 
-      <div class="container" data-aos="zoom-out" data-aos-delay="100" style="position:center">
+      <div class="container hero-content" data-aos="zoom-out" data-aos-delay="100">
         <h2>RisingOS Revived</h2>
         <p>We are <span class="typed" data-typed-items="Powerful, Customizable, Refined.">RisingOS Revived</span><span class="typed-cursor typed-cursor--blink"></span></p>
         <br>
-        <a href="devices.html" class="btn btn-success btn-lg" style="font-size: 24px;border-radius:30px;">
+        <a href="devices.html" class="btn btn-success btn-lg hero-download-btn">
           Download Now
         </a>
       </div>
