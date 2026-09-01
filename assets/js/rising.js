@@ -173,9 +173,10 @@ function initHeroInteractiveBackground() {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reducedMotion) return;
 
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });
   if (!ctx) return;
 
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
   const logo = new Image();
   logo.src = "assets/img/risingOS_logo.png";
 
@@ -183,16 +184,20 @@ function initHeroInteractiveBackground() {
   let height = 0;
   let scrollProgress = 0;
   let time = 0;
-  let isVisible = true;
+  let isVisible = false;
   let animationId = null;
+  let scrollRaf = null;
+  let lastFrameTime = 0;
+  const FRAME_INTERVAL = isMobile ? 50 : 33;
 
   const mouse = { x: 0.5, y: 0.5, active: false };
   const logoParticles = [];
   const networkNodes = [];
 
-  const LOGO_COUNT = 12;
-  const NODE_COUNT = 26;
-  const CONNECTION_DISTANCE = 120;
+  const LOGO_COUNT = isMobile ? 5 : 8;
+  const NODE_COUNT = isMobile ? 14 : 18;
+  const CONNECTION_DISTANCE = 105;
+  const GRID_SPACING = isMobile ? 72 : 56;
 
   function initParticles() {
     logoParticles.length = 0;
@@ -202,12 +207,12 @@ function initHeroInteractiveBackground() {
       logoParticles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: 16 + Math.random() * 26,
-        speed: 0.12 + Math.random() * 0.22,
+        size: 14 + Math.random() * 22,
+        speed: 0.1 + Math.random() * 0.18,
         drift: Math.random() * Math.PI * 2,
         rotation: Math.random() * Math.PI * 2,
-        rotSpeed: (Math.random() - 0.5) * 0.01,
-        opacity: 0.05 + Math.random() * 0.1,
+        rotSpeed: (Math.random() - 0.5) * 0.008,
+        opacity: 0.05 + Math.random() * 0.08,
         depth: 0.35 + Math.random() * 0.65,
       });
     }
@@ -216,17 +221,17 @@ function initHeroInteractiveBackground() {
       networkNodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: 1.5 + Math.random() * 2.5,
-        vx: (Math.random() - 0.5) * 0.28,
-        vy: (Math.random() - 0.5) * 0.28,
+        radius: 1.5 + Math.random() * 2,
+        vx: (Math.random() - 0.5) * 0.24,
+        vy: (Math.random() - 0.5) * 0.24,
         depth: 0.25 + Math.random() * 0.75,
-        isAndroid: Math.random() > 0.78,
+        isAndroid: !isMobile && Math.random() > 0.82,
       });
     }
   }
 
   function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
     width = hero.clientWidth;
     height = hero.clientHeight;
     canvas.width = Math.floor(width * dpr);
@@ -239,77 +244,69 @@ function initHeroInteractiveBackground() {
 
   function updateScrollProgress() {
     const rect = hero.getBoundingClientRect();
-    scrollProgress = Math.min(1, Math.max(0, -rect.top / Math.max(rect.height * 0.9, 1)));
+    const next = Math.min(1, Math.max(0, -rect.top / Math.max(rect.height * 0.9, 1)));
+    if (Math.abs(next - scrollProgress) < 0.002) return;
+    scrollProgress = next;
     hero.style.setProperty("--hero-scroll", scrollProgress.toFixed(3));
   }
 
+  function scheduleScrollUpdate() {
+    if (scrollRaf) return;
+    scrollRaf = requestAnimationFrame(() => {
+      scrollRaf = null;
+      updateScrollProgress();
+    });
+  }
+
   function drawBackground() {
+    ctx.fillStyle = "#020202";
+    ctx.fillRect(0, 0, width, height);
+
     const gradient = ctx.createRadialGradient(
       width * 0.5,
       height * (0.42 - scrollProgress * 0.12),
       0,
       width * 0.5,
       height * 0.55,
-      Math.max(width, height) * 0.8
+      Math.max(width, height) * 0.72
     );
-    gradient.addColorStop(0, `rgba(61, 220, 132, ${0.1 - scrollProgress * 0.05})`);
-    gradient.addColorStop(0.35, `rgba(40, 167, 69, ${0.08 - scrollProgress * 0.03})`);
-    gradient.addColorStop(1, "#020202");
+    gradient.addColorStop(0, `rgba(61, 220, 132, ${0.09 - scrollProgress * 0.04})`);
+    gradient.addColorStop(1, "rgba(2, 2, 2, 0.85)");
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
   }
 
   function drawGrid() {
-    const spacing = 52;
-    const offsetX = scrollProgress * 48 + Math.sin(time * 0.35) * 6;
-    const offsetY = scrollProgress * 90 + time * 10;
+    const offsetX = scrollProgress * 40;
+    const offsetY = scrollProgress * 70 + time * 8;
 
-    ctx.strokeStyle = `rgba(61, 220, 132, ${0.055 - scrollProgress * 0.02})`;
+    ctx.strokeStyle = `rgba(61, 220, 132, ${0.045 - scrollProgress * 0.015})`;
     ctx.lineWidth = 1;
+    ctx.beginPath();
 
-    for (let x = -spacing; x < width + spacing; x += spacing) {
-      ctx.beginPath();
+    for (let x = -GRID_SPACING; x < width + GRID_SPACING; x += GRID_SPACING) {
       ctx.moveTo(x + offsetX, 0);
       ctx.lineTo(x + offsetX, height);
-      ctx.stroke();
     }
 
-    for (let y = -spacing; y < height + spacing; y += spacing) {
-      ctx.beginPath();
+    for (let y = -GRID_SPACING; y < height + GRID_SPACING; y += GRID_SPACING) {
       ctx.moveTo(0, y + offsetY);
       ctx.lineTo(width, y + offsetY);
-      ctx.stroke();
     }
+
+    ctx.stroke();
   }
 
   function drawAndroidMark(x, y, size, alpha) {
     ctx.save();
     ctx.globalAlpha = alpha;
     ctx.fillStyle = "#3DDC84";
-
     ctx.beginPath();
     ctx.arc(x, y - size * 0.15, size * 0.52, 0, Math.PI * 2);
     ctx.fill();
-
     ctx.beginPath();
     ctx.roundRect(x - size * 0.62, y + size * 0.18, size * 1.24, size * 0.92, size * 0.22);
     ctx.fill();
-
-    ctx.fillStyle = "#042812";
-    ctx.beginPath();
-    ctx.arc(x - size * 0.18, y - size * 0.18, size * 0.07, 0, Math.PI * 2);
-    ctx.arc(x + size * 0.18, y - size * 0.18, size * 0.07, 0, Math.PI * 2);
-    ctx.fill();
-
-    ctx.strokeStyle = "#3DDC84";
-    ctx.lineWidth = size * 0.11;
-    ctx.lineCap = "round";
-    ctx.beginPath();
-    ctx.moveTo(x - size * 0.22, y - size * 0.52);
-    ctx.lineTo(x - size * 0.36, y - size * 0.82);
-    ctx.moveTo(x + size * 0.22, y - size * 0.52);
-    ctx.lineTo(x + size * 0.36, y - size * 0.82);
-    ctx.stroke();
     ctx.restore();
   }
 
@@ -317,14 +314,14 @@ function initHeroInteractiveBackground() {
     if (!logo.complete) return;
 
     const scale = 1 - scrollProgress * 0.35;
-    const size = Math.min(width, height) * 0.4 * scale;
-    const centerX = width * 0.5 + (mouse.active ? (mouse.x - 0.5) * 20 : 0);
-    const centerY = height * 0.46 + scrollProgress * 36 + (mouse.active ? (mouse.y - 0.5) * 14 : 0);
+    const size = Math.min(width, height) * 0.38 * scale;
+    const centerX = width * 0.5 + (mouse.active ? (mouse.x - 0.5) * 16 : 0);
+    const centerY = height * 0.46 + scrollProgress * 30 + (mouse.active ? (mouse.y - 0.5) * 10 : 0);
 
     ctx.save();
-    ctx.globalAlpha = 0.035 + (1 - scrollProgress) * 0.05;
+    ctx.globalAlpha = 0.04 + (1 - scrollProgress) * 0.04;
     ctx.translate(centerX, centerY);
-    ctx.rotate(scrollProgress * 0.12 + Math.sin(time * 0.25) * 0.02);
+    ctx.rotate(scrollProgress * 0.1);
     ctx.drawImage(logo, -size / 2, -size / 2, size, size);
     ctx.restore();
   }
@@ -332,16 +329,16 @@ function initHeroInteractiveBackground() {
   function updateNetworkNodes() {
     networkNodes.forEach((node) => {
       node.x += node.vx * node.depth;
-      node.y += node.vy * node.depth - scrollProgress * 0.9 * node.depth;
+      node.y += node.vy * node.depth - scrollProgress * 0.75 * node.depth;
 
       if (mouse.active) {
         const dx = node.x - mouse.x * width;
         const dy = node.y - mouse.y * height;
         const distance = Math.hypot(dx, dy);
-        if (distance > 0 && distance < 130) {
-          const force = (130 - distance) / 130;
-          node.x += (dx / distance) * force * 1.4;
-          node.y += (dy / distance) * force * 1.4;
+        if (distance > 0 && distance < 110) {
+          const force = (110 - distance) / 110;
+          node.x += (dx / distance) * force;
+          node.y += (dy / distance) * force;
         }
       }
 
@@ -353,29 +350,30 @@ function initHeroInteractiveBackground() {
   }
 
   function drawNetwork() {
+    ctx.beginPath();
     for (let i = 0; i < networkNodes.length; i += 1) {
       for (let j = i + 1; j < networkNodes.length; j += 1) {
         const dx = networkNodes[i].x - networkNodes[j].x;
         const dy = networkNodes[i].y - networkNodes[j].y;
-        const distance = Math.hypot(dx, dy);
-        if (distance < CONNECTION_DISTANCE) {
-          ctx.strokeStyle = `rgba(61, 220, 132, ${(1 - distance / CONNECTION_DISTANCE) * 0.16})`;
-          ctx.beginPath();
+        const distance = dx * dx + dy * dy;
+        const maxDistance = CONNECTION_DISTANCE * CONNECTION_DISTANCE;
+        if (distance < maxDistance) {
           ctx.moveTo(networkNodes[i].x, networkNodes[i].y);
           ctx.lineTo(networkNodes[j].x, networkNodes[j].y);
-          ctx.stroke();
         }
       }
     }
+    ctx.strokeStyle = "rgba(61, 220, 132, 0.1)";
+    ctx.stroke();
 
     networkNodes.forEach((node) => {
       if (node.isAndroid) {
-        drawAndroidMark(node.x, node.y, 7 + node.depth * 5, 0.18 + node.depth * 0.22);
+        drawAndroidMark(node.x, node.y, 6 + node.depth * 4, 0.16 + node.depth * 0.18);
         return;
       }
 
       ctx.beginPath();
-      ctx.fillStyle = `rgba(125, 255, 125, ${0.18 + node.depth * 0.28})`;
+      ctx.fillStyle = `rgba(125, 255, 125, ${0.16 + node.depth * 0.22})`;
       ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
       ctx.fill();
     });
@@ -385,9 +383,9 @@ function initHeroInteractiveBackground() {
     if (!logo.complete) return;
 
     logoParticles.forEach((particle) => {
-      particle.drift += 0.0035 * particle.depth;
+      particle.drift += 0.003 * particle.depth;
       particle.x += Math.cos(particle.drift) * particle.speed * particle.depth;
-      particle.y += Math.sin(particle.drift) * particle.speed * particle.depth - scrollProgress * 1.1 * particle.depth;
+      particle.y += Math.sin(particle.drift) * particle.speed * particle.depth - scrollProgress * particle.depth;
       particle.rotation += particle.rotSpeed;
 
       if (particle.x < -40) particle.x = width + 40;
@@ -397,25 +395,26 @@ function initHeroInteractiveBackground() {
 
       ctx.save();
       ctx.translate(particle.x, particle.y);
-      ctx.rotate(particle.rotation + scrollProgress * 0.45);
-      ctx.globalAlpha = particle.opacity * (1 - scrollProgress * 0.55);
+      ctx.rotate(particle.rotation + scrollProgress * 0.35);
+      ctx.globalAlpha = particle.opacity * (1 - scrollProgress * 0.5);
       ctx.drawImage(logo, -particle.size / 2, -particle.size / 2, particle.size, particle.size);
       ctx.restore();
     });
   }
 
   function drawVignette() {
-    const vignette = ctx.createRadialGradient(
+    const alpha = 0.38 + scrollProgress * 0.24;
+    const gradient = ctx.createRadialGradient(
       width / 2,
       height / 2,
-      height * 0.18,
+      height * 0.22,
       width / 2,
       height / 2,
-      height * 0.88
+      height * 0.82
     );
-    vignette.addColorStop(0, "transparent");
-    vignette.addColorStop(1, `rgba(0, 0, 0, ${0.42 + scrollProgress * 0.28})`);
-    ctx.fillStyle = vignette;
+    gradient.addColorStop(0, "transparent");
+    gradient.addColorStop(1, `rgba(0, 0, 0, ${alpha})`);
+    ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
   }
 
@@ -429,40 +428,82 @@ function initHeroInteractiveBackground() {
     drawVignette();
   }
 
-  function loop() {
-    if (isVisible) {
-      time += 0.016;
-      updateScrollProgress();
+  function loop(timestamp) {
+    if (!isVisible) {
+      animationId = null;
+      return;
+    }
+
+    if (timestamp - lastFrameTime >= FRAME_INTERVAL) {
+      lastFrameTime = timestamp;
+      time += FRAME_INTERVAL / 1000;
       render();
     }
+
     animationId = requestAnimationFrame(loop);
   }
 
-  window.addEventListener("resize", resize);
-  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  function startLoop() {
+    if (animationId) return;
+    lastFrameTime = 0;
+    animationId = requestAnimationFrame(loop);
+  }
 
-  hero.addEventListener("mousemove", (event) => {
-    const rect = hero.getBoundingClientRect();
-    mouse.x = (event.clientX - rect.left) / rect.width;
-    mouse.y = (event.clientY - rect.top) / rect.height;
-    mouse.active = true;
-  });
+  function stopLoop() {
+    if (!animationId) return;
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
 
-  hero.addEventListener("mouseleave", () => {
-    mouse.active = false;
-  });
+  window.addEventListener("resize", resize, { passive: true });
+  window.addEventListener("scroll", scheduleScrollUpdate, { passive: true });
+
+  if (!isMobile) {
+    hero.addEventListener("mousemove", (event) => {
+      const rect = hero.getBoundingClientRect();
+      mouse.x = (event.clientX - rect.left) / rect.width;
+      mouse.y = (event.clientY - rect.top) / rect.height;
+      mouse.active = true;
+    }, { passive: true });
+
+    hero.addEventListener("mouseleave", () => {
+      mouse.active = false;
+    });
+  }
 
   const visibilityObserver = new IntersectionObserver(
     (entries) => {
-      isVisible = entries[0]?.isIntersecting ?? true;
+      const entry = entries[0];
+      isVisible = Boolean(entry?.isIntersecting);
+      if (isVisible) {
+        startLoop();
+      } else {
+        stopLoop();
+      }
     },
-    { threshold: 0.05 }
+    { threshold: 0.01, rootMargin: "0px 0px 10% 0px" }
   );
   visibilityObserver.observe(hero);
 
   resize();
-  updateScrollProgress();
-  loop();
+  scheduleScrollUpdate();
+}
+
+function initOffscreenAnimationPause() {
+  const targets = document.querySelectorAll(".latest-banner-showcase, .screenshot-stage");
+
+  if (targets.length === 0) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("is-offscreen", !entry.isIntersecting);
+      });
+    },
+    { rootMargin: "80px 0px", threshold: 0 }
+  );
+
+  targets.forEach((target) => observer.observe(target));
 }
 
 function chartTheme() {
@@ -764,9 +805,9 @@ async function fetchData() {
 
 document.addEventListener("DOMContentLoaded", function () {
   initHeroInteractiveBackground();
+  initOffscreenAnimationPause();
   initScreenshotShowcase();
   initLatestBanner();
   initGraphToggle();
   fetchData();
-  AOS.init();
 });
