@@ -713,11 +713,18 @@ section,
   margin: 0;
   font-size: 64px;
   font-weight: 700;
+  line-height: 1.15;
+  overflow: visible;
 }
 
 .hero p {
   margin: 5px 0 0 0;
   font-size: 26px;
+}
+
+#hero .hero-tagline span {
+  border-bottom: none;
+  letter-spacing: inherit;
 }
 
 .hero p span {

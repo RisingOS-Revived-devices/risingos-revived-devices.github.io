@@ -68,10 +68,6 @@
             background-position: 100%;
         }
     }
-    #close-modal:hover {
-        color: lightcoral;
-    }
-
     .btn-success {
         transition: background-color 0.3s ease, transform 0.3s ease;
     }
@@ -138,17 +134,26 @@
     </div>
   </header>
 
-  <div id="whats-new-modal" class="modal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 1000;">
-    <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.8); margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-height: 80%; overflow-y: auto; text-align: left;">
-        <span id="close-modal" style="color: green; position: absolute; top: 10px; right: 20px; font-size: 36px; font-weight: bold; cursor: pointer;">
-            &times;
-        </span>
-        <h2 style="color: white; margin-bottom: 20px;">Source Changelogs</h2>
-        <div id="changelog-content" style="color: white; line-height: 1.6; margin-top: 10px; white-space: pre-wrap;">
-            <!-- Changelog content will be dynamically inserted here -->
+  <div id="whats-new-modal" class="whats-new-modal" aria-hidden="true" role="dialog" aria-labelledby="whats-new-title">
+    <div class="whats-new-modal__backdrop" data-whats-new-close aria-hidden="true"></div>
+    <div class="whats-new-modal__panel" role="document">
+      <div class="whats-new-modal__header">
+        <div class="whats-new-modal__heading">
+          <p class="whats-new-modal__eyebrow">Source Updates</p>
+          <h2 id="whats-new-title" class="whats-new-modal__title">What's New</h2>
         </div>
+        <button type="button" id="close-modal" class="whats-new-modal__close" aria-label="Close changelog">
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="changelog-content" class="whats-new-modal__body">
+        <div class="whats-new-modal__loading">
+          <span class="whats-new-modal__spinner" aria-hidden="true"></span>
+          <p>Loading changelogs…</p>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
   <main class="main">
 
@@ -156,16 +161,32 @@
     <section id="hero" class="hero section dark-background">
 
       <div class="hero-interactive-bg" aria-hidden="true">
-        <canvas id="heroInteractiveCanvas"></canvas>
+        <div class="hero-static-grid"></div>
         <div class="hero-interactive-overlay"></div>
       </div>
 
-      <div class="container hero-content" data-aos="zoom-out" data-aos-delay="100">
-        <h2>RisingOS Revived</h2>
-        <p>We are <span class="typed" data-typed-items="Powerful, Customizable, Refined.">RisingOS Revived</span><span class="typed-cursor typed-cursor--blink"></span></p>
-        <br>
-        <a href="devices.html" class="btn btn-success btn-lg hero-download-btn">
-          Download Now
+      <div class="container hero-content">
+        <h2 class="hero-title" aria-label="RisingOS Revived">
+          <span class="hero-title-glow" aria-hidden="true"></span>
+          <span class="hero-title-text">
+            <span class="hero-title-reveal">
+              <span class="hero-title-word hero-title-word--primary">RisingOS</span>
+            </span>
+            <span class="hero-title-reveal">
+              <span class="hero-title-word hero-title-word--accent">Revived</span>
+            </span>
+            <span class="hero-title-scan" aria-hidden="true"></span>
+          </span>
+        </h2>
+        <p class="hero-tagline">
+          <span class="hero-tagline-text">Make your device <span class="hero-tagline-highlight">unique</span></span>
+        </p>
+        <a href="devices.html" class="hero-download-btn">
+          <span class="hero-download-btn__glow" aria-hidden="true"></span>
+          <span class="hero-download-btn__content">
+            <i class="bi bi-download" aria-hidden="true"></i>
+            Download Now
+          </span>
         </a>
       </div>
 
@@ -568,38 +589,6 @@
 
   <!-- RisingOS Revived JS File -->
   <script src="assets/js/rising.js"></script>
-
-  <script>
-    function cleanChangelogContent(data) {
-        // Remove unnecessary strings and format text
-        let cleanedData = data.replace(/##/g, '')
-                               .replace(/\-\*\*/g, '')
-                               .replace(/\-\-\-/g, '')
-                               .replace(/\#/g, '')
-                               .replace(/\*(.*?)\*/g, '<strong>$1</strong>')
-                               .trim();
-        return cleanedData;
-    }
-    document.getElementById('whats-new').onclick = function() {
-        fetch('https://raw.githubusercontent.com/RisingOS-Revived/risingOS_changelogs/refs/heads/fifteen/README.md')
-            .then(response => response.text())
-            .then(data => {
-                // Remove unnecessary strings
-                const cleanedData = cleanChangelogContent(data);
-                document.getElementById('changelog-content').innerHTML = cleanedData;
-                document.getElementById('whats-new-modal').style.display = 'block';
-            })
-            .catch(error => console.error('Error fetching README:', error));
-    };
-    document.getElementById('close-modal').onclick = function() {
-        document.getElementById('whats-new-modal').style.display = 'none';
-    };
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('whats-new-modal')) {
-            document.getElementById('whats-new-modal').style.display = 'none';
-        }
-    };
-</script>
 
 </body>
 

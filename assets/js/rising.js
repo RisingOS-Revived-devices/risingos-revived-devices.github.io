@@ -164,83 +164,12 @@ function initLatestBanner() {
   });
 }
 
-function initHeroInteractiveBackground() {
+function initHeroScrollEffects() {
   const hero = document.getElementById("hero");
-  const canvas = document.getElementById("heroInteractiveCanvas");
+  if (!hero) return;
 
-  if (!hero || !canvas) return;
-
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reducedMotion) return;
-
-  const ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });
-  if (!ctx) return;
-
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-  const logo = new Image();
-  logo.src = "assets/img/risingOS_logo.png";
-
-  let width = 0;
-  let height = 0;
   let scrollProgress = 0;
-  let time = 0;
-  let isVisible = false;
-  let animationId = null;
   let scrollRaf = null;
-  let lastFrameTime = 0;
-  const FRAME_INTERVAL = isMobile ? 50 : 33;
-
-  const mouse = { x: 0.5, y: 0.5, active: false };
-  const logoParticles = [];
-  const networkNodes = [];
-
-  const LOGO_COUNT = isMobile ? 5 : 8;
-  const NODE_COUNT = isMobile ? 14 : 18;
-  const CONNECTION_DISTANCE = 105;
-  const GRID_SPACING = isMobile ? 72 : 56;
-
-  function initParticles() {
-    logoParticles.length = 0;
-    networkNodes.length = 0;
-
-    for (let i = 0; i < LOGO_COUNT; i += 1) {
-      logoParticles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        size: 14 + Math.random() * 22,
-        speed: 0.1 + Math.random() * 0.18,
-        drift: Math.random() * Math.PI * 2,
-        rotation: Math.random() * Math.PI * 2,
-        rotSpeed: (Math.random() - 0.5) * 0.008,
-        opacity: 0.05 + Math.random() * 0.08,
-        depth: 0.35 + Math.random() * 0.65,
-      });
-    }
-
-    for (let i = 0; i < NODE_COUNT; i += 1) {
-      networkNodes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: 1.5 + Math.random() * 2,
-        vx: (Math.random() - 0.5) * 0.24,
-        vy: (Math.random() - 0.5) * 0.24,
-        depth: 0.25 + Math.random() * 0.75,
-        isAndroid: !isMobile && Math.random() > 0.82,
-      });
-    }
-  }
-
-  function resize() {
-    const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
-    width = hero.clientWidth;
-    height = hero.clientHeight;
-    canvas.width = Math.floor(width * dpr);
-    canvas.height = Math.floor(height * dpr);
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    initParticles();
-  }
 
   function updateScrollProgress() {
     const rect = hero.getBoundingClientRect();
@@ -258,235 +187,38 @@ function initHeroInteractiveBackground() {
     });
   }
 
-  function drawBackground() {
-    ctx.fillStyle = "#020202";
-    ctx.fillRect(0, 0, width, height);
-
-    const gradient = ctx.createRadialGradient(
-      width * 0.5,
-      height * (0.42 - scrollProgress * 0.12),
-      0,
-      width * 0.5,
-      height * 0.55,
-      Math.max(width, height) * 0.72
-    );
-    gradient.addColorStop(0, `rgba(61, 220, 132, ${0.09 - scrollProgress * 0.04})`);
-    gradient.addColorStop(1, "rgba(2, 2, 2, 0.85)");
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, width, height);
-  }
-
-  function drawGrid() {
-    const offsetX = scrollProgress * 40;
-    const offsetY = scrollProgress * 70 + time * 8;
-
-    ctx.strokeStyle = `rgba(61, 220, 132, ${0.045 - scrollProgress * 0.015})`;
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-
-    for (let x = -GRID_SPACING; x < width + GRID_SPACING; x += GRID_SPACING) {
-      ctx.moveTo(x + offsetX, 0);
-      ctx.lineTo(x + offsetX, height);
-    }
-
-    for (let y = -GRID_SPACING; y < height + GRID_SPACING; y += GRID_SPACING) {
-      ctx.moveTo(0, y + offsetY);
-      ctx.lineTo(width, y + offsetY);
-    }
-
-    ctx.stroke();
-  }
-
-  function drawAndroidMark(x, y, size, alpha) {
-    ctx.save();
-    ctx.globalAlpha = alpha;
-    ctx.fillStyle = "#3DDC84";
-    ctx.beginPath();
-    ctx.arc(x, y - size * 0.15, size * 0.52, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.beginPath();
-    ctx.roundRect(x - size * 0.62, y + size * 0.18, size * 1.24, size * 0.92, size * 0.22);
-    ctx.fill();
-    ctx.restore();
-  }
-
-  function drawCentralLogoWatermark() {
-    if (!logo.complete) return;
-
-    const scale = 1 - scrollProgress * 0.35;
-    const size = Math.min(width, height) * 0.38 * scale;
-    const centerX = width * 0.5 + (mouse.active ? (mouse.x - 0.5) * 16 : 0);
-    const centerY = height * 0.46 + scrollProgress * 30 + (mouse.active ? (mouse.y - 0.5) * 10 : 0);
-
-    ctx.save();
-    ctx.globalAlpha = 0.04 + (1 - scrollProgress) * 0.04;
-    ctx.translate(centerX, centerY);
-    ctx.rotate(scrollProgress * 0.1);
-    ctx.drawImage(logo, -size / 2, -size / 2, size, size);
-    ctx.restore();
-  }
-
-  function updateNetworkNodes() {
-    networkNodes.forEach((node) => {
-      node.x += node.vx * node.depth;
-      node.y += node.vy * node.depth - scrollProgress * 0.75 * node.depth;
-
-      if (mouse.active) {
-        const dx = node.x - mouse.x * width;
-        const dy = node.y - mouse.y * height;
-        const distance = Math.hypot(dx, dy);
-        if (distance > 0 && distance < 110) {
-          const force = (110 - distance) / 110;
-          node.x += (dx / distance) * force;
-          node.y += (dy / distance) * force;
-        }
-      }
-
-      if (node.x < -24) node.x = width + 24;
-      if (node.x > width + 24) node.x = -24;
-      if (node.y < -24) node.y = height + 24;
-      if (node.y > height + 24) node.y = -24;
-    });
-  }
-
-  function drawNetwork() {
-    ctx.beginPath();
-    for (let i = 0; i < networkNodes.length; i += 1) {
-      for (let j = i + 1; j < networkNodes.length; j += 1) {
-        const dx = networkNodes[i].x - networkNodes[j].x;
-        const dy = networkNodes[i].y - networkNodes[j].y;
-        const distance = dx * dx + dy * dy;
-        const maxDistance = CONNECTION_DISTANCE * CONNECTION_DISTANCE;
-        if (distance < maxDistance) {
-          ctx.moveTo(networkNodes[i].x, networkNodes[i].y);
-          ctx.lineTo(networkNodes[j].x, networkNodes[j].y);
-        }
-      }
-    }
-    ctx.strokeStyle = "rgba(61, 220, 132, 0.1)";
-    ctx.stroke();
-
-    networkNodes.forEach((node) => {
-      if (node.isAndroid) {
-        drawAndroidMark(node.x, node.y, 6 + node.depth * 4, 0.16 + node.depth * 0.18);
-        return;
-      }
-
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(125, 255, 125, ${0.16 + node.depth * 0.22})`;
-      ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-      ctx.fill();
-    });
-  }
-
-  function drawLogoParticles() {
-    if (!logo.complete) return;
-
-    logoParticles.forEach((particle) => {
-      particle.drift += 0.003 * particle.depth;
-      particle.x += Math.cos(particle.drift) * particle.speed * particle.depth;
-      particle.y += Math.sin(particle.drift) * particle.speed * particle.depth - scrollProgress * particle.depth;
-      particle.rotation += particle.rotSpeed;
-
-      if (particle.x < -40) particle.x = width + 40;
-      if (particle.x > width + 40) particle.x = -40;
-      if (particle.y < -40) particle.y = height + 40;
-      if (particle.y > height + 40) particle.y = -40;
-
-      ctx.save();
-      ctx.translate(particle.x, particle.y);
-      ctx.rotate(particle.rotation + scrollProgress * 0.35);
-      ctx.globalAlpha = particle.opacity * (1 - scrollProgress * 0.5);
-      ctx.drawImage(logo, -particle.size / 2, -particle.size / 2, particle.size, particle.size);
-      ctx.restore();
-    });
-  }
-
-  function drawVignette() {
-    const alpha = 0.38 + scrollProgress * 0.24;
-    const gradient = ctx.createRadialGradient(
-      width / 2,
-      height / 2,
-      height * 0.22,
-      width / 2,
-      height / 2,
-      height * 0.82
-    );
-    gradient.addColorStop(0, "transparent");
-    gradient.addColorStop(1, `rgba(0, 0, 0, ${alpha})`);
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, width, height);
-  }
-
-  function render() {
-    drawBackground();
-    drawGrid();
-    drawCentralLogoWatermark();
-    updateNetworkNodes();
-    drawNetwork();
-    drawLogoParticles();
-    drawVignette();
-  }
-
-  function loop(timestamp) {
-    if (!isVisible) {
-      animationId = null;
-      return;
-    }
-
-    if (timestamp - lastFrameTime >= FRAME_INTERVAL) {
-      lastFrameTime = timestamp;
-      time += FRAME_INTERVAL / 1000;
-      render();
-    }
-
-    animationId = requestAnimationFrame(loop);
-  }
-
-  function startLoop() {
-    if (animationId) return;
-    lastFrameTime = 0;
-    animationId = requestAnimationFrame(loop);
-  }
-
-  function stopLoop() {
-    if (!animationId) return;
-    cancelAnimationFrame(animationId);
-    animationId = null;
-  }
-
-  window.addEventListener("resize", resize, { passive: true });
   window.addEventListener("scroll", scheduleScrollUpdate, { passive: true });
+  window.addEventListener("resize", scheduleScrollUpdate, { passive: true });
+  scheduleScrollUpdate();
+}
 
-  if (!isMobile) {
-    hero.addEventListener("mousemove", (event) => {
-      const rect = hero.getBoundingClientRect();
-      mouse.x = (event.clientX - rect.left) / rect.width;
-      mouse.y = (event.clientY - rect.top) / rect.height;
-      mouse.active = true;
-    }, { passive: true });
+function initHeroTitleAnimation() {
+  const heroTitle = document.querySelector(".hero-title");
+  const heroContent = document.querySelector(".hero-content");
+  const tagline = document.querySelector(".hero-tagline");
+  const downloadBtn = document.querySelector(".hero-download-btn");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    hero.addEventListener("mouseleave", () => {
-      mouse.active = false;
-    });
+  if (!heroTitle) return;
+
+  if (reducedMotion) {
+    heroTitle.classList.add("hero-title--ready");
+    heroContent?.classList.add("hero-content--ready");
+    tagline?.classList.add("hero-tagline--visible");
+    return;
   }
 
-  const visibilityObserver = new IntersectionObserver(
-    (entries) => {
-      const entry = entries[0];
-      isVisible = Boolean(entry?.isIntersecting);
-      if (isVisible) {
-        startLoop();
-      } else {
-        stopLoop();
-      }
-    },
-    { threshold: 0.01, rootMargin: "0px 0px 10% 0px" }
-  );
-  visibilityObserver.observe(hero);
-
-  resize();
-  scheduleScrollUpdate();
+  requestAnimationFrame(() => {
+    heroTitle.classList.add("hero-title--ready");
+    heroContent?.classList.add("hero-content--ready");
+    if (tagline) {
+      tagline.style.animationDelay = "1.2s";
+      tagline.classList.add("hero-tagline--visible");
+    }
+    if (downloadBtn) {
+      downloadBtn.style.animationDelay = "1.55s";
+    }
+  });
 }
 
 function initOffscreenAnimationPause() {
@@ -803,11 +535,223 @@ async function fetchData() {
   }
 }
 
+function initWhatsNewModal() {
+  const whatsNewLink = document.getElementById("whats-new");
+  const modal = document.getElementById("whats-new-modal");
+  const closeBtn = document.getElementById("close-modal");
+  const content = document.getElementById("changelog-content");
+  const changelogUrl =
+    "https://raw.githubusercontent.com/RisingOS-Revived/risingOS_changelogs/refs/heads/fifteen/README.md";
+
+  if (!whatsNewLink || !modal || !closeBtn || !content) return;
+
+  let isLoaded = false;
+  let isLoading = false;
+
+  function openModal() {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("whats-new-open");
+
+    if (!isLoaded && !isLoading) {
+      loadChangelog();
+    }
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("whats-new-open");
+  }
+
+  function setLoadingState() {
+    content.innerHTML = `
+      <div class="whats-new-modal__loading">
+        <span class="whats-new-modal__spinner" aria-hidden="true"></span>
+        <p>Loading changelogs…</p>
+      </div>
+    `;
+  }
+
+  function setErrorState(message) {
+    content.innerHTML = `<div class="whats-new-modal__error">${message}</div>`;
+  }
+
+  async function loadChangelog() {
+    isLoading = true;
+    setLoadingState();
+
+    try {
+      const response = await fetch(changelogUrl);
+      if (!response.ok) throw new Error("Failed to fetch changelogs");
+      const text = await response.text();
+      content.innerHTML = formatChangelogMarkdown(text);
+      isLoaded = true;
+    } catch (error) {
+      console.error("Error fetching changelogs:", error);
+      setErrorState("Unable to load changelogs right now. Please try again later.");
+    } finally {
+      isLoading = false;
+    }
+  }
+
+  whatsNewLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    openModal();
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+  modal.querySelectorAll("[data-whats-new-close]").forEach((el) => {
+    el.addEventListener("click", closeModal);
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal || event.target.classList.contains("whats-new-modal__backdrop")) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("is-open")) {
+      closeModal();
+    }
+  });
+}
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function stripEmojis(text) {
+  return text
+    .replace(/[\u{1F000}-\u{1FAFF}]/gu, "")
+    .replace(/[\u{2600}-\u{27BF}]/gu, "")
+    .replace(/\uFE0F/g, "")
+    .replace(/\u200D/g, "");
+}
+
+function cleanChangelogText(text) {
+  return stripEmojis(text)
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/\*(.*?)\*/g, "$1")
+    .replace(/`(.*?)`/g, "$1")
+    .replace(/^#{1,6}\s*/gm, "")
+    .replace(/#{1,6}/g, "")
+    .replace(/^[-*–—]\s+/gm, "")
+    .replace(/-{3,}/g, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+function isSkippableChangelogLine(line) {
+  const trimmed = line.trim();
+  if (!trimmed) return true;
+  if (/^-{3,}\s*$/.test(trimmed)) return true;
+  if (/^#{1,6}\s*$/.test(trimmed)) return true;
+  return false;
+}
+
+function parseChangelogSections(raw) {
+  const lines = raw.replace(/\r\n/g, "\n").split("\n");
+  const sections = [];
+  let current = null;
+
+  lines.forEach((rawLine) => {
+    const line = rawLine.trim();
+    if (isSkippableChangelogLine(line)) return;
+
+    if (/^##\s+/.test(line)) {
+      if (current) sections.push(current);
+      current = {
+        title: cleanChangelogText(line.replace(/^##\s+/, "")),
+        lines: [],
+      };
+      return;
+    }
+
+    if (/^#\s+/.test(line)) {
+      const intro = cleanChangelogText(line.replace(/^#\s+/, ""));
+      if (intro) {
+        if (!current) {
+          current = { title: "Changelog", lines: [] };
+        }
+        current.lines.push(intro);
+      }
+      return;
+    }
+
+    if (!current) {
+      current = { title: "Changelog", lines: [] };
+    }
+
+    const subsection = line.match(/^#{3,6}\s+(.*)$/);
+    if (subsection) {
+      const text = cleanChangelogText(subsection[1]);
+      if (text) current.lines.push(text);
+      return;
+    }
+
+    const listItem = line.match(/^[-*–—]\s+(.*)$/);
+    if (listItem) {
+      const text = cleanChangelogText(listItem[1]);
+      if (text) current.lines.push(text);
+      return;
+    }
+
+    const text = cleanChangelogText(line);
+    if (text) current.lines.push(text);
+  });
+
+  if (current) sections.push(current);
+
+  return sections
+    .map((section) => ({
+      title: section.title,
+      lines: section.lines.filter(Boolean),
+    }))
+    .filter((section) => section.title || section.lines.length > 0);
+}
+
+function formatChangelogMarkdown(raw) {
+  const sections = parseChangelogSections(raw);
+
+  if (sections.length === 0) {
+    const fallback = cleanChangelogText(raw);
+    if (!fallback) {
+      return `<div class="whats-new-entry"><p>No changelog content available.</p></div>`;
+    }
+    return `<div class="whats-new-entry"><p>${escapeHtml(fallback)}</p></div>`;
+  }
+
+  return sections
+    .map((section, index) => {
+      const body = section.lines
+        .map((line) => `<p>${escapeHtml(line)}</p>`)
+        .join("");
+
+      return `
+        <article class="whats-new-entry" style="animation-delay: ${Math.min(index * 0.06, 0.36)}s">
+          <div class="whats-new-entry__badge">Update</div>
+          <h3 class="whats-new-entry__title">${escapeHtml(section.title)}</h3>
+          <div class="whats-new-entry__body">${body}</div>
+        </article>
+      `;
+    })
+    .join("");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  initHeroInteractiveBackground();
+  initHeroScrollEffects();
+  initHeroTitleAnimation();
   initOffscreenAnimationPause();
   initScreenshotShowcase();
   initLatestBanner();
   initGraphToggle();
+  initWhatsNewModal();
   fetchData();
 });
