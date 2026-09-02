@@ -26,26 +26,118 @@
    * Mobile nav toggle
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+  const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+  const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+  const navmenu = document.querySelector('#navmenu');
+  const mobileNavMediaQuery = window.matchMedia('(max-width: 1199px)');
 
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
+  function isMobileNavViewport() {
+    return mobileNavMediaQuery.matches;
   }
+
+  function getNavMenuList() {
+    return navmenu?.querySelector(':scope > ul') || mobileNavDrawer?.querySelector(':scope > ul') || null;
+  }
+
+  function mountMobileNavMenu() {
+    const menuList = navmenu?.querySelector(':scope > ul');
+    if (menuList && mobileNavDrawer && menuList.parentElement !== mobileNavDrawer) {
+      mobileNavDrawer.appendChild(menuList);
+    }
+  }
+
+  function unmountMobileNavMenu() {
+    const menuList = mobileNavDrawer?.querySelector(':scope > ul');
+    if (menuList && navmenu && menuList.parentElement !== navmenu) {
+      navmenu.appendChild(menuList);
+    }
+  }
+
+  function setMobileNavOpen(isOpen) {
+    if (!mobileNavToggleBtn) {
+      return;
+    }
+
+    const body = document.body;
+
+    if (isOpen && isMobileNavViewport()) {
+      mountMobileNavMenu();
+      body.classList.add('mobile-nav-active');
+      if (mobileNavBackdrop) {
+        mobileNavBackdrop.hidden = false;
+        mobileNavBackdrop.setAttribute('aria-hidden', 'false');
+      }
+      if (mobileNavDrawer) {
+        mobileNavDrawer.setAttribute('aria-hidden', 'false');
+      }
+      mobileNavToggleBtn.classList.remove('bi-list');
+      mobileNavToggleBtn.classList.add('bi-x');
+      mobileNavToggleBtn.setAttribute('aria-label', 'Close menu');
+      mobileNavToggleBtn.setAttribute('aria-expanded', 'true');
+      return;
+    }
+
+    body.classList.remove('mobile-nav-active');
+    unmountMobileNavMenu();
+    if (mobileNavBackdrop) {
+      mobileNavBackdrop.hidden = true;
+      mobileNavBackdrop.setAttribute('aria-hidden', 'true');
+    }
+    if (mobileNavDrawer) {
+      mobileNavDrawer.setAttribute('aria-hidden', 'true');
+    }
+    mobileNavToggleBtn.classList.remove('bi-x');
+    mobileNavToggleBtn.classList.add('bi-list');
+    mobileNavToggleBtn.setAttribute('aria-label', 'Open menu');
+    mobileNavToggleBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  function mobileNavToggle() {
+    setMobileNavOpen(!document.body.classList.contains('mobile-nav-active'));
+  }
+
   if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+    mobileNavToggleBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      mobileNavToggle();
+    });
+
+    if (mobileNavBackdrop) {
+      mobileNavBackdrop.addEventListener('click', () => {
+        if (document.body.classList.contains('mobile-nav-active')) {
+          setMobileNavOpen(false);
+        }
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      const menuList = getNavMenuList();
+      if (
+        document.body.classList.contains('mobile-nav-active') &&
+        menuList &&
+        !menuList.contains(event.target) &&
+        !mobileNavToggleBtn.contains(event.target) &&
+        !mobileNavBackdrop?.contains(event.target)
+      ) {
+        setMobileNavOpen(false);
+      }
+    });
+
+    mobileNavMediaQuery.addEventListener('change', () => {
+      if (!isMobileNavViewport()) {
+        setMobileNavOpen(false);
+      }
+    });
   }
 
   /**
    * Hide mobile nav on same-page/hash links
    */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
-    });
-
+  document.addEventListener('click', (event) => {
+    const navLink = event.target.closest('#navmenu a, #mobile-nav-drawer a');
+    if (navLink && document.body.classList.contains('mobile-nav-active')) {
+      setMobileNavOpen(false);
+    }
   });
 
   /**

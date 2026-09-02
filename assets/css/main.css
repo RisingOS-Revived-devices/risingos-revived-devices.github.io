@@ -426,15 +426,15 @@ h6 {
   }
 
   .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
+    position: static;
+    overflow: visible;
+    inset: auto;
+    background: transparent;
     transition: 0.3s;
   }
 
   .mobile-nav-active .navmenu>ul {
-    display: block;
+    display: none;
   }
 }
 
