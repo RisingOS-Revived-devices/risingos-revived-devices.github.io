@@ -135,7 +135,7 @@ function renderDeviceCard(device) {
     <div class="device-card-actions">
       ${
         device.device_changelog
-          ? `<a href="downloads.html?codename=${encodeURIComponent(device.codename)}" class="device-build-btn">
+          ? `<a href="/downloads/?codename=${encodeURIComponent(device.codename)}" class="device-build-btn">
               <i class="bi bi-download"></i>
               Get Builds
             </a>`

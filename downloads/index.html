@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3689535741466991" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RisingOS Downloads</title>
+  <meta name="description" content="Download RisingOS Revived builds, verify checksums, and access guides for your device.">
+
+  <link href="../assets/img/tab-logo.png" rel="icon">
+  <link href="../assets/img/tab-logo.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="../assets/css/rising.css" rel="stylesheet">
+  <link href="../assets/css/rising-downloads.css" rel="stylesheet">
+</head>
+<body class="downloads-page index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="/" class="logo d-flex align-items-center">
+        <h4 class="sitename">RisingOS Revived</h4>
+        <img src="../assets/img/risingOS_logo.png" alt="">
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/devices/">Devices</a></li>
+          <li><a id="whats-new" href="#">What's New?</a></li>
+          <li><a href="https://github.com/RisingOS-Revived/official_devices/issues/new?template=form.md">Maintainership</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open menu"></button>
+    </div>
+  </header>
+
+  <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" hidden aria-hidden="true"></div>
+  <nav id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true"></nav>
+
+  <div id="disclaimerModal" class="downloads-modal">
+    <div class="downloads-modal-card">
+      <h2 class="downloads-modal-title">Disclaimer</h2>
+      <p class="downloads-modal-text">
+        By downloading and installing RisingOS, you acknowledge the risks involved in modifying your device's software.
+        We are not responsible for any damage to your device or loss of data. Please back up your data before proceeding.
+      </p>
+      <button type="button" class="downloads-modal-btn">I Understand</button>
+    </div>
+  </div>
+
+  <div id="whats-new-modal" class="downloads-modal">
+    <div class="downloads-modal-card">
+      <button type="button" id="close-modal" class="downloads-modal-close" aria-label="Close">&times;</button>
+      <h2 class="downloads-modal-title">Source Changelogs</h2>
+      <div id="changelog-content" class="downloads-modal-text" style="white-space: pre-wrap;"></div>
+    </div>
+  </div>
+
+  <main class="downloads-main">
+    <div id="error-container"></div>
+
+    <div id="variant-selector" class="downloads-variant-panel is-hidden">
+      <p class="downloads-variant-title">Select Build Variant</p>
+      <div id="variant-buttons" class="downloads-variant-buttons"></div>
+    </div>
+
+    <section id="card" class="downloads-panel is-hidden">
+      <div class="downloads-hero">
+        <div class="downloads-hero-main">
+          <p class="downloads-eyebrow">Official Build</p>
+          <div class="downloads-device-line">
+            <span id="device-brand">-</span>
+            <span>·</span>
+            <span id="device-name">-</span>
+          </div>
+          <p class="downloads-eyebrow">Device Codename</p>
+          <h1 class="downloads-codename" id="device-codename">Loading...</h1>
+        </div>
+
+        <div class="downloads-maintainer">
+          <img id="maintainer-image" class="downloads-maintainer-avatar" alt="Maintainer">
+          <div class="downloads-maintainer-meta">
+            <p class="downloads-maintainer-label">Maintained by</p>
+            <p class="downloads-maintainer-name" id="maintainer">-</p>
+            <a href="#" id="telegram-link" class="downloads-social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+              <i class="bi bi-telegram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="downloads-info-grid">
+        <div class="downloads-info-item">
+          <div class="downloads-info-label">RisingOS Version</div>
+          <div class="downloads-info-value" id="android-version">-</div>
+        </div>
+        <div class="downloads-info-item">
+          <div class="downloads-info-label">Build Type</div>
+          <div class="downloads-info-value" id="build-type">-</div>
+        </div>
+        <div class="downloads-info-item">
+          <div class="downloads-info-label">Build Date</div>
+          <div class="downloads-info-value" id="build-date">-</div>
+        </div>
+        <div class="downloads-info-item">
+          <div class="downloads-info-label">File Size</div>
+          <div class="downloads-info-value" id="file-size">-</div>
+        </div>
+        <div class="downloads-info-item">
+          <div class="downloads-info-label">Downloads</div>
+          <div class="downloads-info-value" id="download-count">-</div>
+        </div>
+      </div>
+
+      <div class="downloads-actions-primary">
+        <a id="download-link" class="downloads-download-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-download"></i>
+          Download Build
+        </a>
+      </div>
+
+      <div class="downloads-hash-panel">
+        <h2 class="downloads-hash-title">Verify Checksums</h2>
+        <div class="downloads-hash-row">
+          <span class="downloads-hash-label">MD5</span>
+          <code class="downloads-hash-value" id="md5-hash">-</code>
+          <button type="button" class="downloads-copy-btn" data-copy-target="md5-hash">Copy</button>
+        </div>
+        <div class="downloads-hash-row">
+          <span class="downloads-hash-label">SHA256</span>
+          <code class="downloads-hash-value" id="sha256-hash">-</code>
+          <button type="button" class="downloads-copy-btn" data-copy-target="sha256-hash">Copy</button>
+        </div>
+      </div>
+
+      <div class="downloads-action-grid">
+        <a id="guide-link" class="downloads-action-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-github"></i> Guide
+        </a>
+        <a id="previous-builds" class="downloads-action-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-clock-history"></i> Previous Builds
+        </a>
+        <a id="recovery-link" class="downloads-action-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-tools"></i> Recovery
+        </a>
+        <a id="paypal-link" class="downloads-action-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-heart"></i> Support
+        </a>
+        <a id="device-changelog" class="downloads-action-btn" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-file-text"></i> Changelog
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <h3 class="sitename">RisingOS Revived</h3>
+      <p>Download official builds and verify checksums before flashing.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://t.me/RisingOSRevived"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/RisingOS-Revived"><i class="bi bi-github"></i></a>
+      </div>
+      <div class="copyright">
+        <span>Copyright</span> <strong class="px-1 sitename">RisingOS Revived</strong> <span>All Rights Reserved</span>
+      </div>
+      <div class="credits">
+        Developed by <a href="https://t.me/skwel24">@skwel24</a> and Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/rising-downloads.js"></script>
+</body>
+</html>

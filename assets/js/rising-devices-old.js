@@ -77,7 +77,7 @@
             </a>` : '';
 
         let downloadButton = device.device_changelog ? `
-            <a href="https://risingos-revived-devices.github.io/portal/downloads.html?codename=${device.codename}" target="_blank" class="btn btn-success">
+            <a href="https://risingos-revived-devices.github.io/portal//downloads/?codename=${device.codename}" target="_blank" class="btn btn-success">
               Download Builds</i>
             </a>` : '';
 
