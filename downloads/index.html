@@ -155,16 +155,28 @@
     </section>
   </main>
 
-  <footer id="footer" class="footer dark-background">
+  <footer id="footer" class="footer dark-background" aria-label="Site footer">
     <div class="container">
-      <h3 class="sitename">RisingOS Revived</h3>
-      <p>Download official builds and verify checksums before flashing.</p>
-      <div class="social-links d-flex justify-content-center">
-        <a href="https://t.me/RisingOSRevived"><i class="bi bi-telegram"></i></a>
-        <a href="https://github.com/RisingOS-Revived"><i class="bi bi-github"></i></a>
+      <div class="row g-4 align-items-center text-center text-md-start">
+        <div class="col-md-8">
+          <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-3">
+            <img src="../assets/img/risingOS_logo.png" width="48" height="48" alt="RisingOS Revived logo">
+            <div>
+              <h3 class="sitename mb-2" style="font-size: 1.5rem;">RisingOS Revived</h3>
+              <p class="mb-0" style="font-style: normal; line-height: 1.65;">Download official builds and verify checksums before flashing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="social-links d-flex justify-content-center justify-content-md-end mb-0">
+            <a href="https://t.me/RisingOSRevived" aria-label="Join RisingOS Revived on Telegram" target="_blank" rel="noopener noreferrer"><i class="bi bi-telegram"></i></a>
+            <a href="https://github.com/RisingOS-Revived" aria-label="View RisingOS Revived on GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
       </div>
-      <div class="copyright">
-        <span>Copyright</span> <strong class="px-1 sitename">RisingOS Revived</strong> <span>All Rights Reserved</span>
+      <div class="copyright d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 mt-4 pt-3">
+        <span>&copy; 2026 RisingOS Revived. All rights reserved.</span>
+        <span class="small">Built for the Android community.</span>
       </div>
     </div>
   </footer>
