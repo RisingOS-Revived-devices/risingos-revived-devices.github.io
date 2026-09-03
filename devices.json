@@ -704,7 +704,7 @@
         "telegram": "https://t.me/senseixhub"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Google",
         "device": "Pixel 6",
         "codename": "oriole",
@@ -726,7 +726,7 @@
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Google",
         "device": "Pixel 6 Pro",
         "codename": "raven",
@@ -946,7 +946,7 @@
         "telegram": "https://t.me/PocoF6ProSupport"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "OnePlus",
         "device": "5",
         "codename": "cheeseburger",
@@ -968,7 +968,7 @@
         "telegram": "https://t.me/theromfactory"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "OnePlus",
         "device": "5T",
         "codename": "dumpling",
@@ -990,7 +990,7 @@
         "telegram": "https://t.me/theromfactory"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Google",
         "device": "Pixel 7 Pro",
         "codename": "cheetah",
@@ -1012,7 +1012,7 @@
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Google",
         "device": "Pixel 7",
         "codename": "panther",
@@ -1034,7 +1034,7 @@
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Google",
         "device": "Pixel 7a",
         "codename": "lynx",
@@ -1430,7 +1430,7 @@
         "telegram": "https://t.me/bittencourtjulival_builds"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Google",
         "device": "Pixel 6a",
         "codename": "bluejay",
@@ -1892,7 +1892,7 @@
         "telegram": "https://t.me/garnetglobalchat"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Google",
         "device": "Google Pixel Fold",
         "codename": "felix",
@@ -1980,7 +1980,7 @@
         "telegram": ""
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Xiaomi",
         "device": "12 Lite",
         "codename": "taoyao",
@@ -2002,7 +2002,7 @@
         "telegram": "https://t.me/taoyaolabs"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Xiaomi",
         "device": "12 Lite",
         "codename": "taoyao",
@@ -2024,7 +2024,7 @@
         "telegram": "https://t.me/taoyaolabs"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Xiaomi",
         "device": "12 Lite",
         "codename": "taoyao",
@@ -2046,7 +2046,7 @@
         "telegram": "https://t.me/taoyaolabs"
     },
     {
-        "status": "active",
+        "status": "dropped",
         "oem": "Xiaomi",
         "device": "12 Lite",
         "codename": "taoyao",
