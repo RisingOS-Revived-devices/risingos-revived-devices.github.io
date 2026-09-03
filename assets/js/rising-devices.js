@@ -127,7 +127,7 @@ function renderDeviceCard(device) {
       <span class="device-codename-badge">${device.codename}</span>
     </div>
     <div class="device-avatar-wrap">
-      <img src="${device.device_avatar}" alt="${device.device}" class="device-avatar" loading="lazy">
+      <img src="/${String(device.device_avatar || "").replace(/^\/+/, "")}" alt="${device.device}" class="device-avatar" loading="lazy">
     </div>
     <h2 class="device-title">${device.oem} ${device.device}</h2>
     <p class="device-meta-line"><strong>Maintainer:</strong> ${device.maintainer}</p>
