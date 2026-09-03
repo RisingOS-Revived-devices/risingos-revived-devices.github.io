@@ -255,7 +255,7 @@
     "build": "user"
   },
   "oriole": {
-    "status": "active",
+    "status": "dropped",
     "oem": "Google",
     "device": "Pixel 6",
     "codename": "oriole",
@@ -272,7 +272,7 @@
     "build": "userdebug"
   },
   "raven": {
-    "status": "active",
+    "status": "dropped",
     "oem": "Google",
     "device": "Pixel 6 Pro",
     "codename": "raven",
@@ -390,7 +390,7 @@
     "build": "userdebug"
   },
   "cheeseburger": {
-    "status": "active",
+    "status": "dropped",
     "maintainer": "SirRGB",
     "oem": "OnePlus",
     "device": "5",
@@ -407,7 +407,7 @@
     "build": "userdebug"
   },
   "dumpling": {
-    "status": "active",
+    "status": "dropped",
     "maintainer": "SirRGB",
     "oem": "OnePlus",
     "device": "5T",
@@ -424,7 +424,7 @@
     "build": "userdebug"
   },
   "cheetah": {
-    "status": "active",
+    "status": "dropped",
     "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 7 Pro",
@@ -441,7 +441,7 @@
     "build": "user"
   },
   "panther": {
-    "status": "active",
+    "status": "dropped",
     "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 7",
@@ -458,7 +458,7 @@
     "build": "user"
   },
   "lynx": {
-    "status": "active",
+    "status": "dropped",
     "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 7a",
@@ -610,7 +610,7 @@
      "build": "user"
   },
    "bluejay": {
-     "status": "active",
+     "status": "dropped",
      "maintainer": "Jrcable2",
      "oem": "Google",
      "device": "Pixel 6a",
@@ -814,7 +814,7 @@
     "build": "userdebug"
  },
  "felix": {
-    "status": "active",
+    "status": "dropped",
     "oem": "Google",
     "device": "Google Pixel Fold",
     "codename": "felix",
@@ -899,7 +899,7 @@
     "build": "userdebug",
  },
  "taoyao": {
-    "status": "active",
+    "status": "dropped",
     "oem": "Xiaomi",
     "device": "12 Lite",
     "codename": "taoyao",
