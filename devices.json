@@ -2286,5 +2286,27 @@
         "recovery": "",
         "timestamp": 1788142098,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
+    },
+    {
+        "status": "active",
+        "oem": "Nothing",
+        "device": "Nothing Phone 1",
+        "codename": "Spacewar",
+        "maintainer": "mysellysenpai",
+        "variant": "GAPPS",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/9.x/GAPPS/Spacewar/RisingOS-9-260903-2205-GAPPS-OFFICIAL-Spacewar-ota.zip/download",
+        "paypal": "",
+        "device_avatar": "assets/img/devices/Spacewar.png",
+        "maintainer_avatar": "https://avatars.githubusercontent.com/u/116599295?v=4",
+        "filesize": 3359939879,
+        "md5": "b089c10e14d4002924aa707428a20304",
+        "sha256": "6be8611d57da6af773b1f91289c1385ec0ebd40c1acf2273d9631147e299eacb",
+        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/Spacewar.txt",
+        "version": "9-elefthería",
+        "buildtype": "STABLE",
+        "build": "userdebug",
+        "recovery": "",
+        "timestamp": 1788472860,
+        "telegram": "t.me/mysellyschat"
     }
 ]
