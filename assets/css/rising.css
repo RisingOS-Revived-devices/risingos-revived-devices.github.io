@@ -1221,11 +1221,19 @@ html {
   background: #000;
 }
 
+.team-eyebrow, .team-group-kicker { margin: 0; color: #7dff7d; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.team-directory { display: grid; gap: 3rem; }
+.team-group { min-width: 0; }
+.team-group--maintainers { padding: 1.5rem; border: 1px solid rgba(125, 255, 125, 0.13); border-radius: 24px; background: radial-gradient(circle at top right, rgba(40, 167, 69, 0.13), transparent 35%), rgba(255, 255, 255, 0.025); }
+.team-group-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+.team-group-title { margin: 0.2rem 0 0; color: #fff; font-size: clamp(1.25rem, 2vw, 1.55rem); font-weight: 700; }
+.team-count { flex: 0 0 auto; padding: 0.38rem 0.68rem; border: 1px solid rgba(125, 255, 125, 0.25); border-radius: 999px; background: rgba(40, 167, 69, 0.12); color: #b8ffb8; font-size: 0.78rem; font-weight: 600; }
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
   gap: 1rem;
 }
+.team-grid--maintainers { grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); }
 
 .team-loading,
 .team-error {
@@ -1256,6 +1264,10 @@ html {
   transform: translateY(-3px);
   border-color: rgba(40, 167, 69, 0.35);
 }
+.team-card--maintainer { position: relative; align-items: flex-start; min-height: 176px; padding: 1.1rem; text-align: left; }
+.team-card--maintainer .team-avatar-wrap { width: 72px; height: 72px; }
+.team-card--maintainer .team-avatar { width: 72px; height: 72px; }
+.team-card-copy { width: 100%; }
 
 .team-avatar-wrap {
   position: relative;
@@ -1297,6 +1309,9 @@ html {
   font-size: 0.78rem;
   font-weight: 600;
 }
+.team-devices, .team-empty-state { margin: 0; color: rgba(255, 255, 255, 0.58); font-size: 0.78rem; line-height: 1.45; }
+.team-devices { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.team-devices i { margin-right: 0.4rem; color: #7dff7d; }
 
 .team-socials {
   display: flex;
@@ -1304,6 +1319,7 @@ html {
   justify-content: center;
   gap: 0.55rem;
 }
+.team-card--maintainer .team-socials { position: absolute; top: 1.1rem; right: 1.1rem; }
 
 .team-social-link {
   display: inline-flex;

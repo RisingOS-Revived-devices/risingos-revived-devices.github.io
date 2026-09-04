@@ -26,36 +26,57 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", async function () {
     const teamContainer = document.getElementById("team-container");
-    if (!teamContainer) return;
+    const maintainersContainer = document.getElementById("maintainers-container");
+    const coreCount = document.getElementById("core-team-count");
+    const maintainerCount = document.getElementById("maintainer-count");
+    if (!teamContainer || !maintainersContainer) return;
+
+    const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
+    const safeUrl = (value) => {
+      try { const url = new URL(value, window.location.origin); return ["http:", "https:"].includes(url.protocol) ? url.href : ""; } catch { return ""; }
+    };
+    const pluralize = (count, label) => `${count} ${label}${count === 1 ? "" : "s"}`;
+    const socialLink = (href, icon, label) => href ? `<a href="${escapeHtml(href)}" class="team-social-link" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(label)}"><i class="bi bi-${icon}"></i></a>` : "";
+
+    const renderCoreMember = (member) => {
+      const name = escapeHtml(member.name || "RisingOS contributor");
+      const avatar = safeUrl(member.avatar) || "assets/img/default-profile.png";
+      const github = safeUrl(member.github);
+      const username = String(member.telegram_username || "").replace(/^@+/, "");
+      const telegram = username ? `https://t.me/${encodeURIComponent(username)}` : "";
+      const socials = [socialLink(github, "github", `${member.name} on GitHub`), socialLink(telegram, "telegram", `${member.name} on Telegram`)].join("");
+      return `<article class="team-card" data-aos="fade-up"><div class="team-avatar-wrap"><img src="${escapeHtml(avatar)}" class="team-avatar" width="88" height="88" alt="${name}" loading="lazy"></div><h3 class="team-name">${name}</h3><p class="team-role">${escapeHtml(member.position || "Core Team")}</p><div class="team-socials">${socials || `<span class="team-empty-state">No links listed</span>`}</div></article>`;
+    };
+    const renderMaintainer = (maintainer) => {
+      const name = escapeHtml(maintainer.name);
+      const avatar = safeUrl(maintainer.avatar) || "assets/img/default-profile.png";
+      const devices = maintainer.devices.sort((a, b) => a.localeCompare(b));
+      const deviceLabel = devices.length > 1 ? `${devices.length} devices` : devices[0] || "Official device";
+      const telegram = safeUrl(maintainer.telegram);
+      return `<article class="team-card team-card--maintainer" data-aos="fade-up"><div class="team-avatar-wrap"><img src="${escapeHtml(avatar)}" class="team-avatar" width="72" height="72" alt="${name}" loading="lazy"></div><div class="team-card-copy"><h3 class="team-name">${name}</h3><p class="team-role">Device Maintainer</p><p class="team-devices" title="${escapeHtml(devices.join(", "))}"><i class="bi bi-phone" aria-hidden="true"></i>${escapeHtml(deviceLabel)}</p></div><div class="team-socials">${socialLink(telegram, "telegram", `${maintainer.name} on Telegram`) || `<span class="team-empty-state">Official maintainer</span>`}</div></article>`;
+    };
 
     try {
-      const response = await fetch("https://raw.githubusercontent.com/RisingOS-Revived-devices/RisingOS_Web/main/core-team.json");
-      const teamData = await response.json();
-
-      teamContainer.innerHTML = teamData.map((member) => {
-        const socialLinks = [
-          member.github
-            ? `<a href="${member.github}" class="team-social-link" target="_blank" rel="noopener noreferrer" aria-label="${member.name} on GitHub"><i class="bi bi-github"></i></a>`
-            : "",
-          member.telegram_username
-            ? `<a href="https://t.me/${member.telegram_username.replace("@", "")}" class="team-social-link" target="_blank" rel="noopener noreferrer" aria-label="${member.name} on Telegram"><i class="bi bi-telegram"></i></a>`
-            : "",
-        ].join("");
-
-        return `
-          <article class="team-card" data-aos="fade-up">
-            <div class="team-avatar-wrap">
-              <img src="${member.avatar}" class="team-avatar" width="88" height="88" alt="${member.name}">
-            </div>
-            <h3 class="team-name">${member.name}</h3>
-            <p class="team-role">${member.position || "Core Team"}</p>
-            <div class="team-socials">${socialLinks || `<span class="team-role">No links listed</span>`}</div>
-          </article>
-        `;
-      }).join("");
+      const [teamResponse, devicesResponse] = await Promise.all([fetch("core-team.json"), fetch("devices.json")]);
+      if (!teamResponse.ok || !devicesResponse.ok) throw new Error("Unable to load team directory");
+      const [teamData, devicesData] = await Promise.all([teamResponse.json(), devicesResponse.json()]);
+      const maintainers = new Map();
+      Object.values(devicesData).forEach((device) => {
+        if (!device?.maintainer) return;
+        const key = device.maintainer.trim().toLowerCase();
+        const existing = maintainers.get(key) || { name: device.maintainer.trim(), avatar: device.maintainer_avatar, telegram: device.telegram, devices: [] };
+        if (device.device && !existing.devices.includes(device.device)) existing.devices.push(device.device);
+        maintainers.set(key, existing);
+      });
+      const maintainerData = [...maintainers.values()].sort((a, b) => a.name.localeCompare(b.name));
+      teamContainer.innerHTML = teamData.map(renderCoreMember).join("");
+      maintainersContainer.innerHTML = maintainerData.map(renderMaintainer).join("") || `<div class="team-error">No maintainers are listed yet.</div>`;
+      if (coreCount) coreCount.textContent = pluralize(teamData.length, "member");
+      if (maintainerCount) maintainerCount.textContent = pluralize(maintainerData.length, "maintainer");
     } catch (error) {
       console.error("Error fetching team data:", error);
       teamContainer.innerHTML = `<div class="team-error">Unable to load core team members right now.</div>`;
+      maintainersContainer.innerHTML = `<div class="team-error">Unable to load maintainers right now.</div>`;
     }
 });
 
