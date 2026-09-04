@@ -535,11 +535,38 @@
         <div class="header-divider"></div>
         <p class="section-lead"><strong>Meet the people building and maintaining RisingOS Revived.</strong></p>
       </div>
-      <div class="team-grid" id="team-container">
-        <div class="team-loading">
-          <div class="download-stats-spinner" aria-hidden="true"></div>
-          <span>Loading core team…</span>
-        </div>
+      <div class="team-directory">
+        <section class="team-group" aria-labelledby="core-team-heading">
+          <div class="team-group-heading">
+            <div>
+              <p class="team-group-kicker">Leadership &amp; development</p>
+              <h2 class="team-group-title" id="core-team-heading">Core team</h2>
+            </div>
+            <span class="team-count" id="core-team-count">Loading…</span>
+          </div>
+          <div class="team-grid" id="team-container">
+            <div class="team-loading">
+              <div class="download-stats-spinner" aria-hidden="true"></div>
+              <span>Loading core team…</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="team-group team-group--maintainers" aria-labelledby="maintainers-heading">
+          <div class="team-group-heading">
+            <div>
+              <p class="team-group-kicker">Official devices</p>
+              <h2 class="team-group-title" id="maintainers-heading">Device maintainers</h2>
+            </div>
+            <span class="team-count" id="maintainer-count">Loading…</span>
+          </div>
+          <div class="team-grid team-grid--maintainers" id="maintainers-container">
+            <div class="team-loading">
+              <div class="download-stats-spinner" aria-hidden="true"></div>
+              <span>Loading maintainers…</span>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </section>

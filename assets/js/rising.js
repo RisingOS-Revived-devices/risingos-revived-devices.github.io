@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const maintainersContainer = document.getElementById("maintainers-container");
     const coreCount = document.getElementById("core-team-count");
     const maintainerCount = document.getElementById("maintainer-count");
-    if (!teamContainer || !maintainersContainer) return;
+    if (!teamContainer && !maintainersContainer) return;
 
     const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
     const safeUrl = (value) => {
@@ -57,9 +57,26 @@ document.addEventListener("DOMContentLoaded", async function () {
     };
 
     try {
-      const [teamResponse, devicesResponse] = await Promise.all([fetch("core-team.json"), fetch("devices.json")]);
-      if (!teamResponse.ok || !devicesResponse.ok) throw new Error("Unable to load team directory");
-      const [teamData, devicesData] = await Promise.all([teamResponse.json(), devicesResponse.json()]);
+      const [teamResult, devicesResult] = await Promise.allSettled([
+        fetch("core-team.json").then((response) => {
+          if (!response.ok) throw new Error("Unable to load core team");
+          return response.json();
+        }),
+        fetch("devices.json").then((response) => {
+          if (!response.ok) throw new Error("Unable to load maintainers");
+          return response.json();
+        }),
+      ]);
+
+      if (teamContainer) {
+        if (teamResult.status !== "fulfilled" || !Array.isArray(teamResult.value)) throw new Error("Unable to load core team");
+        teamContainer.innerHTML = teamResult.value.map(renderCoreMember).join("");
+        if (coreCount) coreCount.textContent = pluralize(teamResult.value.length, "member");
+      }
+
+      if (!maintainersContainer) return;
+      if (devicesResult.status !== "fulfilled" || !Array.isArray(devicesResult.value)) throw new Error("Unable to load maintainers");
+      const devicesData = devicesResult.value;
       const maintainers = new Map();
       Object.values(devicesData).forEach((device) => {
         if (!device?.maintainer) return;
@@ -69,14 +86,12 @@ document.addEventListener("DOMContentLoaded", async function () {
         maintainers.set(key, existing);
       });
       const maintainerData = [...maintainers.values()].sort((a, b) => a.name.localeCompare(b.name));
-      teamContainer.innerHTML = teamData.map(renderCoreMember).join("");
       maintainersContainer.innerHTML = maintainerData.map(renderMaintainer).join("") || `<div class="team-error">No maintainers are listed yet.</div>`;
-      if (coreCount) coreCount.textContent = pluralize(teamData.length, "member");
       if (maintainerCount) maintainerCount.textContent = pluralize(maintainerData.length, "maintainer");
     } catch (error) {
       console.error("Error fetching team data:", error);
-      teamContainer.innerHTML = `<div class="team-error">Unable to load core team members right now.</div>`;
-      maintainersContainer.innerHTML = `<div class="team-error">Unable to load maintainers right now.</div>`;
+      if (teamContainer && teamContainer.querySelector(".team-loading")) teamContainer.innerHTML = `<div class="team-error">Unable to load core team members right now.</div>`;
+      if (maintainersContainer && maintainersContainer.querySelector(".team-loading")) maintainersContainer.innerHTML = `<div class="team-error">Unable to load maintainers right now.</div>`;
     }
 });
 
