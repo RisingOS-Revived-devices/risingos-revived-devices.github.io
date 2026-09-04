@@ -38,23 +38,58 @@ document.addEventListener("DOMContentLoaded", async function () {
     const pluralize = (count, label) => `${count} ${label}${count === 1 ? "" : "s"}`;
     const socialLink = (href, icon, label) => href ? `<a href="${escapeHtml(href)}" class="team-social-link" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(label)}"><i class="bi bi-${icon}"></i></a>` : "";
 
-    const renderCoreMember = (member) => {
-      const name = escapeHtml(member.name || "RisingOS contributor");
-      const avatar = safeUrl(member.avatar) || "assets/img/default-profile.png";
+    const renderProfile = ({ name: rawName, avatar: rawAvatar, role, detail, socials, index }) => {
+      const name = escapeHtml(rawName || "RisingOS contributor");
+      const avatar = safeUrl(rawAvatar) || "assets/img/default-profile.png";
+      const detailsId = `team-profile-${String(rawName || index).toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${index}`;
+      return `<article class="team-profile" data-aos="zoom-in" style="--profile-delay: ${index * 0.12}s"><div class="team-profile-float"><button class="team-profile-trigger" type="button" aria-expanded="false" aria-controls="${detailsId}" aria-label="Show information for ${name}"><img src="${escapeHtml(avatar)}" class="team-avatar" width="116" height="116" alt="${name}" loading="lazy"></button><div class="team-profile-info" id="${detailsId}" role="region" aria-label="Information for ${name}"><h3 class="team-name">${name}</h3><p class="team-role">${escapeHtml(role)}</p>${detail ? `<p class="team-devices">${detail}</p>` : ""}${socials ? `<div class="team-socials">${socials}</div>` : ""}</div></div></article>`;
+    };
+
+    const renderCoreMember = (member, index) => {
       const github = safeUrl(member.github);
       const username = String(member.telegram_username || "").replace(/^@+/, "");
       const telegram = username ? `https://t.me/${encodeURIComponent(username)}` : "";
       const socials = [socialLink(github, "github", `${member.name} on GitHub`), socialLink(telegram, "telegram", `${member.name} on Telegram`)].join("");
-      return `<article class="team-card" data-aos="fade-up"><div class="team-avatar-wrap"><img src="${escapeHtml(avatar)}" class="team-avatar" width="88" height="88" alt="${name}" loading="lazy"></div><h3 class="team-name">${name}</h3><p class="team-role">${escapeHtml(member.position || "Core Team")}</p><div class="team-socials">${socials || `<span class="team-empty-state">No links listed</span>`}</div></article>`;
+      return renderProfile({ name: member.name, avatar: member.avatar, role: member.position || "Core Team", socials, index });
     };
-    const renderMaintainer = (maintainer) => {
-      const name = escapeHtml(maintainer.name);
-      const avatar = safeUrl(maintainer.avatar) || "assets/img/default-profile.png";
+    const renderMaintainer = (maintainer, index) => {
       const devices = maintainer.devices.sort((a, b) => a.localeCompare(b));
-      const deviceLabel = devices.length > 1 ? `${devices.length} devices` : devices[0] || "Official device";
+      const deviceLabel = devices.length > 1 ? `${devices.length} official devices` : devices[0] || "Official device";
       const telegram = safeUrl(maintainer.telegram);
-      return `<article class="team-card team-card--maintainer" data-aos="fade-up"><div class="team-avatar-wrap"><img src="${escapeHtml(avatar)}" class="team-avatar" width="72" height="72" alt="${name}" loading="lazy"></div><div class="team-card-copy"><h3 class="team-name">${name}</h3><p class="team-role">Device Maintainer</p><p class="team-devices" title="${escapeHtml(devices.join(", "))}"><i class="bi bi-phone" aria-hidden="true"></i>${escapeHtml(deviceLabel)}</p></div><div class="team-socials">${socialLink(telegram, "telegram", `${maintainer.name} on Telegram`) || `<span class="team-empty-state">Official maintainer</span>`}</div></article>`;
+      return renderProfile({ name: maintainer.name, avatar: maintainer.avatar, role: "Device Maintainer", detail: `<i class="bi bi-phone" aria-hidden="true"></i>${escapeHtml(deviceLabel)}`, socials: socialLink(telegram, "telegram", `${maintainer.name} on Telegram`), index });
     };
+    const initTeamProfiles = () => {
+      const profiles = document.querySelectorAll(".team-profile");
+      profiles.forEach((profile) => {
+        const trigger = profile.querySelector(".team-profile-trigger");
+        if (!trigger) return;
+        trigger.addEventListener("click", () => {
+          const isOpen = profile.classList.toggle("is-open");
+          trigger.setAttribute("aria-expanded", String(isOpen));
+        });
+      });
+
+      let ticking = false;
+      const updateFloatingProfiles = () => {
+        const viewportCenter = window.innerHeight / 2;
+        profiles.forEach((profile) => {
+          const rect = profile.getBoundingClientRect();
+          const distance = Math.max(-1, Math.min(1, (rect.top + rect.height / 2 - viewportCenter) / viewportCenter));
+          profile.style.setProperty("--scroll-float", `${Math.round(distance * -13)}px`);
+        });
+        ticking = false;
+      };
+      const requestFloatUpdate = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateFloatingProfiles);
+          ticking = true;
+        }
+      };
+      updateFloatingProfiles();
+      window.addEventListener("scroll", requestFloatUpdate, { passive: true });
+      window.addEventListener("resize", requestFloatUpdate);
+    };
+
 
     try {
       const [teamResult, devicesResult] = await Promise.allSettled([
@@ -70,24 +105,25 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       if (teamContainer) {
         if (teamResult.status !== "fulfilled" || !Array.isArray(teamResult.value)) throw new Error("Unable to load core team");
-        teamContainer.innerHTML = teamResult.value.map(renderCoreMember).join("");
-        if (coreCount) coreCount.textContent = pluralize(teamResult.value.length, "member");
+        const coreMembers = teamResult.value.filter((member) => !member.status || String(member.status).toLowerCase() === "active");
+        teamContainer.innerHTML = coreMembers.map(renderCoreMember).join("") || `<div class="team-error">No active core team members are listed yet.</div>`;
+        if (coreCount) coreCount.textContent = pluralize(coreMembers.length, "member");
       }
 
       if (!maintainersContainer) return;
       if (devicesResult.status !== "fulfilled" || !Array.isArray(devicesResult.value)) throw new Error("Unable to load maintainers");
-      const devicesData = devicesResult.value;
       const maintainers = new Map();
-      Object.values(devicesData).forEach((device) => {
-        if (!device?.maintainer) return;
+      Object.values(devicesResult.value).forEach((device) => {
+        if (!device?.maintainer || String(device.status || "").toLowerCase() !== "active") return;
         const key = device.maintainer.trim().toLowerCase();
         const existing = maintainers.get(key) || { name: device.maintainer.trim(), avatar: device.maintainer_avatar, telegram: device.telegram, devices: [] };
         if (device.device && !existing.devices.includes(device.device)) existing.devices.push(device.device);
         maintainers.set(key, existing);
       });
       const maintainerData = [...maintainers.values()].sort((a, b) => a.name.localeCompare(b.name));
-      maintainersContainer.innerHTML = maintainerData.map(renderMaintainer).join("") || `<div class="team-error">No maintainers are listed yet.</div>`;
+      maintainersContainer.innerHTML = maintainerData.map(renderMaintainer).join("") || `<div class="team-error">No active maintainers are listed yet.</div>`;
       if (maintainerCount) maintainerCount.textContent = pluralize(maintainerData.length, "maintainer");
+      initTeamProfiles();
     } catch (error) {
       console.error("Error fetching team data:", error);
       if (teamContainer && teamContainer.querySelector(".team-loading")) teamContainer.innerHTML = `<div class="team-error">Unable to load core team members right now.</div>`;
