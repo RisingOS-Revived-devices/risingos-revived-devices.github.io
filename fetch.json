@@ -1044,5 +1044,19 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/115403383?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/frankel.txt",
     "build": "userdebug"
-  }
+  },
+ "Spacewar": {
+    "status": "active",
+    "oem": "Nothing",
+    "device": "Nothing Phone 1",
+    "codename": "Spacewar",
+    "maintainer": "mysellysenpai",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/Spacewar.json"
+    ],
+    "device_avatar": "assets/img/devices/Spacewar.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/116599295?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/Spacewar.txt",
+    "build": "userdebug"
+ }
 }
