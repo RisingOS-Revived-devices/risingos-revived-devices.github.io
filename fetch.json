@@ -216,7 +216,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/akita.json"
     ],
     "device_avatar": "assets/img/devices/google-pixel-8a-1.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/438772?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/akita.txt",
     "build": "userdebug"
   },
@@ -301,7 +301,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/shiba.json"
     ],
     "device_avatar": "assets/img/devices/google-pixel-8-1.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/438772?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/shiba.txt",
     "build": "userdebug"
   },
@@ -318,7 +318,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/tangorpro.json"
     ],
     "device_avatar": "assets/img/devices/google-pixel-tablet-10.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/21272055?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/438772?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/tangorpro.txt",
     "build": "userdebug"
   },
@@ -368,7 +368,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/husky.json"
     ],
     "device_avatar": "assets/img/devices/google-pixel-8-pro-1.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/87909274?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/438772?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/husky.txt",
     "build": "userdebug"
   },
@@ -622,7 +622,7 @@
        "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/bluejay.json"
      ],
      "device_avatar": "assets/img/devices/bluejay.png",
-     "maintainer_avatar": "https://avatars.githubusercontent.com/u/154611145?v=4",
+     "maintainer_avatar": "https://avatars.githubusercontent.com/u/438772?v=4",
      "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/bluejay.txt",
      "build": "userdebug"
   },
