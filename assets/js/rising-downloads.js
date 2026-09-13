@@ -104,6 +104,8 @@ async function updateDeviceInfo(device) {
 
   const versionPrefix = versionPrefixFrom(device.version);
   setLink("download-link", device.download || "", !device.download);
+  setLink("download-link-alt", device.download_alt || "", !device.download_alt);
+  setHidden(document.getElementById("download-link-alt"), !device.download_alt);
   setLink(
     "guide-link",
     `https://github.com/RisingOS-Revived/official_devices/tree/fifteen/OTA/guide/${device.codename}.md`

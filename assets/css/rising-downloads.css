@@ -203,7 +203,9 @@ body.downloads-page {
 
 .downloads-actions-primary {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
   margin: 1rem 0;
 }
 
@@ -228,6 +230,19 @@ body.downloads-page {
   transform: translateY(-1px);
   box-shadow: 0 10px 24px rgba(40, 167, 69, 0.18);
   color: #fff;
+}
+
+.downloads-actions-primary .is-hidden {
+  display: none;
+}
+
+.downloads-download-btn--alt {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+.downloads-download-btn--alt:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
 }
 
 .downloads-hash-panel {
