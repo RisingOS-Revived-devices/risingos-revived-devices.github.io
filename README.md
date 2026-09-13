@@ -1,1 +1,1 @@
-# RisingOS Revived Official Website (C) 2025
+# RisingOS Revived Official Website (C) 2026
