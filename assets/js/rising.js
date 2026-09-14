@@ -133,80 +133,139 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 function initScreenshotShowcase() {
   const showcase = document.getElementById("screenshotShowcase");
+  if (!showcase) return;
+
+  const featured = document.getElementById("screenshotFeatured");
   const heroImage = document.getElementById("screenshotHeroImage");
   const heroLabel = document.getElementById("screenshotHeroLabel");
   const heroZoom = document.getElementById("screenshotHeroZoom");
-  const heroFrame = showcase?.querySelector(".screenshot-hero-frame");
-  const stage = showcase?.querySelector(".screenshot-stage");
-  const tiles = showcase ? showcase.querySelectorAll(".screenshot-tile") : [];
+  const prevBtn = document.getElementById("screenshotPrev");
+  const nextBtn = document.getElementById("screenshotNext");
+  const grid = document.getElementById("screenshotGrid");
+  const tiles = Array.from(showcase.querySelectorAll(".screenshot-tile"));
 
-  if (!showcase || !heroImage || tiles.length === 0) return;
+  if (!heroImage || !grid || tiles.length === 0) return;
 
+  const total = tiles.length;
   let activeIndex = 0;
-  let isAnimating = false;
+  let swapTimer = null;
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+  showcase.classList.add("js-animate");
+
+  if (featured && "IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
           showcase.classList.add("is-visible");
+          window.setTimeout(() => showcase.classList.remove("js-animate"), 900);
           revealObserver.disconnect();
-        }
-      });
-    },
-    { threshold: 0.18 }
-  );
-  revealObserver.observe(showcase);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -48px 0px" }
+    );
+    revealObserver.observe(showcase);
+  } else {
+    showcase.classList.add("is-visible");
+    showcase.classList.remove("js-animate");
+  }
 
   function selectScreenshot(index) {
-    if (isAnimating || index === activeIndex) return;
-
     const tile = tiles[index];
     if (!tile) return;
 
-    isAnimating = true;
-    heroImage.classList.remove("is-visible");
+    const src = tile.dataset.src || tile.querySelector("img")?.getAttribute("src") || "";
+    const label =
+      tile.dataset.label ||
+      tile.querySelector(".screenshot-tile-label")?.textContent?.trim() ||
+      "Screenshot";
 
-    window.setTimeout(() => {
-      const src = tile.dataset.src;
-      const label =
-        tile.dataset.label ||
-        tile.querySelector(".screenshot-tile-label")?.textContent ||
-        "Screenshot";
+    activeIndex = index;
 
+    if (swapTimer) window.clearTimeout(swapTimer);
+
+    heroImage.classList.remove("is-shown");
+    swapTimer = window.setTimeout(() => {
       heroImage.src = src;
-      heroImage.alt = `RisingOS Revived – ${label}`;
-
+      heroImage.alt = `${label} — RisingOS Revived screenshot`;
       if (heroLabel) heroLabel.textContent = label;
-      if (heroZoom) {
-        heroZoom.href = src;
-        heroZoom.setAttribute("aria-label", `View ${label} full size`);
-      }
+      if (heroZoom) heroZoom.setAttribute("aria-label", `View ${label} full size`);
+      tiles.forEach((item, itemIndex) => item.classList.toggle("is-active", itemIndex === index));
+      heroImage.classList.add("is-shown");
+      swapTimer = null;
+    }, 160);
+  }
 
-      tiles.forEach((item, itemIndex) => {
-        item.classList.toggle("is-active", itemIndex === index);
-      });
+  function openLightbox(index) {
+    const instance = window.glightbox;
+    if (instance && typeof instance.openAt === "function") {
+      instance.openAt(index);
+      return;
+    }
+    const links = showcase.querySelectorAll('.glightbox[data-gallery="rising-screenshots"]');
+    const link = links[index];
+    if (link) link.click();
+  }
 
-      activeIndex = index;
-      heroImage.classList.add("is-visible");
-      isAnimating = false;
-    }, 220);
+  function setFilter(key) {
+    const buttons = Array.from(showcase.querySelectorAll(".screenshot-filter"));
+    buttons.forEach((btn) => {
+      const isActive = btn.dataset.filter === key;
+      btn.classList.toggle("is-active", isActive);
+      btn.setAttribute("aria-pressed", String(isActive));
+    });
+
+    let firstVisibleIndex = -1;
+    tiles.forEach((tile, index) => {
+      const show = key === "all" || tile.dataset.category === key;
+      tile.hidden = !show;
+      if (show && firstVisibleIndex === -1) firstVisibleIndex = index;
+    });
+
+    if ((tiles[activeIndex]?.hidden || !tiles[activeIndex]) && firstVisibleIndex !== -1) {
+      selectScreenshot(firstVisibleIndex);
+    }
   }
 
   tiles.forEach((tile, index) => {
-    tile.addEventListener("click", () => selectScreenshot(index));
+    tile.addEventListener("click", () => {
+      selectScreenshot(index);
+      openLightbox(index);
+    });
   });
 
-  if (heroFrame && stage && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    stage.addEventListener("mousemove", (event) => {
-      const rect = heroFrame.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-      heroFrame.style.transform = `perspective(900px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
-    });
+  if (prevBtn) prevBtn.addEventListener("click", () => selectScreenshot((activeIndex - 1 + total) % total));
+  if (nextBtn) nextBtn.addEventListener("click", () => selectScreenshot((activeIndex + 1) % total));
 
-    stage.addEventListener("mouseleave", () => {
-      heroFrame.style.transform = "";
+  if (heroZoom) heroZoom.addEventListener("click", () => openLightbox(activeIndex));
+  if (heroImage) heroImage.addEventListener("click", () => openLightbox(activeIndex));
+
+  const initializeFilters = () => {
+    const buttons = Array.from(showcase.querySelectorAll(".screenshot-filter"));
+    buttons.forEach((btn) => {
+      const key = btn.dataset.filter || "all";
+      const count =
+        key === "all" ? total : tiles.filter((tile) => tile.dataset.category === key).length;
+      const countEl = btn.querySelector(".screenshot-filter-count");
+      if (countEl) countEl.textContent = count;
+      btn.addEventListener("click", () => setFilter(key));
+    });
+  };
+
+  initializeFilters();
+
+  const instance = window.glightbox;
+  if (instance && typeof instance.on === "function") {
+    instance.on("open", () => {
+      if (typeof instance.index === "number" && instance.index >= 0 && instance.index < total) {
+        selectScreenshot(instance.index);
+      }
+    });
+    instance.on("slide_changed", (payload) => {
+      const index = payload?.current?.index;
+      if (typeof index === "number" && index >= 0 && index < total) {
+        selectScreenshot(index);
+      }
     });
   }
 }
@@ -294,7 +353,7 @@ function initHeroTitleAnimation() {
 }
 
 function initOffscreenAnimationPause() {
-  const targets = document.querySelectorAll(".latest-banner-showcase, .screenshot-stage");
+  const targets = document.querySelectorAll(".latest-banner-showcase, .screenshot-featured");
 
   if (targets.length === 0) return;
 

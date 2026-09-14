@@ -259,6 +259,7 @@
   const glightbox = GLightbox({
     selector: '.glightbox'
   });
+  window.glightbox = glightbox;
 
   /**
    * Init isotope layout and filters
