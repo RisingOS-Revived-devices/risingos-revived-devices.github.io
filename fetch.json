@@ -1059,4 +1059,30 @@
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/Spacewar.txt",
     "build": "userdebug"
  }
+"Giulia": {
+    "status": "active",
+    "oem": "Oneplus",
+    "device": "Oneplus 13R",
+    "codename": "Giulia",
+    "maintainer": "franlop77",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/giulia.json"
+    ],
+    "device_avatar": "assets/img/devices/giulia.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/59736821?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/giulia.txt",
+    "build": "userdebug"
 }
+"Giuliac": {
+    "status": "active",
+    "oem": "Oneplus",
+    "device": "Oneplus Ace 5",
+    "codename": "Giuliac",
+    "maintainer": "franlop77",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/giuliac.json"
+    ],
+    "device_avatar": "assets/img/devices/giuliac.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/59736821?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/giuliac.txt",
+    "build": "userdebug"
