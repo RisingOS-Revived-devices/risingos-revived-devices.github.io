@@ -250,7 +250,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/munch.json"
     ],
     "device_avatar": "assets/img/devices/xiaomi-poco-f4-5g-1.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/196262485?s=400&u=c963915ed33eff2c68fadea14344eea215d9e886&v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/196262485?s=400&u=c963915ed33eff2c68fadea14344eea215d9e886v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/munch.txt",
     "build": "user"
   },
@@ -357,10 +357,10 @@
   },
   "husky": {
     "status": "active",
-    "maintainer": "Jrcable2",
     "oem": "Google",
     "device": "Pixel 8 Pro",
     "codename": "husky",
+    "maintainer": "Jrcable2",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/husky.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/husky.json",
@@ -374,10 +374,10 @@
   },
   "vermeer": {
     "status": "active",
-    "maintainer": "Lunark",
     "oem": "Xiaomi",
     "device": "POCO F6 Pro / Redmi K70",
     "codename": "vermeer",
+    "maintainer": "Lunark",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/vermeer.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/vermeer.json",
@@ -391,10 +391,10 @@
   },
   "cheeseburger": {
     "status": "dropped",
-    "maintainer": "SirRGB",
     "oem": "OnePlus",
     "device": "5",
     "codename": "cheeseburger",
+    "maintainer": "SirRGB",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/cheeseburger.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/cheeseburger.json",
@@ -408,10 +408,10 @@
   },
   "dumpling": {
     "status": "dropped",
-    "maintainer": "SirRGB",
     "oem": "OnePlus",
     "device": "5T",
     "codename": "dumpling",
+    "maintainer": "SirRGB",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/dumpling.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/dumpling.json",
@@ -425,10 +425,10 @@
   },
   "cheetah": {
     "status": "dropped",
-    "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 7 Pro",
     "codename": "cheetah",
+    "maintainer": "EliteDarkKaiser",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/cheetah.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/cheetah.json",
@@ -442,10 +442,10 @@
   },
   "panther": {
     "status": "dropped",
-    "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 7",
     "codename": "panther",
+    "maintainer": "EliteDarkKaiser",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/panther.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/panther.json",
@@ -459,10 +459,10 @@
   },
   "lynx": {
     "status": "dropped",
-    "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 7a",
     "codename": "lynx",
+    "maintainer": "EliteDarkKaiser",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/lynx.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/lynx.json",
@@ -476,10 +476,10 @@
   },
   "toco": {
     "status": "active",
-    "maintainer": "fwlhh",
     "oem": "Xiaomi",
     "device": "Mi Note 10 Lite",
     "codename": "toco",
+    "maintainer": "fwlhh",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/toco.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/toco.json",
@@ -493,10 +493,10 @@
   },
   "pipa": {
     "status": "active",
-    "maintainer": "YuvarajAF",
     "oem": "Xiaomi",
     "device": "Pad 6",
     "codename": "pipa",
+    "maintainer": "YuvarajAF",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/pipa.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/pipa.json",
@@ -506,14 +506,14 @@
     "device_avatar": "assets/img/devices/pipa.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/152459091?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/pipa.txt",
-    "build": "user"
+    "build": "userdebug"
   },
   "a71": {
     "status": "active",
-    "maintainer": "eun0115",
     "oem": "Samsung",
     "device": "a71 5G",
     "codename": "a71",
+    "maintainer": "eun0115",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/a71.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/a71.json",
@@ -522,14 +522,14 @@
     "device_avatar": "assets/img/devices/a71.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/67692232?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/a71.txt",
-    "build": "user"
+    "build": "userdebug"
   },
-    "komodo": {
+  "komodo": {
     "status": "active",
-    "maintainer": "Slogar25",
     "oem": "Google",
-    "device": "Pixel 9 Pro XL",
+    "device": "Google Pixel 9 Pro XL",
     "codename": "komodo",
+    "maintainer": "Slogar25xOscarM",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/komodo.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/komodo.json",
@@ -539,14 +539,14 @@
     "device_avatar": "assets/img/devices/komodo.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/4675147?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/komodo.txt",
-    "build": "user"
+    "build": "userdebug"
   },
   "hotdog": {
     "status": "active",
-    "maintainer": "answer35",
     "oem": "OnePlus",
     "device": "7T Pro",
     "codename": "hotdog",
+    "maintainer": "answer35",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/hotdog.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/hotdog.json",
@@ -556,14 +556,14 @@
     "device_avatar": "assets/img/devices/hotdog.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/26594746?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/hotdog.txt",
-    "build": "user"
+    "build": "userdebug"
   },
   "instantnoodlep": {
     "status": "active",
-    "maintainer": "answer35",
     "oem": "OnePlus",
     "device": "8 Pro",
     "codename": "instantnoodlep",
+    "maintainer": "answer35",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/instantnoodlep.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/instantnoodlep.json",
@@ -573,65 +573,65 @@
     "device_avatar": "assets/img/devices/instantnoodlep.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/26594746?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/instantnoodlep.txt",
-    "build": "user"
+    "build": "userdebug"
   },
   "pstar": {
-     "status": "active",
-     "maintainer": "Gojo",
-     "oem": "Motorola",
-     "device": "Edge 20 Pro",
-     "codename": "pstar",
-     "urls": [
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/pstar.json",
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/pstar.json",
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/pstar.json",
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/pstar.json"
-     ],
-     "device_avatar": "assets/img/devices/pstar.png",
-     "maintainer_avatar": "https://avatars.githubusercontent.com/u/67557993?v=4",
-     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/pstar.txt",
-     "build": "userdebug"
-     },
-   "stone": {
-     "status": "active",
-     "maintainer": "Julival Bittencourt",
-     "oem": "Xiaomi",
-     "device": "POCO X5 5G/REDMI NOTE 12 5G",
-     "codename": "stone",
-     "urls": [
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/stone.json",
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/stone.json",
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/stone.json",
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/stone.json"
-     ],
-     "device_avatar": "assets/img/devices/stone.png",
-     "maintainer_avatar": "https://avatars.githubusercontent.com/u/53379692?v=4",
-     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/stone.txt",
-     "build": "user"
+    "status": "active",
+    "oem": "Motorola",
+    "device": "Edge 20 Pro",
+    "codename": "pstar",
+    "maintainer": "Gojo",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/pstar.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/pstar.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/pstar.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/pstar.json"
+    ],
+    "device_avatar": "assets/img/devices/pstar.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/67557993?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/pstar.txt",
+    "build": "userdebug"
   },
-   "bluejay": {
-     "status": "dropped",
-     "maintainer": "Jrcable2",
-     "oem": "Google",
-     "device": "Pixel 6a",
-     "codename": "bluejay",
-     "urls": [
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/bluejay.json",
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/bluejay.json",
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/bluejay.json",
-       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/bluejay.json"
-     ],
-     "device_avatar": "assets/img/devices/bluejay.png",
-     "maintainer_avatar": "https://avatars.githubusercontent.com/u/438772?v=4",
-     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/bluejay.txt",
-     "build": "userdebug"
+  "stone": {
+    "status": "active",
+    "oem": "Xiaomi",
+    "device": "POCO X5 5G/REDMI NOTE 12 5G",
+    "codename": "stone",
+    "maintainer": "Julival Bittencourt",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/stone.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/stone.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/stone.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/stone.json"
+    ],
+    "device_avatar": "assets/img/devices/stone.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/53379692?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/stone.txt",
+    "build": "user"
+  },
+  "bluejay": {
+    "status": "dropped",
+    "oem": "Google",
+    "device": "Pixel 6a",
+    "codename": "bluejay",
+    "maintainer": "Jrcable2",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/bluejay.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/bluejay.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/bluejay.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/bluejay.json"
+    ],
+    "device_avatar": "assets/img/devices/bluejay.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/438772?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/bluejay.txt",
+    "build": "userdebug"
   },
   "gta4xl": {
     "status": "active",
-    "maintainer": "objecting_",
     "oem": "Samsung",
     "device": "Galaxy Tab S6 Lite (LTE)",
     "codename": "gta4xl",
+    "maintainer": "objecting_",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/gta4xl.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/gta4xl.json",
@@ -642,13 +642,13 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/154611145?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/gta4xl.txt",
     "build": "userdebug"
- },
+  },
   "gta4xlwifi": {
     "status": "active",
-    "maintainer": "objecting_",
     "oem": "Samsung",
     "device": "Galaxy Tab S6 Lite (WiFi)",
     "codename": "gta4xlwifi",
+    "maintainer": "objecting_",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/gta4xlwifi.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/gta4xlwifi.json",
@@ -657,15 +657,15 @@
     ],
     "device_avatar": "assets/img/devices/gta4xl.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/154611145?v=4",
-    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/gta4xl.txt",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/gta4xlwifi.txt",
     "build": "userdebug"
- },
+  },
   "apollo": {
     "status": "active",
-    "maintainer": "Murtaza Kolachi",
     "oem": "Xiaomi",
     "device": "Mi 10T/Mi 10T pro",
     "codename": "apollo",
+    "maintainer": "Murtaza Kolachi",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/apollo.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/apollo.json",
@@ -676,13 +676,13 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/160129300?s=400&u=117338d07e48ee1da1f6bfa4ac583b106ef25377&v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/apollo.txt",
     "build": "userdebug"
- },
+  },
   "cupid": {
     "status": "active",
-    "maintainer": "KernelPanix",
     "oem": "Xiaomi",
     "device": "Xiaomi 12",
     "codename": "cupid",
+    "maintainer": "KernelPanix",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/cupid.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/cupid.json",
@@ -693,13 +693,13 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/cupid.txt",
     "build": "userdebug"
- },
+  },
   "mayfly": {
     "status": "active",
-    "maintainer": "KernelPanix",
     "oem": "Xiaomi",
     "device": "Xiaomi Mi 12S",
     "codename": "mayfly",
+    "maintainer": "KernelPanix",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/mayfly.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/mayfly.json",
@@ -710,13 +710,13 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/mayfly.txt",
     "build": "userdebug"
- },
+  },
   "zeus": {
     "status": "active",
-    "maintainer": "KernelPanix",
     "oem": "Xiaomi",
     "device": "Xiaomi 12 Pro",
     "codename": "zeus",
+    "maintainer": "KernelPanix",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/zeus.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/zeus.json",
@@ -727,13 +727,13 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/zeus.txt",
     "build": "userdebug"
- },
+  },
   "unicorn": {
     "status": "active",
-    "maintainer": "KernelPanix",
     "oem": "Xiaomi",
     "device": "Xiaomi 12S Pro",
     "codename": "unicorn",
+    "maintainer": "KernelPanix",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/unicorn.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/unicorn.json",
@@ -744,13 +744,13 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/unicorn.txt",
     "build": "userdebug"
- },
+  },
   "diting": {
     "status": "active",
-    "maintainer": "KernelPanix",
     "oem": "Xiaomi",
     "device": "Xiaomi 12T Pro / Redmi K50 Ultra",
     "codename": "diting",
+    "maintainer": "KernelPanix",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/diting.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/diting.json",
@@ -761,13 +761,13 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/diting.txt",
     "build": "userdebug"
- },
+  },
   "sweet": {
     "status": "active",
-    "maintainer": "Musafir02",
     "oem": "Xiaomi",
     "device": "Redmi Note 10 Pro",
     "codename": "sweet",
+    "maintainer": "Musafir02",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/sweet.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/sweet.json",
@@ -778,13 +778,13 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/183203526?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/sweet.txt",
     "build": "userdebug"
- },
- "salaa": {
+  },
+  "salaa": {
     "status": "active",
-    "maintainer": "EvilAnsh",
     "oem": "Realme",
     "device": "Realme 7/Narzo 20 Pro/Narzo 30 4G",
     "codename": "salaa",
+    "maintainer": "EvilAnsh",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/salaa.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/salaa.json",
@@ -795,8 +795,8 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/89060758?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/salaa.txt",
     "build": "userdebug"
- },
- "garnet": {
+  },
+  "garnet": {
     "status": "active",
     "oem": "Xiaomi",
     "device": "Redmi Note 13 Pro 5G/Poco X6 5G",
@@ -812,8 +812,8 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/208906259?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/garnet.txt",
     "build": "user"
- },
- "felix": {
+  },
+  "felix": {
     "status": "dropped",
     "oem": "Google",
     "device": "Google Pixel Fold",
@@ -828,9 +828,9 @@
     "device_avatar": "assets/img/devices/felix.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/3998633?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/felix.txt",
-    "build": "userdebug",
- },
- "peridot": {
+    "build": "userdebug"
+  },
+  "peridot": {
     "status": "active",
     "oem": "Xiaomi",
     "device": "Poco F6/Redmi Turbo 3",
@@ -845,9 +845,9 @@
     "device_avatar": "assets/img/devices/peridot.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/59789349?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/peridot.txt",
-    "build": "userdebug",
- },
- "waffle": {
+    "build": "userdebug"
+  },
+  "waffle": {
     "status": "active",
     "oem": "OnePlus",
     "device": "12",
@@ -862,26 +862,9 @@
     "device_avatar": "assets/img/devices/waffle.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/174895671?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/waffle.txt",
-    "build": "userdebug",
- },
- "komodo": {
-    "status": "active",
-    "oem": "Google",
-    "device": "Google Pixel 9 Pro XL",
-    "codename": "komodo",
-    "maintainer": "Slogar25xOscarM",
-    "urls": [
-      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/komodo.json",
-      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/komodo.json",
-      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/komodo.json",
-      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/komodo.json"
-    ],
-    "device_avatar": "assets/img/devices/komodo.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/4675147?v=4",
-    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/komodo.txt",
-    "build": "userdebug",
- },
- "caiman": {
+    "build": "userdebug"
+  },
+  "caiman": {
     "status": "active",
     "oem": "Google",
     "device": "Google Pixel 9 Pro",
@@ -896,9 +879,9 @@
     "device_avatar": "assets/img/devices/caiman.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/4675147?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/caiman.txt",
-    "build": "userdebug",
- },
- "taoyao": {
+    "build": "userdebug"
+  },
+  "taoyao": {
     "status": "dropped",
     "oem": "Xiaomi",
     "device": "12 Lite",
@@ -914,7 +897,7 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/78911851?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/taoyao.txt",
     "build": "user"
- },
+  },
   "ferrari": {
     "status": "active",
     "oem": "Realme",
@@ -931,7 +914,7 @@
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/ferrari.txt",
     "build": "user"
   },
-   "alioth": {
+  "alioth": {
     "status": "active",
     "oem": "Xiaomi",
     "device": "POCO F3 | REDMI K40 | MI 11X",
@@ -947,7 +930,7 @@
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/alioth.txt",
     "build": "user"
   },
-    "dodge": {
+  "dodge": {
     "status": "active",
     "oem": "OnePlus",
     "device": "13",
@@ -962,14 +945,14 @@
     "device_avatar": "assets/img/devices/dodge.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/60859796?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/dodge.txt",
-    "build": "userdebug",
+    "build": "userdebug"
   },
   "onyx": {
     "status": "active",
-    "maintainer": "SharmagRit",
+    "oem": "Xiaomi",
     "device": "POCO F7",
     "codename": "onyx",
-    "oem": "Xiaomi",
+    "maintainer": "SharmagRit",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/onyx.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/onyx.json",
@@ -983,10 +966,10 @@
   },
   "ingres": {
     "status": "active",
-    "maintainer": "𝒾𝓉𝓏パルサYC",
     "oem": "Xiaomi",
     "device": "POCO F4 GT/Redmi K50 Gaming",
     "codename": "ingres",
+    "maintainer": "𝒾𝓉𝓏パルサYC",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/ingres.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/ingres.json",
@@ -999,10 +982,10 @@
   },
   "mustang": {
     "status": "active",
-    "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 10 Pro XL",
     "codename": "mustang",
+    "maintainer": "EliteDarkKaiser",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/mustang.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/mustang.json",
@@ -1015,10 +998,10 @@
   },
   "blazer": {
     "status": "active",
-    "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 10 Pro",
     "codename": "blazer",
+    "maintainer": "EliteDarkKaiser",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/blazer.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/blazer.json",
@@ -1031,10 +1014,10 @@
   },
   "frankel": {
     "status": "active",
-    "maintainer": "EliteDarkKaiser",
     "oem": "Google",
     "device": "Pixel 10",
     "codename": "frankel",
+    "maintainer": "EliteDarkKaiser",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/frankel.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/frankel.json",
@@ -1045,7 +1028,7 @@
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/frankel.txt",
     "build": "userdebug"
   },
- "Spacewar": {
+  "Spacewar": {
     "status": "active",
     "oem": "Nothing",
     "device": "Phone 1",
@@ -1058,8 +1041,8 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/116599295?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/Spacewar.txt",
     "build": "userdebug"
- }
-"Giulia": {
+  },
+  "Giulia": {
     "status": "active",
     "oem": "Oneplus",
     "device": "Oneplus 13R",
@@ -1072,8 +1055,8 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/59736821?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/giulia.txt",
     "build": "userdebug"
-}
-"Giuliac": {
+  },
+  "Giuliac": {
     "status": "active",
     "oem": "Oneplus",
     "device": "Oneplus Ace 5",
@@ -1086,3 +1069,5 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/59736821?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/giuliac.txt",
     "build": "userdebug"
+  }
+}
