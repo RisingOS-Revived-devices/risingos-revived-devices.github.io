@@ -138,50 +138,111 @@ function initScreenshotShowcase() {
   const showcase = document.getElementById("screenshotShowcase");
   if (!showcase) return;
 
-  const featured = document.getElementById("screenshotFeatured");
   const heroImage = document.getElementById("screenshotHeroImage");
-  const heroLabel = document.getElementById("screenshotHeroLabel");
+  const heroTitle = document.getElementById("screenshotHeroTitle");
+  const heroSubtitle = document.getElementById("screenshotHeroSubtitle");
+  const heroDesc = document.getElementById("screenshotHeroDesc");
+  const categoryBadge = document.getElementById("screenshotCategoryBadge");
+  const activeNum = document.getElementById("screenshotActiveNum");
+  const totalNum = document.getElementById("screenshotTotalNum");
   const heroZoom = document.getElementById("screenshotHeroZoom");
-  const prevBtn = document.getElementById("screenshotPrev");
-  const nextBtn = document.getElementById("screenshotNext");
-  const grid = document.getElementById("screenshotGrid");
-  const tiles = Array.from(showcase.querySelectorAll(".screenshot-tile"));
+  const device = document.getElementById("screenshotDevice");
+  const deviceStage = document.getElementById("screenshotDeviceStage");
+  const thumbsTrack = document.getElementById("screenshotThumbnails");
+  const thumbs = Array.from(showcase.querySelectorAll(".screenshot-thumb"));
+  const filterBtns = Array.from(showcase.querySelectorAll(".screenshot-filter"));
+  const prevBtns = [
+    document.getElementById("screenshotPrev"),
+    document.getElementById("screenshotPhonePrev"),
+  ].filter(Boolean);
+  const nextBtns = [
+    document.getElementById("screenshotNext"),
+    document.getElementById("screenshotPhoneNext"),
+  ].filter(Boolean);
 
-  if (!heroImage || !grid || tiles.length === 0) return;
+  if (!heroImage || thumbs.length === 0) return;
 
-  const total = tiles.length;
+  const SCREENSHOTS = [
+    {
+      id: "lock-screen",
+      category: "lock-screen",
+      categoryLabel: "Lock Screen",
+      title: "Lock Screen & AOD",
+      subtitle: "Personalized Always-on Display",
+      desc: "Personalize your lock screen with custom clock fonts, dynamic weather widgets, notification styles, and seamless ambient display transitions.",
+      src: "assets/img/screenshots/ss-lockscreen.png",
+    },
+    {
+      id: "qs-panel",
+      category: "quick-settings",
+      categoryLabel: "Quick Settings",
+      title: "Quick Settings Panel",
+      subtitle: "Fluid Control Center",
+      desc: "A clean dual-tone QS tile layout with intuitive brightness control, haptic slider feedback, and instant access to system toggles.",
+      src: "assets/img/screenshots/ss-quicksettings1.png",
+    },
+    {
+      id: "qs-media",
+      category: "quick-settings",
+      categoryLabel: "Quick Settings",
+      title: "Media Player & Expanded QS",
+      subtitle: "Integrated Sound Controls",
+      desc: "Seamless media player card featuring live waveform animations, audio output switching, and smart notification grouping.",
+      src: "assets/img/screenshots/ss-quicksettings2.png",
+    },
+    {
+      id: "qs-toggles",
+      category: "quick-settings",
+      categoryLabel: "Quick Settings",
+      title: "Quick Toggles & Power",
+      subtitle: "Deep Hardware Controls",
+      desc: "Quick access to refresh rate toggles, performance modes, network configurations, and advanced reboot options.",
+      src: "assets/img/screenshots/ss-quicksettings3.png",
+    },
+    {
+      id: "customization",
+      category: "system",
+      categoryLabel: "System",
+      title: "RisingUI Customization Hub",
+      subtitle: "Unmatched Theme Engine",
+      desc: "Fine-tune system fonts, icon shapes, status bar styles, dynamic Material You color palettes, and custom animations.",
+      src: "assets/img/screenshots/ss-customization.png",
+    },
+    {
+      id: "about",
+      category: "system",
+      categoryLabel: "System",
+      title: "About Phone & Specs",
+      subtitle: "Transparent Device Info",
+      desc: "Comprehensive device specs, Android 15/14 base details, kernel parameters, and official maintainer credits.",
+      src: "assets/img/screenshots/ss-about.png",
+    },
+    {
+      id: "settings",
+      category: "system",
+      categoryLabel: "System",
+      title: "Settings Dashboard",
+      subtitle: "Streamlined Navigation",
+      desc: "Modern categorized settings layout with instant search indexing, enhanced privacy controls, and battery optimization.",
+      src: "assets/img/screenshots/ss-settings.png",
+    },
+  ];
+
+  const total = SCREENSHOTS.length;
   let activeIndex = 0;
+  let currentFilter = "all";
   let swapTimer = null;
 
-  showcase.classList.add("js-animate");
-
-  if (featured && "IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          showcase.classList.add("is-visible");
-          window.setTimeout(() => showcase.classList.remove("js-animate"), 900);
-          revealObserver.disconnect();
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -48px 0px" }
-    );
-    revealObserver.observe(showcase);
-  } else {
-    showcase.classList.add("is-visible");
-    showcase.classList.remove("js-animate");
+  function getVisibleIndices() {
+    return SCREENSHOTS.map((item, index) => ({ item, index }))
+      .filter(({ item }) => currentFilter === "all" || item.category === currentFilter)
+      .map(({ index }) => index);
   }
 
-  function selectScreenshot(index) {
-    const tile = tiles[index];
-    if (!tile) return;
-
-    const src = tile.dataset.src || tile.querySelector("img")?.getAttribute("src") || "";
-    const label =
-      tile.dataset.label ||
-      tile.querySelector(".screenshot-tile-label")?.textContent?.trim() ||
-      "Screenshot";
+  function selectScreenshot(index, options = { scrollThumb: true }) {
+    if (index < 0 || index >= total) return;
+    const item = SCREENSHOTS[index];
+    if (!item) return;
 
     activeIndex = index;
 
@@ -189,85 +250,209 @@ function initScreenshotShowcase() {
 
     heroImage.classList.remove("is-shown");
     swapTimer = window.setTimeout(() => {
-      heroImage.src = src;
-      heroImage.alt = `${label} — RisingOS Revived screenshot`;
-      if (heroLabel) heroLabel.textContent = label;
-      if (heroZoom) heroZoom.setAttribute("aria-label", `View ${label} full size`);
-      tiles.forEach((item, itemIndex) => item.classList.toggle("is-active", itemIndex === index));
+      heroImage.src = item.src;
+      heroImage.alt = `${item.title} — RisingOS Revived screenshot`;
+
+      if (heroTitle) heroTitle.textContent = item.title;
+      if (heroSubtitle) heroSubtitle.textContent = item.subtitle;
+      if (heroDesc) heroDesc.textContent = item.desc;
+      if (categoryBadge) categoryBadge.textContent = item.categoryLabel;
+      if (activeNum) activeNum.textContent = String(index + 1).padStart(2, "0");
+      if (device) device.setAttribute("aria-label", `${item.title} screenshot — click to open high resolution viewer`);
+
+      thumbs.forEach((thumb, thumbIndex) => {
+        const isActive = thumbIndex === index;
+        thumb.classList.toggle("is-active", isActive);
+        thumb.setAttribute("aria-selected", String(isActive));
+      });
+
+      if (options.scrollThumb && thumbs[index] && thumbsTrack) {
+        thumbs[index].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
+
       heroImage.classList.add("is-shown");
       swapTimer = null;
-    }, 160);
+    }, 140);
+  }
+
+  function nextScreenshot() {
+    const visible = getVisibleIndices();
+    if (visible.length === 0) return;
+    const currentPos = visible.indexOf(activeIndex);
+    const nextIndex = currentPos === -1 ? visible[0] : visible[(currentPos + 1) % visible.length];
+    selectScreenshot(nextIndex);
+  }
+
+  function prevScreenshot() {
+    const visible = getVisibleIndices();
+    if (visible.length === 0) return;
+    const currentPos = visible.indexOf(activeIndex);
+    const prevIndex = currentPos === -1 ? visible[0] : visible[(currentPos - 1 + visible.length) % visible.length];
+    selectScreenshot(prevIndex);
   }
 
   function openLightbox(index) {
+    const targetIndex = typeof index === "number" ? index : activeIndex;
     const instance = window.glightbox;
     if (instance && typeof instance.openAt === "function") {
-      instance.openAt(index);
+      instance.openAt(targetIndex);
       return;
     }
-    const links = showcase.querySelectorAll('.glightbox[data-gallery="rising-screenshots"]');
-    const link = links[index];
-    if (link) link.click();
-  }
-
-  function setFilter(key) {
-    const buttons = Array.from(showcase.querySelectorAll(".screenshot-filter"));
-    buttons.forEach((btn) => {
-      const isActive = btn.dataset.filter === key;
-      btn.classList.toggle("is-active", isActive);
-      btn.setAttribute("aria-pressed", String(isActive));
-    });
-
-    let firstVisibleIndex = -1;
-    tiles.forEach((tile, index) => {
-      const show = key === "all" || tile.dataset.category === key;
-      tile.hidden = !show;
-      if (show && firstVisibleIndex === -1) firstVisibleIndex = index;
-    });
-
-    if ((tiles[activeIndex]?.hidden || !tiles[activeIndex]) && firstVisibleIndex !== -1) {
-      selectScreenshot(firstVisibleIndex);
+    const galleryLinks = document.querySelectorAll(
+      '#screenshotLightboxGallery .glightbox[data-gallery="rising-screenshots"]'
+    );
+    if (galleryLinks[targetIndex]) {
+      galleryLinks[targetIndex].click();
     }
   }
 
-  tiles.forEach((tile, index) => {
-    tile.addEventListener("click", () => {
+  function setFilter(category) {
+    currentFilter = category;
+
+    filterBtns.forEach((btn) => {
+      const isActive = btn.dataset.filter === category;
+      btn.classList.toggle("is-active", isActive);
+      btn.setAttribute("aria-selected", String(isActive));
+    });
+
+    thumbs.forEach((thumb) => {
+      const match = category === "all" || thumb.dataset.category === category;
+      thumb.hidden = !match;
+    });
+
+    const visible = getVisibleIndices();
+    if (totalNum) {
+      totalNum.textContent = String(visible.length).padStart(2, "0");
+    }
+
+    if (!visible.includes(activeIndex) && visible.length > 0) {
+      selectScreenshot(visible[0]);
+    }
+  }
+
+  // Thumbnails click
+  thumbs.forEach((thumb) => {
+    const index = parseInt(thumb.dataset.index, 10);
+    thumb.addEventListener("click", () => {
       selectScreenshot(index);
-      openLightbox(index);
     });
   });
 
-  if (prevBtn) prevBtn.addEventListener("click", () => selectScreenshot((activeIndex - 1 + total) % total));
-  if (nextBtn) nextBtn.addEventListener("click", () => selectScreenshot((activeIndex + 1) % total));
+  // Stepper navigation
+  prevBtns.forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      prevScreenshot();
+    })
+  );
+  nextBtns.forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      nextScreenshot();
+    })
+  );
 
+  // Lightbox triggers
   if (heroZoom) heroZoom.addEventListener("click", () => openLightbox(activeIndex));
-  if (heroImage) heroImage.addEventListener("click", () => openLightbox(activeIndex));
-
-  const initializeFilters = () => {
-    const buttons = Array.from(showcase.querySelectorAll(".screenshot-filter"));
-    buttons.forEach((btn) => {
-      const key = btn.dataset.filter || "all";
-      const count =
-        key === "all" ? total : tiles.filter((tile) => tile.dataset.category === key).length;
-      const countEl = btn.querySelector(".screenshot-filter-count");
-      if (countEl) countEl.textContent = count;
-      btn.addEventListener("click", () => setFilter(key));
+  if (device) {
+    device.addEventListener("click", (e) => {
+      if (e.target.closest(".screenshot-phone-nav")) return;
+      openLightbox(activeIndex);
     });
-  };
+    device.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openLightbox(activeIndex);
+      }
+    });
+  }
 
-  initializeFilters();
+  // Filter click & badge counts
+  filterBtns.forEach((btn) => {
+    const category = btn.dataset.filter || "all";
+    const count = category === "all" ? total : SCREENSHOTS.filter((s) => s.category === category).length;
+    const countEl = btn.querySelector(".screenshot-filter-count");
+    if (countEl) countEl.textContent = count;
+    btn.addEventListener("click", () => setFilter(category));
+  });
 
+  // Touch swipe support on device mockup
+  if (device) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    device.addEventListener(
+      "touchstart",
+      (e) => {
+        const touch = e.changedTouches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+      },
+      { passive: true }
+    );
+
+    device.addEventListener(
+      "touchend",
+      (e) => {
+        const touch = e.changedTouches[0];
+        const deltaX = touch.clientX - touchStartX;
+        const deltaY = touch.clientY - touchStartY;
+        if (Math.abs(deltaX) > 42 && Math.abs(deltaX) > Math.abs(deltaY) * 1.3) {
+          if (deltaX < 0) nextScreenshot();
+          else prevScreenshot();
+        }
+      },
+      { passive: true }
+    );
+  }
+
+  // Keyboard navigation on showcase
+  showcase.addEventListener("keydown", (e) => {
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      prevScreenshot();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      nextScreenshot();
+    }
+  });
+
+  // 3D Parallax tilt on desktop
+  if (deviceStage && device && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    let tiltRaf = null;
+    deviceStage.addEventListener("mousemove", (e) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const rect = device.getBoundingClientRect();
+      const x = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+      const y = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+      if (tiltRaf) cancelAnimationFrame(tiltRaf);
+      tiltRaf = requestAnimationFrame(() => {
+        device.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-2px)`;
+      });
+    });
+
+    deviceStage.addEventListener("mouseleave", () => {
+      if (tiltRaf) cancelAnimationFrame(tiltRaf);
+      device.style.transform = "";
+    });
+  }
+
+  // Sync with GLightbox instance
   const instance = window.glightbox;
   if (instance && typeof instance.on === "function") {
     instance.on("open", () => {
       if (typeof instance.index === "number" && instance.index >= 0 && instance.index < total) {
-        selectScreenshot(instance.index);
+        selectScreenshot(instance.index, { scrollThumb: true });
       }
     });
     instance.on("slide_changed", (payload) => {
       const index = payload?.current?.index;
       if (typeof index === "number" && index >= 0 && index < total) {
-        selectScreenshot(index);
+        selectScreenshot(index, { scrollThumb: true });
       }
     });
   }
@@ -359,7 +544,9 @@ function initHeroTitleAnimation() {
 }
 
 function initOffscreenAnimationPause() {
-  const targets = document.querySelectorAll(".latest-banner-showcase, .screenshot-featured");
+  const targets = document.querySelectorAll(
+    ".latest-banner-showcase, .screenshot-device, .screenshot-device-aura"
+  );
 
   if (targets.length === 0) return;
 

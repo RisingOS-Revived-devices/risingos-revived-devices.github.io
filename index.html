@@ -241,90 +241,217 @@
     <!-- Screenshot Section -->
     <section id="screenshot-grid" class="screenshots section">
       <div class="container section-layout">
-        <div class="section-intro text-center">
+        <div class="section-intro text-center" data-aos="fade-up">
+          <p class="screenshot-eyebrow">Visual Experience</p>
           <h2 class="section-title"><strong>Screenshots</strong></h2>
           <div class="header-divider"></div>
-          <p class="section-lead"><strong>Explore the visuals of <span class="text-accent">RisingOS Revived</span> in action.</strong></p>
+          <p class="section-lead">Explore the refined interface and fluid visuals of <span class="text-accent">RisingOS Revived</span>.</p>
         </div>
 
-        <div class="screenshot-showcase" id="screenshotShowcase">
-          <div class="screenshot-featured" id="screenshotFeatured">
-            <span class="screenshot-featured-kicker">Featured Preview</span>
-
-            <button type="button" class="screenshot-nav screenshot-nav--prev" id="screenshotPrev" aria-label="Show previous screenshot">
-              <i class="bi bi-chevron-left" aria-hidden="true"></i>
-            </button>
-
-            <figure class="screenshot-screen">
-              <img
-                id="screenshotHeroImage"
-                class="screenshot-screen-image is-shown"
-                src="assets/img/screenshots/ss-lockscreen.png"
-                alt="Lock Screen — RisingOS Revived screenshot"
-                width="573"
-                height="1280"
-                decoding="async"
-              >
-              <figcaption class="screenshot-featured-caption">
-                <span class="screenshot-hero-label" id="screenshotHeroLabel">Lock Screen</span>
-                <button type="button" class="screenshot-hero-zoom" id="screenshotHeroZoom">
-                  <i class="bi bi-arrows-fullscreen" aria-hidden="true"></i>
-                  View Full Size
-                </button>
-              </figcaption>
-            </figure>
-
-            <button type="button" class="screenshot-nav screenshot-nav--next" id="screenshotNext" aria-label="Show next screenshot">
-              <i class="bi bi-chevron-right" aria-hidden="true"></i>
-            </button>
+        <div class="screenshot-showcase" id="screenshotShowcase" data-aos="fade-up" data-aos-delay="100">
+          <!-- Category Filters -->
+          <div class="screenshot-filters-wrap">
+            <div class="screenshot-filters" id="screenshotFilters" role="tablist" aria-label="Filter screenshots by category">
+              <button type="button" class="screenshot-filter is-active" data-filter="all" role="tab" aria-selected="true" aria-controls="screenshotStage">
+                <span>All Screens</span>
+                <span class="screenshot-filter-count">7</span>
+              </button>
+              <button type="button" class="screenshot-filter" data-filter="lock-screen" role="tab" aria-selected="false" aria-controls="screenshotStage">
+                <span>Lock Screen</span>
+                <span class="screenshot-filter-count">1</span>
+              </button>
+              <button type="button" class="screenshot-filter" data-filter="quick-settings" role="tab" aria-selected="false" aria-controls="screenshotStage">
+                <span>Quick Settings</span>
+                <span class="screenshot-filter-count">3</span>
+              </button>
+              <button type="button" class="screenshot-filter" data-filter="system" role="tab" aria-selected="false" aria-controls="screenshotStage">
+                <span>System</span>
+                <span class="screenshot-filter-count">3</span>
+              </button>
+            </div>
           </div>
 
-          <div class="screenshot-filters" id="screenshotFilters" role="group" aria-label="Filter screenshots by category">
-            <button type="button" class="screenshot-filter is-active" data-filter="all" aria-pressed="true">All Screenshots <span class="screenshot-filter-count"></span></button>
-            <button type="button" class="screenshot-filter" data-filter="lock-screen" aria-pressed="false">Lock Screen <span class="screenshot-filter-count"></span></button>
-            <button type="button" class="screenshot-filter" data-filter="quick-settings" aria-pressed="false">Quick Settings <span class="screenshot-filter-count"></span></button>
-            <button type="button" class="screenshot-filter" data-filter="system" aria-pressed="false">System <span class="screenshot-filter-count"></span></button>
+          <!-- Main Interactive Stage -->
+          <div class="screenshot-stage" id="screenshotStage">
+            <!-- Left Column: Details & Thumbnails -->
+            <div class="screenshot-details-col">
+              <!-- Active Info Card -->
+              <div class="screenshot-info-card" id="screenshotInfoCard">
+                <div class="screenshot-info-top">
+                  <span class="screenshot-category-badge" id="screenshotCategoryBadge">Lock Screen</span>
+                  <div class="screenshot-counter" aria-label="Slide counter">
+                    <span class="screenshot-counter-current" id="screenshotActiveNum">01</span>
+                    <span class="screenshot-counter-sep">/</span>
+                    <span class="screenshot-counter-total" id="screenshotTotalNum">07</span>
+                  </div>
+                </div>
+
+                <h3 class="screenshot-info-title" id="screenshotHeroTitle">Lock Screen & AOD</h3>
+                <p class="screenshot-info-subtitle" id="screenshotHeroSubtitle">Personalized Always-on Display</p>
+                <p class="screenshot-info-desc" id="screenshotHeroDesc">
+                  Personalize your lock screen with custom clock fonts, dynamic weather widgets, notification styles, and seamless ambient display transitions.
+                </p>
+
+                <div class="screenshot-actions">
+                  <button type="button" class="screenshot-action-btn screenshot-action-btn--zoom" id="screenshotHeroZoom" aria-label="View screenshot full size in lightbox">
+                    <i class="bi bi-arrows-fullscreen" aria-hidden="true"></i>
+                    <span>View Fullscreen</span>
+                  </button>
+
+                  <div class="screenshot-stepper-btns">
+                    <button type="button" class="screenshot-nav-btn screenshot-nav-btn--prev" id="screenshotPrev" aria-label="Previous screenshot">
+                      <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="screenshot-nav-btn screenshot-nav-btn--next" id="screenshotNext" aria-label="Next screenshot">
+                      <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Thumbnail Gallery Strip -->
+              <div class="screenshot-thumbnails-section">
+                <div class="screenshot-thumbnails-header">
+                  <span class="screenshot-thumbnails-title">
+                    <i class="bi bi-grid-fill me-2 text-accent"></i>Browse Gallery
+                  </span>
+                  <span class="screenshot-thumbnails-hint">
+                    <i class="bi bi-hand-index-thumb me-1"></i>Tap to select
+                  </span>
+                </div>
+
+                <div class="screenshot-thumbnails-track" id="screenshotThumbnails" role="tablist" aria-label="Screenshot thumbnails">
+                  <!-- Thumbnail 1 -->
+                  <button type="button" class="screenshot-thumb is-active" data-index="0" data-category="lock-screen" role="tab" aria-selected="true" aria-label="Select Lock Screen">
+                    <div class="screenshot-thumb-media">
+                      <img src="assets/img/screenshots/ss-lockscreen.png" alt="Lock Screen thumbnail" width="573" height="1280" loading="lazy" decoding="async">
+                    </div>
+                    <span class="screenshot-thumb-label">Lock Screen</span>
+                  </button>
+
+                  <!-- Thumbnail 2 -->
+                  <button type="button" class="screenshot-thumb" data-index="1" data-category="quick-settings" role="tab" aria-selected="false" aria-label="Select Quick Settings Panel">
+                    <div class="screenshot-thumb-media">
+                      <img src="assets/img/screenshots/ss-quicksettings1.png" alt="Quick Settings Panel thumbnail" width="573" height="1280" loading="lazy" decoding="async">
+                    </div>
+                    <span class="screenshot-thumb-label">Quick Settings</span>
+                  </button>
+
+                  <!-- Thumbnail 3 -->
+                  <button type="button" class="screenshot-thumb" data-index="2" data-category="quick-settings" role="tab" aria-selected="false" aria-label="Select Media & QS">
+                    <div class="screenshot-thumb-media">
+                      <img src="assets/img/screenshots/ss-quicksettings2.png" alt="Media & QS thumbnail" width="573" height="1280" loading="lazy" decoding="async">
+                    </div>
+                    <span class="screenshot-thumb-label">Media & QS</span>
+                  </button>
+
+                  <!-- Thumbnail 4 -->
+                  <button type="button" class="screenshot-thumb" data-index="3" data-category="quick-settings" role="tab" aria-selected="false" aria-label="Select Quick Toggles">
+                    <div class="screenshot-thumb-media">
+                      <img src="assets/img/screenshots/ss-quicksettings3.png" alt="Quick Toggles thumbnail" width="573" height="1280" loading="lazy" decoding="async">
+                    </div>
+                    <span class="screenshot-thumb-label">Quick Toggles</span>
+                  </button>
+
+                  <!-- Thumbnail 5 -->
+                  <button type="button" class="screenshot-thumb" data-index="4" data-category="system" role="tab" aria-selected="false" aria-label="Select Customization">
+                    <div class="screenshot-thumb-media">
+                      <img src="assets/img/screenshots/ss-customization.png" alt="Customization thumbnail" width="573" height="1280" loading="lazy" decoding="async">
+                    </div>
+                    <span class="screenshot-thumb-label">Customization</span>
+                  </button>
+
+                  <!-- Thumbnail 6 -->
+                  <button type="button" class="screenshot-thumb" data-index="5" data-category="system" role="tab" aria-selected="false" aria-label="Select About Device">
+                    <div class="screenshot-thumb-media">
+                      <img src="assets/img/screenshots/ss-about.png" alt="About Device thumbnail" width="573" height="1280" loading="lazy" decoding="async">
+                    </div>
+                    <span class="screenshot-thumb-label">About Device</span>
+                  </button>
+
+                  <!-- Thumbnail 7 -->
+                  <button type="button" class="screenshot-thumb" data-index="6" data-category="system" role="tab" aria-selected="false" aria-label="Select Settings">
+                    <div class="screenshot-thumb-media">
+                      <img src="assets/img/screenshots/ss-settings.png" alt="Settings thumbnail" width="573" height="1280" loading="lazy" decoding="async">
+                    </div>
+                    <span class="screenshot-thumb-label">Settings</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Flagship Phone Mockup -->
+            <div class="screenshot-phone-col">
+              <div class="screenshot-device-stage" id="screenshotDeviceStage">
+                <!-- Ambient Backlight Aura -->
+                <div class="screenshot-device-aura" aria-hidden="true"></div>
+
+                <!-- Hardware Device Mockup -->
+                <div class="screenshot-device" id="screenshotDevice" role="button" tabindex="0" aria-label="Lock Screen screenshot — click to open high resolution viewer">
+                  <!-- Side Hardware Buttons -->
+                  <div class="screenshot-device-buttons" aria-hidden="true">
+                    <span class="device-btn-volume-up"></span>
+                    <span class="device-btn-volume-down"></span>
+                    <span class="device-btn-power"></span>
+                  </div>
+
+                  <!-- Phone Outer Bezel -->
+                  <div class="screenshot-device-bezel">
+                    <!-- Top Speaker Slit & Front Camera Cutout -->
+                    <div class="screenshot-device-speaker" aria-hidden="true"></div>
+                    <div class="screenshot-device-camera" aria-hidden="true">
+                      <span class="device-camera-lens"></span>
+                    </div>
+
+                    <!-- Screen Viewport -->
+                    <div class="screenshot-device-screen">
+                      <img
+                        id="screenshotHeroImage"
+                        class="screenshot-screen-image is-shown"
+                        src="assets/img/screenshots/ss-lockscreen.png"
+                        alt="Lock Screen & AOD — RisingOS Revived screenshot"
+                        width="573"
+                        height="1280"
+                        decoding="async"
+                      >
+
+                      <!-- Glass Gloss Reflection -->
+                      <div class="screenshot-device-glare" aria-hidden="true"></div>
+
+                      <!-- Inspect Pill -->
+                      <div class="screenshot-device-expand-hint" aria-hidden="true">
+                        <i class="bi bi-arrows-fullscreen"></i>
+                        <span>Click to Enlarge</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Floating Touch Navigation Arrows for Phone Frame -->
+                  <button type="button" class="screenshot-phone-nav screenshot-phone-nav--prev" id="screenshotPhonePrev" aria-label="Previous screenshot">
+                    <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="screenshot-phone-nav screenshot-phone-nav--next" id="screenshotPhoneNext" aria-label="Next screenshot">
+                    <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+
+                <div class="screenshot-device-footer-hint">
+                  <span class="screenshot-swipe-tip d-md-none"><i class="bi bi-arrow-left-right me-1"></i>Swipe phone to browse</span>
+                  <span class="screenshot-tilt-tip d-none d-lg-inline"><i class="bi bi-cursor me-1"></i>Click screen to zoom in full resolution</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="screenshot-grid" id="screenshotGrid">
-            <button type="button" class="screenshot-tile" data-src="assets/img/screenshots/ss-lockscreen.png" data-label="Lock Screen" data-category="lock-screen" style="--tile-delay: 0ms">
-              <img src="assets/img/screenshots/ss-lockscreen.png" alt="Lock Screen screenshot" width="573" height="1280" loading="lazy" decoding="async">
-              <span class="screenshot-tile-label">Lock Screen</span>
-            </button>
-            <button type="button" class="screenshot-tile" data-src="assets/img/screenshots/ss-quicksettings1.png" data-label="Quick Settings 1" data-category="quick-settings" style="--tile-delay: 60ms">
-              <img src="assets/img/screenshots/ss-quicksettings1.png" alt="Quick Settings panel screenshot" width="573" height="1280" loading="lazy" decoding="async">
-              <span class="screenshot-tile-label">Quick Settings</span>
-            </button>
-            <button type="button" class="screenshot-tile" data-src="assets/img/screenshots/ss-quicksettings2.png" data-label="Quick Settings 2" data-category="quick-settings" style="--tile-delay: 120ms">
-              <img src="assets/img/screenshots/ss-quicksettings2.png" alt="Quick Settings panel screenshot" width="573" height="1280" loading="lazy" decoding="async">
-              <span class="screenshot-tile-label">Quick Settings 2</span>
-            </button>
-            <button type="button" class="screenshot-tile" data-src="assets/img/screenshots/ss-quicksettings3.png" data-label="Quick Settings 3" data-category="quick-settings" style="--tile-delay: 180ms">
-              <img src="assets/img/screenshots/ss-quicksettings3.png" alt="Quick Settings panel screenshot" width="573" height="1280" loading="lazy" decoding="async">
-              <span class="screenshot-tile-label">Quick Settings 3</span>
-            </button>
-            <button type="button" class="screenshot-tile" data-src="assets/img/screenshots/ss-customization.png" data-label="Customization" data-category="system" style="--tile-delay: 240ms">
-              <img src="assets/img/screenshots/ss-customization.png" alt="Customization options screenshot" width="573" height="1280" loading="lazy" decoding="async">
-              <span class="screenshot-tile-label">Customization</span>
-            </button>
-            <button type="button" class="screenshot-tile" data-src="assets/img/screenshots/ss-about.png" data-label="About" data-category="system" style="--tile-delay: 300ms">
-              <img src="assets/img/screenshots/ss-about.png" alt="About Phone screen screenshot" width="573" height="1280" loading="lazy" decoding="async">
-              <span class="screenshot-tile-label">About</span>
-            </button>
-            <button type="button" class="screenshot-tile" data-src="assets/img/screenshots/ss-settings.png" data-label="Settings" data-category="system" style="--tile-delay: 360ms">
-              <img src="assets/img/screenshots/ss-settings.png" alt="Settings app screenshot" width="573" height="1280" loading="lazy" decoding="async">
-              <span class="screenshot-tile-label">Settings</span>
-            </button>
-          </div>
-
-          <div class="visually-hidden">
-            <a href="assets/img/screenshots/ss-lockscreen.png" class="glightbox" data-gallery="rising-screenshots" data-title="Lock Screen" aria-label="Open Lock Screen screenshot full size"></a>
-            <a href="assets/img/screenshots/ss-quicksettings1.png" class="glightbox" data-gallery="rising-screenshots" data-title="Quick Settings 1" aria-label="Open Quick Settings 1 screenshot full size"></a>
-            <a href="assets/img/screenshots/ss-quicksettings2.png" class="glightbox" data-gallery="rising-screenshots" data-title="Quick Settings 2" aria-label="Open Quick Settings 2 screenshot full size"></a>
-            <a href="assets/img/screenshots/ss-quicksettings3.png" class="glightbox" data-gallery="rising-screenshots" data-title="Quick Settings 3" aria-label="Open Quick Settings 3 screenshot full size"></a>
-            <a href="assets/img/screenshots/ss-customization.png" class="glightbox" data-gallery="rising-screenshots" data-title="Customization" aria-label="Open Customization screenshot full size"></a>
-            <a href="assets/img/screenshots/ss-about.png" class="glightbox" data-gallery="rising-screenshots" data-title="About" aria-label="Open About screenshot full size"></a>
-            <a href="assets/img/screenshots/ss-settings.png" class="glightbox" data-gallery="rising-screenshots" data-title="Settings" aria-label="Open Settings screenshot full size"></a>
+          <!-- GLightbox Gallery Trigger Links -->
+          <div class="visually-hidden" id="screenshotLightboxGallery">
+            <a href="assets/img/screenshots/ss-lockscreen.png" class="glightbox" data-gallery="rising-screenshots" data-title="Lock Screen & AOD" data-description="Personalize your lock screen with custom clock fonts, dynamic weather widgets, notification styles, and seamless ambient display transitions." aria-label="Open Lock Screen screenshot full size"></a>
+            <a href="assets/img/screenshots/ss-quicksettings1.png" class="glightbox" data-gallery="rising-screenshots" data-title="Quick Settings Panel" data-description="A clean dual-tone QS tile layout with intuitive brightness control, haptic slider feedback, and instant access to system toggles." aria-label="Open Quick Settings Panel screenshot full size"></a>
+            <a href="assets/img/screenshots/ss-quicksettings2.png" class="glightbox" data-gallery="rising-screenshots" data-title="Media Player & Expanded QS" data-description="Seamless media player card featuring live waveform animations, audio output switching, and smart notification grouping." aria-label="Open Media Player & Expanded QS screenshot full size"></a>
+            <a href="assets/img/screenshots/ss-quicksettings3.png" class="glightbox" data-gallery="rising-screenshots" data-title="Quick Toggles & Power" data-description="Quick access to refresh rate toggles, performance modes, network configurations, and advanced reboot options." aria-label="Open Quick Toggles & Power screenshot full size"></a>
+            <a href="assets/img/screenshots/ss-customization.png" class="glightbox" data-gallery="rising-screenshots" data-title="RisingUI Customization Hub" data-description="Fine-tune system fonts, icon shapes, status bar styles, dynamic Material You color palettes, and custom animations." aria-label="Open Customization screenshot full size"></a>
+            <a href="assets/img/screenshots/ss-about.png" class="glightbox" data-gallery="rising-screenshots" data-title="About Phone & Specs" data-description="Comprehensive device specs, Android 15/14 base details, kernel parameters, and official maintainer credits." aria-label="Open About Phone screenshot full size"></a>
+            <a href="assets/img/screenshots/ss-settings.png" class="glightbox" data-gallery="rising-screenshots" data-title="Settings Dashboard" data-description="Modern categorized settings layout with instant search indexing, enhanced privacy controls, and battery optimization." aria-label="Open Settings screenshot full size"></a>
           </div>
         </div>
       </div>
@@ -478,7 +605,8 @@
       </script>
       <!-- End  Tag -->
     </div>
-  </section>
+  </div>
+</section>
 
   <section id="faq" class="faq section">
     <div class="container section-layout faq-layout">
@@ -579,6 +707,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <footer id="footer" class="footer dark-background" aria-label="Site footer">
     <div class="container">
