@@ -794,6 +794,8 @@
 #team {
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .is-offscreen,
@@ -1834,7 +1836,7 @@
 .team-eyebrow, .team-group-kicker { margin: 0; color: #7dff7d; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 .team-directory { display: grid; gap: 3rem; }
 .team-group { min-width: 0; }
-.team-group--maintainers { padding: 1.5rem; border: 1px solid rgba(125, 255, 125, 0.13); border-radius: 24px; background: radial-gradient(circle at top right, rgba(40, 167, 69, 0.13), transparent 35%), rgba(255, 255, 255, 0.025); }
+.team-group--maintainers { padding: 1.5rem; border: 1px solid rgba(125, 255, 125, 0.13); border-radius: 24px; background: radial-gradient(circle at top right, rgba(40, 167, 69, 0.13), transparent 35%), rgba(255, 255, 255, 0.025); overflow: visible; }
 .team-group-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
 .team-group-title { margin: 0.2rem 0 0; color: #fff; font-size: clamp(1.25rem, 2vw, 1.55rem); font-weight: 700; }
 .team-count { flex: 0 0 auto; padding: 0.38rem 0.68rem; border: 1px solid rgba(125, 255, 125, 0.25); border-radius: 999px; background: rgba(40, 167, 69, 0.12); color: #b8ffb8; font-size: 0.78rem; font-weight: 600; }
@@ -1845,14 +1847,15 @@
 .team-error { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 0.75rem; min-height: 120px; color: rgba(255, 255, 255, 0.7); }
 
 .team-profile { --scroll-float: 0px; position: relative; display: grid; justify-items: center; min-width: 0; transform: translateY(var(--scroll-float)); transition: transform 0.35s ease-out; z-index: 1; }
-.team-profile:hover, .team-profile:focus-within, .team-profile.is-open { z-index: 5; }
+.team-profile:hover, .team-profile:focus-within, .team-profile.is-open { z-index: 30; }
 .team-profile-float { position: relative; width: 116px; animation: team-profile-float 4.5s ease-in-out var(--profile-delay, 0s) infinite alternate; }
 .team-profile:nth-child(even) .team-profile-float { animation-direction: alternate-reverse; }
 .team-profile-trigger { display: block; width: 116px; height: 116px; padding: 3px; border: 0; border-radius: 50%; background: linear-gradient(135deg, #28a745, #a3ff9e); box-shadow: 0 10px 26px rgba(40, 167, 69, 0.22); cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .team-profile-trigger:hover, .team-profile-trigger:focus-visible, .team-profile.is-open .team-profile-trigger { transform: scale(1.08); box-shadow: 0 0 0 5px rgba(125, 255, 125, 0.16), 0 16px 32px rgba(40, 167, 69, 0.32); outline: none; }
 .team-avatar { display: block; width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #080808; }
-.team-profile-info { position: absolute; top: calc(100% + 0.85rem); left: 50%; width: min(228px, 78vw); padding: 0.95rem; border: 1px solid rgba(125, 255, 125, 0.24); border-radius: 16px; background: rgba(12, 14, 13, 0.97); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.48); text-align: center; opacity: 0; pointer-events: none; transform: translate(-50%, -8px) scale(0.96); transition: opacity 0.2s ease, transform 0.2s ease; }
-.team-profile:hover .team-profile-info, .team-profile:focus-within .team-profile-info, .team-profile.is-open .team-profile-info { opacity: 1; pointer-events: auto; transform: translate(-50%, 0) scale(1); }
+.team-profile-info { position: absolute; top: auto; bottom: calc(100% + 0.85rem); left: 50%; width: min(228px, 78vw); max-width: calc(100vw - 1rem); padding: 0.95rem; border: 1px solid rgba(125, 255, 125, 0.24); border-radius: 16px; background: rgba(12, 14, 13, 0.97); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.48); text-align: center; opacity: 0; pointer-events: none; transform: translate(calc(-50% + var(--tip-x, 0px)), 8px) scale(0.96); transition: opacity 0.2s ease, transform 0.2s ease; }
+.team-profile:hover .team-profile-info, .team-profile:focus-within .team-profile-info, .team-profile.is-open .team-profile-info { opacity: 1; pointer-events: auto; transform: translate(calc(-50% + var(--tip-x, 0px)), 0) scale(1); }
+.team-profile.flip-below .team-profile-info { top: calc(100% + 0.85rem); bottom: auto; }
 .team-name { margin: 0; color: #fff; font-size: 1rem; font-weight: 700; }
 .team-role { margin: 0.35rem 0 0; color: #7dff7d; font-size: 0.77rem; font-weight: 600; }
 .team-devices { margin: 0.45rem 0 0; color: rgba(255, 255, 255, 0.68); font-size: 0.76rem; line-height: 1.45; }

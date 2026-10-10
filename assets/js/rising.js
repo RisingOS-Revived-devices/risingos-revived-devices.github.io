@@ -60,19 +60,50 @@ document.addEventListener("DOMContentLoaded", async function () {
     };
     const initTeamProfiles = () => {
       const profiles = document.querySelectorAll(".team-profile");
+
+      const closeTooltip = (profile) => {
+        profile.classList.remove("is-open");
+        const trigger = profile.querySelector(".team-profile-trigger");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+      };
+
+      const positionTooltip = (profile) => {
+        const info = profile.querySelector(".team-profile-info");
+        if (!info) return;
+        const viewportEdge = 10;
+        info.style.setProperty("--tip-x", "0px");
+        profile.classList.toggle("flip-below", info.getBoundingClientRect().top < viewportEdge);
+        const rect = info.getBoundingClientRect();
+        let shiftX = 0;
+        if (rect.left < viewportEdge) shiftX = viewportEdge - rect.left;
+        else if (rect.right > window.innerWidth - viewportEdge) shiftX = window.innerWidth - viewportEdge - rect.right;
+        info.style.setProperty("--tip-x", `${shiftX}px`);
+      };
+
       profiles.forEach((profile) => {
         const trigger = profile.querySelector(".team-profile-trigger");
         if (!trigger) return;
+        const openTooltip = () => {
+          profiles.forEach((other) => {
+            if (other !== profile) closeTooltip(other);
+          });
+          profile.classList.add("is-open");
+          trigger.setAttribute("aria-expanded", "true");
+          positionTooltip(profile);
+        };
         trigger.addEventListener("click", () => {
-          const isOpen = profile.classList.toggle("is-open");
-          trigger.setAttribute("aria-expanded", String(isOpen));
+          if (profile.classList.contains("is-open")) closeTooltip(profile);
+          else openTooltip();
         });
+        trigger.addEventListener("mouseenter", () => positionTooltip(profile));
+        trigger.addEventListener("focusin", () => positionTooltip(profile));
       });
 
       let ticking = false;
       const updateFloatingProfiles = () => {
         const viewportCenter = window.innerHeight / 2;
         profiles.forEach((profile) => {
+          if (profile.classList.contains("is-open")) positionTooltip(profile);
           const rect = profile.getBoundingClientRect();
           const distance = Math.max(-1, Math.min(1, (rect.top + rect.height / 2 - viewportCenter) / viewportCenter));
           profile.style.setProperty("--scroll-float", `${Math.round(distance * -13)}px`);
