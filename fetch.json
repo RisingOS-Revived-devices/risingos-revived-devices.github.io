@@ -1069,5 +1069,20 @@
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/59736821?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/giuliac.txt",
     "build": "userdebug"
+  },
+  "miatoll": {
+    "status": "active",
+    "oem": "xiaomi",
+    "device": "Redmi Note 9s/Pro/Pro max, Poco m2 Pro",
+    "codename": "miatoll",
+    "maintainer": "Unknowns01",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/miatoll.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/miatoll.json"
+    ],
+    "device_avatar": "assets/img/devices/miatoll.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/166151419?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/miatoll.txt",
+    "build": "userdebug"
   }
 }
