@@ -10,6 +10,38 @@
   "use strict";
 
   /**
+   * Initiate Lenis Smooth Scroll
+   */
+  let lenisInstance = null;
+  function initLenis() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (typeof Lenis === 'undefined' || prefersReducedMotion) {
+      return null;
+    }
+
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      syncTouch: false,
+      touchMultiplier: 1.5,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    window.lenis = lenis;
+    return lenis;
+  }
+
+  lenisInstance = initLenis();
+
+  /**
    * Apply .scrolled class to the body as the page is scrolled down
    */
   function toggleScrolled() {
@@ -21,6 +53,9 @@
 
   document.addEventListener('scroll', toggleScrolled);
   window.addEventListener('load', toggleScrolled);
+  if (lenisInstance) {
+    lenisInstance.on('scroll', toggleScrolled);
+  }
 
   /**
    * Mobile nav toggle
@@ -63,6 +98,9 @@
     if (isOpen && isMobileNavViewport()) {
       mountMobileNavMenu();
       body.classList.add('mobile-nav-active');
+      if (window.lenis) {
+        window.lenis.stop();
+      }
       if (mobileNavBackdrop) {
         mobileNavBackdrop.hidden = false;
         mobileNavBackdrop.setAttribute('aria-hidden', 'false');
@@ -79,6 +117,9 @@
 
     body.classList.remove('mobile-nav-active');
     unmountMobileNavMenu();
+    if (window.lenis) {
+      window.lenis.start();
+    }
     if (mobileNavBackdrop) {
       mobileNavBackdrop.hidden = true;
       mobileNavBackdrop.setAttribute('aria-hidden', 'true');
@@ -172,16 +213,62 @@
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+
+  if (scrollTop) {
+    scrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (window.lenis) {
+        window.lenis.scrollTo(0, { duration: 1.1 });
+      } else {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
     });
-  });
+  }
 
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
+  if (lenisInstance) {
+    lenisInstance.on('scroll', toggleScrollTop);
+  }
+
+  /**
+   * Smooth scroll on anchor links
+   */
+  document.addEventListener('click', (event) => {
+    if (!window.lenis) return;
+    const anchor = event.target.closest('a[href*="#"]');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href');
+    if (!href || href === '#' || href === '#!') return;
+
+    try {
+      const url = new URL(anchor.href, window.location.href);
+      if (url.pathname !== window.location.pathname || url.hostname !== window.location.hostname) {
+        return;
+      }
+
+      const hash = url.hash;
+      if (!hash || hash.length <= 1) return;
+
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        event.preventDefault();
+        const header = document.querySelector('#header');
+        const headerOffset = header ? header.offsetHeight : 80;
+        window.lenis.scrollTo(targetElement, {
+          offset: -headerOffset,
+          duration: 1.1
+        });
+        if (history.pushState) {
+          history.pushState(null, '', hash);
+        }
+      }
+    } catch (_) {}
+  });
 
   /**
    * Animation on scroll function and init
@@ -256,10 +343,18 @@
   /**
    * Initiate glightbox
    */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-  window.glightbox = glightbox;
+  if (typeof GLightbox !== 'undefined') {
+    const glightbox = GLightbox({
+      selector: '.glightbox'
+    });
+    glightbox.on('open', () => {
+      if (window.lenis) window.lenis.stop();
+    });
+    glightbox.on('close', () => {
+      if (window.lenis) window.lenis.start();
+    });
+    window.glightbox = glightbox;
+  }
 
   /**
    * Init isotope layout and filters

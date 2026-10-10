@@ -168,6 +168,10 @@ function renderDevicesList() {
   if (resultCount) {
     resultCount.textContent = `${filteredDevices.length} of ${groupedDevicesCache.length} device${groupedDevicesCache.length === 1 ? "" : "s"} shown`;
   }
+
+  if (window.lenis) {
+    window.lenis.resize();
+  }
 }
 
 function renderDevices() {
@@ -205,8 +209,13 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-window.addEventListener("scroll", () => {
+function updateHeaderScrolled() {
   const header = document.getElementById("header");
   if (!header) return;
   header.classList.toggle("scrolled", window.scrollY > 50);
-});
+}
+
+window.addEventListener("scroll", updateHeaderScrolled);
+if (window.lenis) {
+  window.lenis.on("scroll", updateHeaderScrolled);
+}

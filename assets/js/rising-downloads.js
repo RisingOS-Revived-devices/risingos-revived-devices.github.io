@@ -216,10 +216,17 @@ function initDisclaimerModal() {
   const understandButton = document.querySelector(".downloads-modal-btn");
   if (!modal) return;
 
+  function closeDisclaimer() {
+    modal.classList.remove("is-open");
+    if (window.lenis) window.lenis.start();
+  }
+
   modal.classList.add("is-open");
-  understandButton?.addEventListener("click", () => modal.classList.remove("is-open"));
+  if (window.lenis) window.lenis.stop();
+
+  understandButton?.addEventListener("click", closeDisclaimer);
   modal.addEventListener("click", (event) => {
-    if (event.target === modal) modal.classList.remove("is-open");
+    if (event.target === modal) closeDisclaimer();
   });
 }
 
@@ -230,9 +237,15 @@ function initWhatsNewModal() {
   const changelogContent = document.getElementById("changelog-content");
   if (!whatsNewLink || !whatsNewModal || !closeModal) return;
 
+  function closeWhatsNew() {
+    whatsNewModal.classList.remove("is-open");
+    if (window.lenis) window.lenis.start();
+  }
+
   whatsNewLink.addEventListener("click", async (event) => {
     event.preventDefault();
     whatsNewModal.classList.add("is-open");
+    if (window.lenis) window.lenis.stop();
 
     if (changelogContent && !changelogContent.dataset.loaded) {
       try {
@@ -254,9 +267,9 @@ function initWhatsNewModal() {
     }
   });
 
-  closeModal.addEventListener("click", () => whatsNewModal.classList.remove("is-open"));
+  closeModal.addEventListener("click", closeWhatsNew);
   whatsNewModal.addEventListener("click", (event) => {
-    if (event.target === whatsNewModal) whatsNewModal.classList.remove("is-open");
+    if (event.target === whatsNewModal) closeWhatsNew();
   });
 }
 

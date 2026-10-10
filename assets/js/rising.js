@@ -86,6 +86,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
       };
       updateFloatingProfiles();
+      if (window.lenis) {
+        window.lenis.on("scroll", requestFloatUpdate);
+      }
       window.addEventListener("scroll", requestFloatUpdate, { passive: true });
       window.addEventListener("resize", requestFloatUpdate);
     };
@@ -318,6 +321,9 @@ function initHeroScrollEffects() {
     });
   }
 
+  if (window.lenis) {
+    window.lenis.on("scroll", scheduleScrollUpdate);
+  }
   window.addEventListener("scroll", scheduleScrollUpdate, { passive: true });
   window.addEventListener("resize", scheduleScrollUpdate, { passive: true });
   scheduleScrollUpdate();
@@ -683,6 +689,9 @@ function initWhatsNewModal() {
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("whats-new-open");
+    if (window.lenis) {
+      window.lenis.stop();
+    }
 
     if (!isLoaded && !isLoading) {
       loadChangelog();
@@ -693,6 +702,9 @@ function initWhatsNewModal() {
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("whats-new-open");
+    if (window.lenis) {
+      window.lenis.start();
+    }
   }
 
   function setLoadingState() {

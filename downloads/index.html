@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/lenis/lenis.css" rel="stylesheet">
   <link href="../assets/css/main.css" rel="stylesheet">
   <link href="../assets/css/rising.css" rel="stylesheet">
   <link href="../assets/css/rising-downloads.css" rel="stylesheet">
@@ -37,10 +38,10 @@
   </header>
 
   <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" hidden aria-hidden="true"></div>
-  <nav id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true"></nav>
+  <nav id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true" data-lenis-prevent></nav>
 
   <div id="disclaimerModal" class="downloads-modal">
-    <div class="downloads-modal-card">
+    <div class="downloads-modal-card" data-lenis-prevent>
       <h2 class="downloads-modal-title">Disclaimer</h2>
       <p class="downloads-modal-text">
         By downloading and installing RisingOS, you acknowledge the risks involved in modifying your device's software.
@@ -51,7 +52,7 @@
   </div>
 
   <div id="whats-new-modal" class="downloads-modal">
-    <div class="downloads-modal-card">
+    <div class="downloads-modal-card" data-lenis-prevent>
       <button type="button" id="close-modal" class="downloads-modal-close" aria-label="Close">&times;</button>
       <h2 class="downloads-modal-title">Source Changelogs</h2>
       <div id="changelog-content" class="downloads-modal-text" style="white-space: pre-wrap;"></div>
@@ -189,6 +190,7 @@
   <div id="preloader"></div>
 
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/lenis/lenis.min.js"></script>
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/rising-downloads.js"></script>
 </body>
