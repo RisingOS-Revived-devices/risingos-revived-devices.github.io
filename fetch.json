@@ -527,7 +527,7 @@
   "komodo": {
     "status": "active",
     "oem": "Google",
-    "device": "Google Pixel 9 Pro XL",
+    "device": "Pixel 9 Pro XL",
     "codename": "komodo",
     "maintainer": "vilckindima",
     "urls": [
@@ -867,7 +867,7 @@
   "caiman": {
     "status": "active",
     "oem": "Google",
-    "device": "Google Pixel 9 Pro",
+    "device": "Pixel 9 Pro",
     "codename": "caiman",
     "maintainer": "vilckindima",
     "urls": [
@@ -884,7 +884,7 @@
   "tokay": {
     "status": "active",
     "oem": "Google",
-    "device": "Google Pixel 9",
+    "device": "Pixel 9",
     "codename": "tokay",
     "maintainer": "vilckindima",
     "urls": [
