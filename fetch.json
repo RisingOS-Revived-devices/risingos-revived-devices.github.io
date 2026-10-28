@@ -716,7 +716,7 @@
     "oem": "Xiaomi",
     "device": "Xiaomi 12 Pro",
     "codename": "zeus",
-    "maintainer": "KernelPanix",
+    "maintainer": "acerhizm",
     "urls": [
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/zeus.json",
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/MICROG/zeus.json",
@@ -724,7 +724,7 @@
       "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/zeus.json"
     ],
     "device_avatar": "assets/img/devices/zeus.png",
-    "maintainer_avatar": "https://avatars.githubusercontent.com/u/43093213?v=4",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/140119937?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/zeus.txt",
     "build": "userdebug"
   },
