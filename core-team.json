@@ -1,24 +1,10 @@
 [
   {
-    "name": "Arman ATI",
+    "name": "Arman Altafi",
     "position": "Leader | Owner",
     "telegram_username": "@Arman_ATI",
     "github": "https://github.com/Arman-ATI",
     "avatar": "https://avatars.githubusercontent.com/u/84268732?v=4"
-  },
-  {
-    "name": "Keosh",
-    "position": "Co-Owner | Developer",
-    "telegram_username": "@Keosh2",
-    "github": "https://github.com/keosh1",
-    "avatar": "https://avatars.githubusercontent.com/u/106485828?v=4"
-  },
-  {
-    "name": "Vimal",
-    "position": "Developer | Manager",
-    "telegram_username": "@vimal2607",
-    "github": "https://github.com/mvimal2607",
-    "avatar": "https://avatars.githubusercontent.com/u/124255732?v=4"
   },
   {
     "name": "skwel",
@@ -28,7 +14,7 @@
     "avatar": "https://avatars.githubusercontent.com/u/21272055?v=4"
   },
   {
-    "name": "shan_rakh",
+    "name": "Rakhshan Ali",
     "position": "CI | Automation Developer",
     "telegram_username": "@shan_rakh",
     "github": "https://github.com/Rakhshan7070",
