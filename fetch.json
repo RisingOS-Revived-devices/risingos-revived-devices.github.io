@@ -424,7 +424,7 @@
     "build": "userdebug"
   },
   "cheetah": {
-    "status": "dropped",
+    "status": "active",
     "oem": "Google",
     "device": "Pixel 7 Pro",
     "codename": "cheetah",
@@ -441,7 +441,7 @@
     "build": "user"
   },
   "panther": {
-    "status": "dropped",
+    "status": "active",
     "oem": "Google",
     "device": "Pixel 7",
     "codename": "panther",
@@ -458,7 +458,7 @@
     "build": "user"
   },
   "lynx": {
-    "status": "dropped",
+    "status": "active",
     "oem": "Google",
     "device": "Pixel 7a",
     "codename": "lynx",
@@ -814,7 +814,7 @@
     "build": "user"
   },
   "felix": {
-    "status": "dropped",
+    "status": "active",
     "oem": "Google",
     "device": "Google Pixel Fold",
     "codename": "felix",
@@ -1043,6 +1043,22 @@
     "device_avatar": "assets/img/devices/frankel.png",
     "maintainer_avatar": "https://avatars.githubusercontent.com/u/115403383?v=4",
     "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/frankel.txt",
+    "build": "userdebug"
+  },
+  "rango": {
+    "status": "active",
+    "oem": "Google",
+    "device": "Pixel 10 Pro Fold",
+    "codename": "rango",
+    "maintainer": "EliteDarkKaiser",
+    "urls": [
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/VANILLA/rango.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/CORE/rango.json",
+      "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/device/GAPPS/rango.json"
+    ],
+    "device_avatar": "assets/img/devices/rango.png",
+    "maintainer_avatar": "https://avatars.githubusercontent.com/u/115403383?v=4",
+    "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/rango.txt",
     "build": "userdebug"
   },
   "Spacewar": {
