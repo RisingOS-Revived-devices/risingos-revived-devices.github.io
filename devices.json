@@ -920,7 +920,7 @@
         "telegram": "https://t.me/theromfactory"
     },
     {
-        "status": "dropped",
+        "status": "active",
         "oem": "Google",
         "device": "Pixel 7 Pro",
         "codename": "cheetah",
@@ -943,7 +943,7 @@
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
     },
     {
-        "status": "dropped",
+        "status": "active",
         "oem": "Google",
         "device": "Pixel 7",
         "codename": "panther",
@@ -966,7 +966,7 @@
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
     },
     {
-        "status": "dropped",
+        "status": "active",
         "oem": "Google",
         "device": "Pixel 7a",
         "codename": "lynx",
@@ -1817,7 +1817,7 @@
         "telegram": "https://t.me/joaodoximichat"
     },
     {
-        "status": "dropped",
+        "status": "active",
         "oem": "Google",
         "device": "Google Pixel Fold",
         "codename": "felix",
@@ -2251,6 +2251,29 @@
         "build": "userdebug",
         "recovery": "",
         "timestamp": 1794508024,
+        "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
+    },
+    {
+        "status": "active",
+        "oem": "Google",
+        "device": "Pixel 10 Pro Fold",
+        "codename": "rango",
+        "maintainer": "EliteDarkKaiser",
+        "variant": "GAPPS",
+        "download": "https://sourceforge.net/projects/risingos-revived/files/9.x/GAPPS/rango/RisingOS-9-261112-1636-GAPPS-OFFICIAL-rango-ota.zip/download",
+        "download_alt": "",
+        "paypal": "https://www.paypal.com/donate/?business=3FEXCST893SSQ&no_recurring=0&item_name=Contributions+to+support+my+ROMs+and+software+development+efforts+are+appreciated.&currency_code=USD",
+        "device_avatar": "assets/img/devices/rango.png",
+        "maintainer_avatar": "https://avatars.githubusercontent.com/u/115403383?v=4",
+        "filesize": 3650106260,
+        "md5": "4f1fd2754e30255bf3ec7346da9237d1",
+        "sha256": "34cd498fdd1854bdbcfc159ddab545f3881b1c7d1f9d32f3f04cc991bf71d71a",
+        "device_changelog": "https://raw.githubusercontent.com/RisingOS-Revived/official_devices/refs/heads/fifteen/OTA/changelogs/rango.txt",
+        "version": "9-elefthería",
+        "buildtype": "STABLE",
+        "build": "userdebug",
+        "recovery": "",
+        "timestamp": 1794519298,
         "telegram": "https://t.me/+E67IdG0vR0gzZWEx"
     },
     {
